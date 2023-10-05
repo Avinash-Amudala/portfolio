@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <style>
+    body {
+      overflow: hidden;
+      /* ... your other styles ... */
+    }
+    .contact-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background-color: #f1f1f1;
+      padding: 20px;
+    }
+
+    .profile-image {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding-bottom: 40px;
+    }
+
+    .profile-image img {
+      max-width: 650px;
+
+      border-radius: 50%;
+      border: 5px solid #333;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+    }
+
+    .contact-details {
+      flex: 1;
+      padding-left: 50px;
+    }
+
+    .contact-details h1 {
+      font-size: 2.5em;
+      margin-bottom: 20px;
+      color: #333;
+    }
+
+    .contact-details p {
+      font-size: 1.2em;
+      margin-bottom: 10px;
+      color: #555;
+    }
+
+    .contact-details i {
+      margin-right: 10px;
+      color: #007bff;
+    }
+
+    .resume-btn {
+      display: inline-block;
+      background-color: #007bff;
+      color: #fff;
+      padding: 10px 20px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: bold;
+      transition: background-color 0.3s ease;
+    }
+
+    .resume-btn:hover {
+      background-color: #0056b3;
+    }
+
+  </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+  <title>Contact & Resume - Avinash Amudala</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<button id="back-button" style="position: absolute; top: 10px; right: 10px; background: none; border: none; font-size: 2em; cursor: pointer;">✖</button>
+
+<body>
+
+<div class="contact-container">
+  <div class="profile-image">
+    <!-- Add your image source here -->
+    <img src="images/IMG_9204.jpg" alt="Avinash Amudala">
+  </div>
+
+  <div class="contact-details">
+    <h1>Contact Me</h1>
+    <p><i class="fas fa-phone-alt"></i> +1(908)-887-3901</p>
+    <p><i class="fas fa-envelope"></i> aa9429@rit.edu</p>
+    <p><i class="fas fa-map-marker-alt"></i> Rochester, NY</p>
+
+    <a href="images/Avinash Resume - Software dev resume.pdf" target="_blank" class="resume-btn">Download Resume</a>
+  </div>
+</div>
+
+<script src="script.js"></script>
+<script>
+  document.getElementById('back-button').addEventListener('click', function() {
+    window.location.href = 'index.html';
+  });
+</script>
+</body>
+</html>

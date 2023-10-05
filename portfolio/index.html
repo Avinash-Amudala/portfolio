@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <style>
+    #homepage {
+      background: url('images/IMG_9166 2.jpg') no-repeat center center;
+      background-size: cover;
+    }
+    #ucd {
+      background: url('images/UCD.jpg') no-repeat center center;
+      background-size: cover;
+    }
+    #projects {
+      background: url('images/project.jpg') no-repeat center center;
+      background-size: cover;
+    }
+    #contact {
+      background: url('images/contact.jpg') no-repeat center center;
+      background-size: cover;
+    }
+    @keyframes zoomEffect {
+      0% {
+        transform: scale(1);
+      }
+      100% {
+        transform: scale(1.05);
+      }
+    }
+
+    .slide {
+      animation: zoomEffect 20s infinite alternate;
+    }
+
+  </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+  <title>Avinash's Portfolio</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<script src="script.js"></script> <!-- Link to the JavaScript file -->
+<div id="instruction-bubble">
+  <p>Click anywhere on a slide for details!</p>
+  <p>For more info like UCD, projects, and contact, swipe left.</p>
+</div>
+<div class="slides-container">
+
+  <div class="slide" id="homepage" onclick="openPage('homepage-detail.html')">
+    <h1>Homepage</h1>
+  </div>
+
+  <!-- UCD Slide -->
+  <div class="slide" id="ucd" onclick="openPage('ucd-detail.html')">
+    <h1>UCD Process</h1>
+  </div>
+  <!-- Projects Slide -->
+  <div class="slide" id="projects" onclick="openPage('projects.html')">
+    <h1>Projects</h1>
+  </div>
+
+  <!-- Contact Slide -->
+  <div class="slide" id="contact" onclick="openPage('contact.html')">
+    <h1>Contact & Resume</h1>
+  </div>
+  <!-- Navigation Dots & Exit Button -->
+  <div class="controls">
+    <div class="dots">
+      <span class="dot" data-page="homepage"></span>
+      <span class="dot" data-page="ucd"></span>
+      <span class="dot" data-page="projects"></span>
+      <span class="dot" data-page="testimonials"></span>
+      <span class="dot" data-page="contact"></span>
+    </div>
+  </div>
+
+
+
+
+
+
+</body>
+</html>

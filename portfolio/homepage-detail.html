@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <title>Avinash's Homepage</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<style>
+    /* Work Experience Road Path */
+
+    .timeline {
+        position: relative;
+        padding-left: 40px; /* Space for the timeline */
+    }
+
+    .timeline::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        width: 2px;
+        background: #525252;
+        left: 20px;
+    }
+
+    .timeline-item {
+        margin-bottom: 30px;
+        position: relative;
+    }
+
+    .timeline-icon {
+        position: absolute;
+        left: 11px;
+        width: 16px;
+        height: 16px;
+        background-color: #f1f1f1;
+        border: 2px solid #525252;
+        border-radius: 50%;
+    }
+
+    .timeline-content {
+        background-color: #fff;
+        padding: 10px 20px;
+        border-radius: 6px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    /* Skills Section */
+    .skills-section {
+        background-color: #f9f9f9;
+        padding: 20px;
+        border-radius: 10px;
+        margin: 20px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    .skill-category {
+        margin-bottom: 20px;
+    }
+
+    .skill-category h3 {
+        font-weight: bold;
+        margin-bottom: 10px;
+        color: red;
+        border-bottom: 2px solid red;
+        padding-bottom: 5px;
+    }
+
+    .skills-list {
+        display: flex;
+        flex-wrap: wrap;
+        list-style-type: none;
+        padding: 0;
+    }
+
+    .skills-list li {
+        background-color: #fff;
+        margin: 0 10px 10px 0;
+        padding: 5px 15px;
+        border-radius: 20px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+    .homepage-content{
+        align-content: center;
+    }
+    /* Skills Section Styling */
+    .skills-category h3 {
+        font-weight: bold;
+        margin-bottom: 10px;
+        color: red;
+        border-bottom: 2px solid red;
+        padding-bottom: 5px;
+    }
+
+    .skills-category ul {
+        padding-left: 20px;
+    }
+
+    .skills-category li {
+        margin-bottom: 10px;
+    }
+
+    /* Certifications Section Styling */
+    .certifications {
+        background-color: #f9f9f9;
+        padding: 20px;
+        border-radius: 10px;
+        margin: 20px 0;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    .cert-item {
+        display: flex;
+        align-items: center;
+        margin-bottom: 15px;
+    }
+
+    .cert-item i {
+        color: gold;
+        margin-right: 10px;
+        font-size: 1.5em;
+    }
+    .center-container {
+        display: flex;
+        justify-content: center;
+
+    }
+
+    .homepage-content {
+        max-width: 90%; /* or whatever maximum width you'd like */
+        width: 100%;
+        padding-left: 150px;
+    }
+
+
+</style>
+<header>
+    <h1>HomePage</h1>
+</header>
+<body style="overflow-x: hidden;">
+<button id="back-button" style="position: absolute; top: 10px; right: 10px; background: none; border: none; font-size: 2em; cursor: pointer;">✖</button>
+<div class="center-container">
+    <div class="homepage-content">
+        <h1 class="name">AVINASH AMUDALA</h1>
+
+        <div class="info">
+            <div><i class="fas fa-phone-alt"></i> +1(908)-887-3901</div>
+            <div><i class="fas fa-envelope"></i> aa9429@rit.edu</div>
+            <div><i class="fas fa-map-marker-alt"></i> Rochester, NY</div>
+        </div>
+
+        <div class="section">
+            <h2>Education</h2>
+            <div class="box">
+                <h3>Rochester Institute of Technology</h3>
+                <p>MS, Software Engineering</p>
+            </div>
+            <div class="box">
+                <h3>Amrita Vishwa Vidyapeetham</h3>
+                <p>BE, Electronics and Communication Engineering</p>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>Objective</h2>
+            <p>Passionate software engineer with experience in developing innovative web applications and a keen interest in the intersection of software and design.</p>
+        </div>
+
+        <div class="section">
+            <h2>Passion</h2>
+            <p>Designing intuitive user experiences and crafting software solutions that make a difference.</p>
+        </div>
+
+        <div class="section">
+            <h2>Hobbies</h2>
+            <p>Reading, Traveling, Exploring new tech trends, Photography.</p>
+        </div>
+        <!-- Work Experience Road Path -->
+        <section class="work-experience">
+            <h2>Work Experience</h2>
+            <div class="timeline">
+
+                <!-- Timeline item 1: Teaching Assistant -->
+                <div class="timeline-item">
+                    <div class="timeline-icon"></div>
+                    <div class="timeline-content">
+                        <h3>Teaching Assistant</h3>
+                        <p>Rochester Institute of Technology, Rochester, NY</p>
+                        <p>Jan 2023 – Present</p>
+                        <p>● Designing new assignments for the SWEN 261 - Introduction to Software Engineering course on topics like MySQL, Git, AngularJS, Scrum, Node.js, HTML, JavaScript, Java, Software Development Life Cycle (SDLC) and Software Design for future semesters. Work with the professor to create content and grade students on their SWEN 383 -Software Design Principles and Design Patterns course assignments.</p>
+                    </div>
+                </div>
+
+                <!-- Timeline item 2: Full Stack Web Developer -->
+                <div class="timeline-item">
+                    <div class="timeline-icon"></div>
+                    <div class="timeline-content">
+                        <h3>Full Stack Web Developer</h3>
+                        <p>MAGIC Spell Studios, RIT, Rochester, NY</p>
+                        <p>May 2023 – Aug 2023</p>
+                        <p>● Working on the Compass project, an innovative 3D viewing platform for product developers. Design and implementation of interactive 3D experiences for the web using Three.js. Conversion of Figma mockups into functional and interactive web prototypes and troubleshooting to ensure a seamless user
+                            experience.</p>
+                    </div>
+                </div>
+
+                <!-- Timeline item 3: Junior Software Developer -->
+                <div class="timeline-item">
+                    <div class="timeline-icon"></div>
+                    <div class="timeline-content">
+                        <h3>Junior Software Developer</h3>
+                        <p>Ericsson India Global Services Pvt., Bangalore, India</p>
+                        <p>Feb 2022 – August 2022</p>
+                        <p>● Delivered software solutions using various languages, demonstrating proficiency in problem-solving and collaboration. Actively contributed to MySQL database development and enhanced software delivery via a Jenkins, Ansible, and Git-based
+                            CI/CD pipeline.</p>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Skills Section -->
+        <section class="skills">
+            <h2>Skills</h2>
+
+            <!-- Technical Skills Section -->
+            <div class="skills-category">
+                <h3>Technical</h3>
+                <ul>
+                    <li>C, C++</li>
+                    <li>Java</li>
+                    <li>Python</li>
+                    <li>MATLAB</li>
+                    <li>SQL</li>
+                    <li>HTML</li>
+                    <li>CSS</li>
+                    <li>JS</li>
+                    <li>Typescript</li>
+                    <li>R language</li>
+                    <li>Angular</li>
+                    <li>ReactJs</li>
+                    <li>D3.js</li>
+                    <li>Next.js</li>
+                    <li>MySQL</li>
+                    <li>Apache Kafka</li>
+                    <li>Hadoop</li>
+                    <li>Spark</li>
+                    <li>Selenium</li>
+                    <li>Junit</li>
+                    <li>ThreeJs</li>
+                    <li>Tableau</li>
+                    <li>.NET</li>
+                    <li>Terraform</li>
+                </ul>
+            </div>
+
+            <!-- Tools & Cloud Services Section -->
+            <div class="skills-category">
+                <h3>Tools & Cloud Services</h3>
+                <ul>
+                    <li>AWS</li>
+                    <li>Azure Cloud</li>
+                    <li>Jenkins</li>
+                    <li>Travis CI</li>
+                    <li>Jira</li>
+                    <li>Trello</li>
+                    <li>Slack</li>
+                    <li>Figma</li>
+                </ul>
+            </div>
+
+            <!-- Soft Skills Section -->
+            <div class="skills-category">
+                <h3>Soft Skills</h3>
+                <ul>
+                    <li>Agile</li>
+                    <li>Teamwork</li>
+                    <li>Communication</li>
+                    <li>Problem-Solving</li>
+                    <li>Adaptability</li>
+                </ul>
+            </div>
+
+            <!-- Certifications Section -->
+            <section class="certifications">
+                <h3>Certifications</h3>
+                <div class="cert-item">
+                    <i class="fas fa-certificate"></i> Oracle Certified Associate, Java SE Programmer - May 2023
+                </div>
+                <div class="cert-item">
+                    <i class="fas fa-cloud"></i> Amazon Web Services (AWS) Certified Cloud Practitioner - Nov 2022
+                </div>
+                <div class="cert-item">
+                    <i class="fas fa-code"></i> Introduction to Web Development by freeCodeCamp - May 2022
+                </div>
+            </section>
+
+        </section>
+
+    </div>
+</div>
+
+<script src="script.js"></script>
+<script>
+    document.getElementById('back-button').addEventListener('click', function() {
+        window.location.href = 'index.html';
+    });
+</script>
+</body>
+</html>

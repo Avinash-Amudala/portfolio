@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+  <title>Projects - Avinash's Portfolio</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<button id="back-button" style="position: absolute; top: 10px; right: 10px; background: none; border: none; font-size: 2em; cursor: pointer;">✖</button>
+
+<header>
+  <h1>Project Details</h1>
+</header>
+<style>
+  /* Resetting some default browser styles */
+  body, h2, p {
+    margin: 0;
+    padding: 0;
+    font-family: 'Arial', sans-serif;
+  }
+
+  body {
+    background-color: #f4f4f4;
+    color: #333;
+  }
+
+  .projects-container {
+    max-width: 1200px;
+    margin: 40px auto;
+    padding: 0 20px;
+  }
+
+  .project {
+    display: flex;
+    align-items: center;
+    margin-bottom: 60px;
+    flex-wrap: wrap;
+  }
+
+  .project.reverse {
+    flex-direction: row-reverse;
+  }
+
+  .project-image {
+    flex: 1;
+    padding: 20px;
+    box-sizing: border-box;
+    text-align: center;
+  }
+
+  .project-image video, .project-image img {
+    max-width: 100%;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    max-height: 350px;
+    width: auto;
+    height: auto;
+    object-fit: cover;
+  }
+
+  .project-details {
+    flex: 2;
+    padding: 20px;
+    box-sizing: border-box;
+  }
+
+  .project-details h2 {
+    font-size: 24px;
+    margin-bottom: 10px;
+    color: #444;
+  }
+
+  .project-details .duration {
+    font-size: 16px;
+    color: #777;
+    margin-bottom: 20px;
+  }
+
+  .project-details .description {
+    font-size: 16px;
+    line-height: 1.5;
+    margin-bottom: 20px;
+  }
+
+  .project-details a {
+    display: inline-block;
+    background-color: #007BFF;
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 4px;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+  }
+
+  .project-details a:hover {
+    background-color: #0056b3;
+  }
+
+  .project-details .skills {
+    margin-top: 20px;
+    font-size: 14px;
+    color: #666;
+  }
+
+  /* Responsive adjustments */
+  @media (max-width: 768px) {
+    .project, .project.reverse {
+      flex-direction: column;
+    }
+
+    .project-details, .project-image {
+      flex: none;
+      width: 100%;
+    }
+  }
+
+</style>
+<body>
+<!-- Projects Container -->
+<div class="projects-container">
+
+  <!-- Project 1: Underlay, AI for design sketching -->
+  <div class="project">
+    <div class="project-image">
+      <video controls>
+        <source src="images/underlay_demo.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
+    </div>
+    <div class="project-details">
+    <div class="project-details">
+      <h2>Underlay, AI for design sketching</h2>
+      <p class="duration">Jun 2023 - Jul 2023</p>
+      <p class="description">Starting a digital sketch can be challenging, particularly when trying to establish the correct perspective, proportions, and lighting. Underlay simplifies this process by generating geometry based on your design requirements...</p>
+      <a href="https://lnkd.in/erYuAakg" target="_blank">View Project</a>
+      <p class="skills">Skills: Artificial Intelligence (AI) · Google Cloud Platform (GCP) · Three.js · CSS · HTML · JavaScript · Java</p>
+    </div>
+  </div>
+
+  <!-- Project 2: Revolve -->
+    <div class="project reverse">
+      <div class="project-image">
+        <video controls>
+          <source src="images/revolve_demo.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+      </div>
+    <div class="project-details">
+      <h2>Revolve, a sketch into a cylindrical form generator</h2>
+      <p class="duration">Jun 2023 - Jun 2023</p>
+      <p class="description">Introducing Revolve, a tool that translates a sketch into a cylindrical form. Revolve makes it easy to quickly explore 3D forms while seeing changes in real time...</p>
+      <a href="https://lnkd.in/ecTdyjX9" target="_blank">View Project</a>
+      <p class="skills">Skills: Three.js · CSS · HTML · JavaScript · Java</p>
+    </div>
+  </div>
+
+  <!-- Project 3: Sample -->
+    <div class="project">
+      <div class="project-image">
+        <video controls>
+          <source src="images/sample-demo_1.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+      </div>
+    <div class="project-details">
+      <h2>Sample, color palette generator</h2>
+      <p class="duration">May 2023 - Jun 2023</p>
+      <p class="description">Introducing Sample, a color palette generator. When making color and material decisions, it can be a challenge. Sample simplifies this process by calculating the primary colors that exist within an image...</p>
+      <a href="https://lnkd.in/eBkdKeQM" target="_blank">View Project</a>
+      <p class="skills">Skills: Figma (Software) · CSS · HTML · JavaScript · Java</p>
+    </div>
+  </div>
+    <!-- Project 8: An IoT-Model for Monitoring Irrigated Crops (Publication) -->
+    <div class="project reverse">
+      <div class="project-image">
+        <img src="images/IoT-Model.jpg" alt="An IoT-Model for Monitoring Irrigated Crops">
+      </div>
+      <div class="project-details">
+        <h2>An IoT-Model for Monitoring Irrigated Crops</h2>
+        <p class="duration">Sep 19, 2022</p>
+        <p class="description">Many cropping systems are concerned about effectively managing water. This publication explores the enhancement of water management of irrigated crops using IoT and Wireless Sensor Networks...</p>
+        <!-- Add link if available -->
+        <!-- <a href="#" target="_blank">View Publication</a> -->
+        <p class="skills">Skills: IoT · Wireless Sensor Networks · Water Management</p>
+      </div>
+    </div>
+
+    <!-- Project 5: Customizable E-store Web Application -->
+    <div class="project">
+      <div class="project-image">
+        <img src="images/e-store.jpg" alt="Customizable E-store Web Application">
+      </div>
+      <div class="project-details">
+        <h2>Customizable E-store Web Application</h2>
+        <p class="duration">Aug 2022 - Oct 2022</p>
+        <p class="description">Developed a custom responsive ‘E-commerce’ web application using Angular. The application employs Typescript as the primary language and showcases dynamic, multi-browser compatible pages...</p>
+        <a href="https://github.com/Avinash-Amudala/e-store-clothing" target="_blank">View Project</a>
+        <p class="skills">Skills: Angular.js · CSS · HTML · JavaScript · Spring Framework</p>
+      </div>
+    </div>
+  <!-- Project 4: Workshop Paper Submission and Review System -->
+  <div class="project reverse">
+    <div class="project-image">
+      <img src="images/research-paper.jpg" alt="Workshop Paper Submission and Review System">
+    </div>
+    <div class="project-details">
+      <h2>Workshop Paper Submission and Review System</h2>
+      <p class="duration">Aug 2022 - Dec 2022</p>
+      <p class="description">Created a web-based system (SAM2023) for an international conference on software engineering to submit and review papers. The system provides various functionalities including paper submission, review, user management, and more...</p>
+      <a href="https://drive.google.com/file/d/1pzFvDh43LT-qVUJyLMGGaKzaIzNfCFCT/view" target="_blank">View Project</a>
+      <!-- Add skills if necessary -->
+    </div>
+  </div>
+
+
+  <!-- Project 6: Real-time Stock Market Data Analysis System -->
+  <div class="project reverse">
+    <div class="project-image">
+      <img src="images/analysis.jpg" alt="Real-time Stock Market Data Analysis System">
+    </div>
+    <div class="project-details">
+      <h2>Real-time Stock Market Data Analysis System</h2>
+      <p class="duration">Mar 2022 - Jul 2022</p>
+      <p class="description">Experience in developing real-time data processing and analysis systems using various technologies. The system is adept in big data storage and processing, front-end data visualization, and cloud deployment...</p>
+      <!-- Add link if available -->
+      <!-- <a href="#" target="_blank">View Project</a> -->
+      <p class="skills">Skills: Java 8 · Spring Boot · Gradle · Apache Kafka · Hadoop · Spark · ReactJS · D3.js · AWS EC2 · AWS S3</p>
+    </div>
+  </div>
+
+  <!-- Project 7: Home Automation including RFID Security door -->
+  <div class="project">
+    <div class="project-image">
+      <img src="images/home-automation.jpg" alt="Home Automation including RFID Security door">
+    </div>
+    <div class="project-details">
+      <h2>Home Automation including RFID Security door</h2>
+      <p class="duration">Oct 2021 - Nov 2021</p>
+      <p class="description">Built an Arduino-based user-control home automation system including an RFID security door. The system features mobile application controls, WIFI module integration, and secure RFID-based access...</p>
+      <p class="skills">Skills: Arduino · RFID · Mobile Application Development</p>
+    </div>
+  </div>
+
+
+
+<script src="script.js"></script>
+    <script>
+      document.getElementById('back-button').addEventListener('click', function() {
+        window.location.href = 'index.html';
+      });
+    </script>
+</body>
+</html>
