@@ -102,16 +102,19 @@ body {
     opacity: 1;
 }
 .slide-content {
-     position: absolute;
-     top: 100%;  /* Initially hidden */
-     left: 0;
-     width: 100%;
-     height: 100%;
-     background: white;
-     transition: top 0.5s ease;  /* Animation */
-     overflow-x: hidden;  /* Allow scrolling if content is long */
-     padding: 0 5vw;
- }
+    position: absolute;
+    top: 100%;  /* Initially hidden */
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: white;
+    transition: top 0.5s ease;  /* Animation */
+    overflow-x: hidden;  /* Allow scrolling if content is long */
+    padding: 0 5vw;
+    display: flex; /* Use flex to align children */
+    justify-content: center; /* Center children horizontally */
+    align-items: center; /* Center children vertically */
+}
 
 
 .slide-content.active {
@@ -200,6 +203,7 @@ body {
 
 .active-slide {
     min-width: 100vw !important;
+    display: block;
 }
 
 body {
@@ -291,5 +295,28 @@ header {
 footer {
     text-align: center;
     margin: 20px 0;
+}
+
+/* Story Bars Styles */
+#story-bars-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #f0f0f0;
+    z-index: 10;
+}
+
+.story-bar {
+    height: 100%;
+    flex-grow: 1;
+    background-color: #3f51b5; /* Example color for the bars */
+    margin: 0 2px;
+    width: 0%; /* Initial state is empty */
+    transition: width 2s ease-in-out;
 }
 

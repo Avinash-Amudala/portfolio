@@ -39,6 +39,14 @@
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+<!-- Story Bars Container -->
+<div id="story-bars-container">
+  <div class="story-bar" id="story-bar-homepage"></div>
+  <div class="story-bar" id="story-bar-ucd"></div>
+  <div class="story-bar" id="story-bar-projects"></div>
+  <div class="story-bar" id="story-bar-contact"></div>
+</div>
+
 <script src="script.js"></script> <!-- Link to the JavaScript file -->
 <div id="instruction-bubble">
   <p>Click anywhere on a slide for details!</p>
@@ -46,38 +54,24 @@
 </div>
 <div class="slides-container">
 
-  <div class="slide" id="homepage" onclick="openPage('homepage-detail.html')">
+  <div class="slide" id="homepage" data-detail-url="homepage-detail.html">
     <h1>Homepage</h1>
   </div>
 
   <!-- UCD Slide -->
-  <div class="slide" id="ucd" onclick="openPage('ucd-detail.html')">
+  <div class="slide" id="ucd" data-detail-url= "ucd-detail.html">
     <h1>UCD Process</h1>
   </div>
   <!-- Projects Slide -->
-  <div class="slide" id="projects" onclick="openPage('projects.html')">
+  <div class="slide" id="projects" data-detail-url="projects.html">
     <h1>Projects</h1>
   </div>
 
   <!-- Contact Slide -->
-  <div class="slide" id="contact" onclick="openPage('contact.html')">
+  <div class="slide" id="contact" data-detail-url="contact.html">
     <h1>Contact & Resume</h1>
   </div>
-  <!-- Navigation Dots & Exit Button -->
-  <div class="controls">
-    <div class="dots">
-      <span class="dot" data-page="homepage"></span>
-      <span class="dot" data-page="ucd"></span>
-      <span class="dot" data-page="projects"></span>
-      <span class="dot" data-page="testimonials"></span>
-      <span class="dot" data-page="contact"></span>
-    </div>
-  </div>
-
-
-
-
-
+</div>
 
 </body>
 </html>
