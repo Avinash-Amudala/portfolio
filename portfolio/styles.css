@@ -42,10 +42,10 @@ body {
 }
 .slides-container {
     display: flex;
-    width: 500%;
     height: 100vh;
     transition: transform 0.5s ease;
     overflow: hidden;
+    width: 100vw; /* Restrict to viewport width */
 }
 
 /* Main slide styles */

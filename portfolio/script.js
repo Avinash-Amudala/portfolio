@@ -78,4 +78,14 @@ document.addEventListener('DOMContentLoaded', (event) => {
             changeSlide(currentIndex + 1);
         }
     });
+    // Assuming slidesContainer is already defined
+
+    slidesContainer.addEventListener('mousedown', (e) => {
+        e.preventDefault(); // This prevents the default click behavior which is the start of a drag event
+    });
+
+    document.body.addEventListener('touchmove', (e) => {
+        e.preventDefault(); // This prevents touch-based scrolling
+    }, { passive: false }); // Use passive: false to ensure the prevention works
+
 });
