@@ -17,7 +17,6 @@ document.addEventListener('DOMContentLoaded', (event) => {
         }
     }
 
-
     // Initialize the first slide as active
     changeSlide(currentIndex);
 
@@ -61,7 +60,6 @@ document.addEventListener('DOMContentLoaded', (event) => {
         }
     }
 
-    // Disable horizontal drag and touch move events
     slidesContainer.addEventListener('mousedown', (e) => {
         e.preventDefault();
     });
@@ -90,7 +88,6 @@ document.addEventListener('DOMContentLoaded', (event) => {
         let yDown = evt.touches[0].clientY;
         let targetRect = evt.target.getBoundingClientRect();
 
-        // Check if the touch is in the center of the screen
         if (Math.abs(xDiff) < targetRect.width / 3 && evt.target.classList.contains('slide')) {
             // It's a tap on the center
             openPage(evt.target.getAttribute('data-detail-url'));
