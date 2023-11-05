@@ -1,6 +1,7 @@
-body {
+body, html {
 
     font-size: 16px;
+    margin: 0;
 }
 #instruction-bubble {
     position: fixed;
@@ -61,8 +62,17 @@ body {
     overflow-y: auto; /* Allow vertical scrolling if content is long */
     overflow-x: hidden; /* Prevent horizontal scrolling */
     background-color: #f1f1f1;
+    text-align: center;
+    padding: 0; /* Reset padding */
+    border: none;
 }
 
+.slide h1 {
+    margin: 0;
+    text-align: center; /* Centers text horizontally */
+    width: 100%; /* Ensures the h1 element spans the full width of its parent */
+    margin-top: 400px;
+}
 
 .controls {
     position: fixed;
@@ -86,7 +96,6 @@ body {
     left: 50%;
     transform: translateX(-50%);
 }
-
 
 .dot {
     width: 10px;

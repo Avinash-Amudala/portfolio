@@ -5,23 +5,20 @@ document.addEventListener('DOMContentLoaded', (event) => {
 
     function changeSlide(newIndex) {
         if (newIndex >= 0 && newIndex < slides.length) {
-            // Update the story bars first
-            let storyBars = document.querySelectorAll('.story-bar');
-            storyBars.forEach((bar, index) => {
-                bar.style.width = index <= newIndex ? '100%' : '0%';
-            });
-
-            // Now, handle the display of slides
             slides.forEach((slide, index) => {
-                slide.style.display = index === newIndex ? 'flex' : 'none';  // Set to 'flex' to maintain centering
+                slide.style.display = index === newIndex ? 'block' : 'none';
+                if (index === newIndex) {
+                    // Log the computed style of the h1 element to see if it's centered
+                    console.log(window.getComputedStyle(slide.querySelector('h1')));
+                }
             });
             currentIndex = newIndex;
+            updateStoryBars(currentIndex);
         }
     }
 
 
-    // Initialize story bars and the first slide as active
-    initializeStoryBars();
+    // Initialize the first slide as active
     changeSlide(currentIndex);
 
     document.addEventListener('keydown', (e) => {
@@ -32,60 +29,82 @@ document.addEventListener('DOMContentLoaded', (event) => {
         }
     });
 
-    slides.forEach((slide) => {
-        slide.addEventListener('click', () => {
-            let detailURL = slide.getAttribute('data-detail-url');
-            if (detailURL) {
-                openPage(detailURL);
+    slides.forEach((slide, index) => {
+        slide.addEventListener('click', (e) => {
+            let rect = slide.getBoundingClientRect();
+            let thirdWidth = rect.width / 3;
+            if (e.clientX < rect.left + thirdWidth && currentIndex > 0) {
+                // Clicked on the left third of the slide
+                changeSlide(currentIndex - 1);
+            } else if (e.clientX > rect.right - thirdWidth && currentIndex < slides.length - 1) {
+                // Clicked on the right third of the slide
+                changeSlide(currentIndex + 1);
+            } else {
+                // Clicked on the center third of the slide
+                openPage(slide.getAttribute('data-detail-url'));
             }
         });
     });
 
-    // Open detail page function
-    function openPage(url) {
-        window.location.href = url;
-    }
-
-    // Initialize story bars function
-    function initializeStoryBars() {
+    // Update the story bars to reflect the current slide
+    function updateStoryBars(currentIndex) {
         let storyBars = document.querySelectorAll('.story-bar');
         storyBars.forEach((bar, index) => {
-            bar.style.width = '0%';
-            bar.addEventListener('click', () => changeSlide(index));
+            bar.style.width = index === currentIndex ? '100%' : '0%';
         });
     }
 
-    // Close instruction bubble on click anywhere
-    let instructionBubble = document.getElementById('instruction-bubble');
-    if (instructionBubble) {
-        document.body.addEventListener('click', () => {
-            instructionBubble.style.display = 'none';
-        });
-    }
-
-    // Handle touch events for mobile navigation
-    let touchStartX;
-
-    document.body.addEventListener('touchstart', (e) => {
-        touchStartX = e.changedTouches[0].clientX;
-    });
-
-    document.body.addEventListener('touchend', (e) => {
-        let touchEndX = e.changedTouches[0].clientX;
-        if (touchStartX > touchEndX + 100 && currentIndex > 0) {
-            changeSlide(currentIndex - 1);
-        } else if (touchStartX < touchEndX - 100 && currentIndex < slides.length - 1) {
-            changeSlide(currentIndex + 1);
+    // Open detail page function
+    function openPage(url) {
+        if (url) {
+            window.location.href = url;
         }
-    });
-    // Assuming slidesContainer is already defined
+    }
 
+    // Disable horizontal drag and touch move events
     slidesContainer.addEventListener('mousedown', (e) => {
-        e.preventDefault(); // This prevents the default click behavior which is the start of a drag event
+        e.preventDefault();
     });
 
     document.body.addEventListener('touchmove', (e) => {
-        e.preventDefault(); // This prevents touch-based scrolling
-    }, { passive: false }); // Use passive: false to ensure the prevention works
+        e.preventDefault();
+    }, { passive: false });
 
+    // Handle touch events for mobile navigation
+    document.body.addEventListener('touchstart', handleTouchStart, false);
+    document.body.addEventListener('touchend', handleTouchEnd, false);
+
+    let xDown = null;
+
+    function handleTouchStart(evt) {
+        xDown = evt.touches[0].clientX;
+    }
+
+    function handleTouchEnd(evt) {
+        if (!xDown) {
+            return;
+        }
+
+        let xUp = evt.changedTouches[0].clientX;
+        let xDiff = xDown - xUp;
+        let yDown = evt.touches[0].clientY;
+        let targetRect = evt.target.getBoundingClientRect();
+
+        // Check if the touch is in the center of the screen
+        if (Math.abs(xDiff) < targetRect.width / 3 && evt.target.classList.contains('slide')) {
+            // It's a tap on the center
+            openPage(evt.target.getAttribute('data-detail-url'));
+        } else {
+            if (xDiff > 0 && currentIndex < slides.length - 1) {
+                // Swiped left
+                changeSlide(currentIndex + 1);
+            } else if (xDiff < 0 && currentIndex > 0) {
+                // Swiped right
+                changeSlide(currentIndex - 1);
+            }
+        }
+
+        // Reset values
+        xDown = null;
+    }
 });
