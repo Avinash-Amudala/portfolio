@@ -10,61 +10,128 @@
 <style>
     /* Work Experience Road Path */
 
-    .timeline {
+    .work-experience {
         position: relative;
-        padding-left: 40px; /* Space for the timeline */
+        padding: 40px;
+        border-radius: 10px;
+        box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        background: #fff;
+        margin-top: 40px;
+        margin-bottom: 40px;
+        max-width: 100%;
     }
 
-    .timeline::before {
+    .work-experience h2 {
+        background-color: #3498db; /* A softer blue instead of black */
+        color: #fff; /* Keep text white for contrast */
+        padding: 10px;
+        border-radius: 8px;
+        margin: -15px -15px 15px -15px; /* Offset the section padding */
+    }
+
+
+    .timeline {
+        position: relative;
+        padding: 0;
+        list-style: none;
+    }
+
+    .timeline:before {
         content: '';
         position: absolute;
         top: 0;
         bottom: 0;
+        left: 40px;
         width: 2px;
-        background: #525252;
-        left: 20px;
-    }
-
-    .timeline-item {
-        margin-bottom: 30px;
-        position: relative;
+        margin-left: -1.5px;
+        background-color: #3498db;
     }
 
     .timeline-icon {
-        position: absolute;
-        left: 11px;
-        width: 16px;
-        height: 16px;
-        background-color: #f1f1f1;
-        border: 2px solid #525252;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background: #fff;
+        border: 3px solid #3498db;
         border-radius: 50%;
+        width: 30px;
+        height: 30px;
+        position: absolute;
+        left: 26px;
+        z-index: 100;
     }
 
-    .timeline-content {
-        background-color: #fff;
-        padding: 10px 20px;
-        border-radius: 6px;
-        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    .timeline-icon i {
+        color: #3498db;
+    }
+
+    .timeline-item {
+        margin-bottom: 40px;
+        position: relative;
+    }
+
+    .timeline-item .timeline-content {
+        background: #fff;
+        padding: 20px;
+        border-radius: 4px;
+        box-shadow: 0 3px 0 rgba(0,0,0,0.05);
+        margin-left: 70px;
+        min-height: 100px;
+    }
+
+    .timeline-content h3 {
+        margin-top: 0;
+        color: #3498db;
+    }
+
+    .timeline-content p {
+        margin-bottom: 0;
+    }
+
+    /* Responsive adjustments */
+    @media (max-width: 768px) {
+        .timeline:before {
+            left: 20px;
+        }
+        .center-container {
+            padding: 10px;
+        }
+
+        .section {
+            padding: 10px;
+        }
+
+        .timeline-icon {
+            width: 25px;
+            height: 25px;
+            left: 7px;
+        }
+
+        .timeline-item .timeline-content {
+            margin-left: 45px;
+        }
     }
 
     /* Skills Section */
     .skills-section {
-        background-color: #f9f9f9;
-        padding: 20px;
+        background: #fff;
+        padding: 40px;
         border-radius: 10px;
-        margin: 20px;
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        margin-top: 40px;
+        margin-bottom: 40px;
+        max-width: 100%;
     }
 
-    .skill-category {
-        margin-bottom: 20px;
+
+    .skills-category h3 {
+        color: #2c3e50;
+        border-bottom: 2px solid #3498db;
     }
 
     .skill-category h3 {
         font-weight: bold;
         margin-bottom: 10px;
-        color: red;
-        border-bottom: 2px solid red;
         padding-bottom: 5px;
     }
 
@@ -82,84 +149,262 @@
         border-radius: 20px;
         box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     }
-    .homepage-content{
-        align-content: center;
-    }
-    /* Skills Section Styling */
-    .skills-category h3 {
-        font-weight: bold;
-        margin-bottom: 10px;
-        color: red;
-        border-bottom: 2px solid red;
-        padding-bottom: 5px;
-    }
-
-    .skills-category ul {
-        padding-left: 20px;
-    }
-
-    .skills-category li {
-        margin-bottom: 10px;
-    }
-
-    /* Certifications Section Styling */
-    .certifications {
-        background-color: #f9f9f9;
-        padding: 20px;
+    .homepage-content {
+        margin: 0 auto; /* Center the content */
+        padding: 40px;
         border-radius: 10px;
-        margin: 20px 0;
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        background: #fff;
+        margin-bottom: 40px; /* Add some space below */
     }
 
-    .cert-item {
+    .skills {
+        margin: 20px;
+    }
+
+    .skills-category {
+        margin-bottom: 20px;
+    }
+
+    .skills-container {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+        gap: 20px;
+        justify-items: center;
+    }
+
+    .skill-badge, .cert-badge {
         display: flex;
         align-items: center;
-        margin-bottom: 15px;
+        gap: 10px;
+        padding: 10px;
+        border-radius: 15px;
+        background-color: #f0f0f0;
+        box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        transition: background-color 0.3s ease, box-shadow 0.3s ease;
+        cursor: pointer;
+        text-align: center;
     }
 
-    .cert-item i {
-        color: gold;
-        margin-right: 10px;
-        font-size: 1.5em;
+    .skill-badge:hover, .cert-badge:hover {
+        background-color: #e1e1e1;
+        box-shadow: 0 6px 12px rgba(0,0,0,0.15);
     }
-    .center-container {
+
+    .skill-icon {
+        font-size: 2em;
+        color: #4b4b4b;
+    }
+
+    .certifications-container {
         display: flex;
-        justify-content: center;
+        flex-wrap: wrap;
+        gap: 20px;
+    }
 
+    @media (max-width: 768px) {
+        .skills-container {
+            grid-template-columns: 1fr;
+            gap: 10px;
+        }
+    }
+
+    .center-container {
+        width: 100%; /* Full width */
+        padding: 20px;
+        box-sizing: border-box; /* Include padding in width calculation */
     }
 
     .homepage-content {
-        max-width: 90%; /* or whatever maximum width you'd like */
+
+        background: #fff;
+        padding: 40px;
+        border-radius: 10px;
+        box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        margin: 0 auto;
+    }
+    .hero-section {
+        position: relative;
+        text-align: center;
+        color: white;
+    }
+
+    #myVideo {
         width: 100%;
-        padding-left: 150px;
+        height: auto;
+    }
+
+    .hero-text {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        color: white;
+    }
+    .hero-intro {
+        text-align: center; /* Center the hero intro content */
+        margin-bottom: 40px;
+    }
+
+    .name {
+        font-size: 3em;
+        color: #2c3e50;
+    }
+
+    .contact-info p {
+        font-size: 1.2em;
+        color: #333;
+    }
+
+    .contact-info i {
+        margin-right: 10px;
+        color: #3498db;
+    }
+    .education-grid {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 20px; /* Adds space between cards */
+        justify-content: space-around;
+
+    }
+
+    .education-card {
+        flex: 1;
+        min-width: 280px; /* Minimum width for smaller screens */
+        box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        margin: 10px;
+        border-radius: 10px;
+        overflow: hidden;
+        background: #fff;
+
+    }
+    .education-image-1{
+        height: 80%;
+        width: 100%;
+        object-fit: cover;
+    }
+    .education-image-2{
+        height: 80%;
+        width: 100%;
+        object-fit: cover;
+    }
+
+    .education-image {
+ /* Ensures the image covers the area properly */
+    }
+
+    .education-info {
+        padding: 15px;
+    }
+
+    /* Responsive design for smaller screens */
+    @media (max-width: 768px) {
+        .education-grid {
+            flex-direction: column;
+        }
+
+        .education-card {
+            max-width: 100%;
+        }
+    }
+    .skill-rating {
+        font-family: Arial, sans-serif; /* Ensures the stars look consistent */
+        color: #FFD700; /* Gold color */
+        font-size: 1em; /* Adjust size as needed */
+    }
+    .section-header {
+        background-color: #3498db; /* The blue shade */
+        color: #fff; /* White text */
+        padding: 10px;
+        border-radius: 8px;
+        margin: -15px -15px 15px -15px;
     }
 
 
+
 </style>
-<header>
-    <h1>HomePage</h1>
+<header style="position: relative; color: white; overflow: hidden;">
+    <video autoplay muted loop id="myVideo" style="position: absolute; right: 0; bottom: 0; min-width: 100%; min-height: 100%;">
+        <source src="images/pexels-google-deepmind-18069166 (Original).mp4" type="video/mp4">
+        Your browser does not support HTML5 video.
+    </video>
+    <div style="position: relative; padding: 40px 0;">
+        <h1 style="margin: 0; font-family: 'Montserrat', sans-serif; font-size: 4rem; color: #333; background: -webkit-linear-gradient(left, #2a5298, #1e3c72); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">
+            Homepage
+        </h1>
+    </div>
 </header>
+
+
+<!-- Hero Video Section -->
+<div class="hero-section">
+    <video autoplay muted loop id="myVideo">
+        <source src="images/pexels-pavel-danilyuk-5495781 (1440p).mp4" type="video/mp4">
+        Your browser does not support HTML5 video.
+    </video>
+    <div class="hero-text">
+        <h1>Avinash Amudala</h1>
+        <p>Explore my journey and works.</p>
+    </div>
+</div>
+
+<div class="center-container">
+    <!-- Content Section Here -->
+</div>
+
+<!-- Portfolio Section -->
+<section class="portfolio-section">
+    <h2>Portfolio</h2>
+    <div class="gallery">
+        <!-- GIF Project -->
+        <div class="gallery-item">
+            <img src="images/c0bBvvT3SrlrLed3ffyU7M1Nw3s.gif" alt="GIF Project">
+            <div class="gallery-item-description">
+                <p>Generate Away</p>
+                <span>Explore a wide range of ideas in minutes.</span>
+            </div>
+        </div>
+        <!-- Video Project -->
+        <div class="gallery-item">
+            <video autoplay muted loop>
+                <source src="images/9XwZxCuS0TA3krMZDeyUCuO3wn8.mp4" type="video/mp4">
+                Your browser does not support HTML5 video.
+            </video>
+            <div class="gallery-item-description">
+                <p>Simplified Prompting</p>
+                <span>Director provides an intuitive interface to generating objects with specified colors, finishing, materials, and forms.</span>
+            </div>
+        </div>
+    </div>
+</section>
+
+
 <body style="overflow-x: hidden;">
 <button id="back-button" style="position: absolute; top: 10px; right: 10px; background: none; border: none; font-size: 2em; cursor: pointer;">✖</button>
 <div class="center-container">
     <div class="homepage-content">
-        <h1 class="name">AVINASH AMUDALA</h1>
+        <div class="hero-intro">
+            <h1 class="name">Avinash Amudala</h1>
 
-        <div class="info">
-            <div><i class="fas fa-phone-alt"></i> +1(908)-887-3901</div>
-            <div><i class="fas fa-envelope"></i> aa9429@rit.edu</div>
-            <div><i class="fas fa-map-marker-alt"></i> Rochester, NY</div>
         </div>
 
-        <div class="section">
+        <div class="section education">
             <h2>Education</h2>
-            <div class="box">
-                <h3>Rochester Institute of Technology</h3>
-                <p>MS, Software Engineering</p>
-            </div>
-            <div class="box">
-                <h3>Amrita Vishwa Vidyapeetham</h3>
-                <p>BE, Electronics and Communication Engineering</p>
+            <div class="education-grid">
+                <div class="education-card rit">
+                    <img src="images/DramaticPerspective_0005.jpg" alt="Rochester Institute of Technology" class="education-image-1">
+                    <div class="education-info">
+                        <h3>Rochester Institute of Technology</h3>
+                        <p>MS, Software Engineering</p>
+                    </div>
+                </div>
+                <div class="education-card amrita">
+                    <img src="images/maxresdefault.jpg" alt="Amrita Vishwa Vidyapeetham" class="education-image-2">
+                    <div class="education-info">
+                        <h3>Amrita Vishwa Vidyapeetham</h3>
+                        <p>BE, Computer Engineering</p>
+                    </div>
+                </div>
             </div>
         </div>
 
@@ -177,131 +422,396 @@
             <h2>Hobbies</h2>
             <p>Reading, Traveling, Exploring new tech trends, Photography.</p>
         </div>
-        <!-- Work Experience Road Path -->
-        <section class="work-experience">
-            <h2>Work Experience</h2>
-            <div class="timeline">
+    </div>
 
-                <!-- Timeline item 1: Teaching Assistant -->
-                <div class="timeline-item">
-                    <div class="timeline-icon"></div>
-                    <div class="timeline-content">
-                        <h3>Teaching Assistant</h3>
-                        <p>Rochester Institute of Technology, Rochester, NY</p>
-                        <p>Jan 2023 – Present</p>
-                        <p>● Designing new assignments for the SWEN 261 - Introduction to Software Engineering course on topics like MySQL, Git, AngularJS, Scrum, Node.js, HTML, JavaScript, Java, Software Development Life Cycle (SDLC) and Software Design for future semesters. Work with the professor to create content and grade students on their SWEN 383 -Software Design Principles and Design Patterns course assignments.</p>
-                    </div>
+    <section class="work-experience">
+        <h2 class="section-header">Work Experience</h2>
+        <div class="timeline">
+
+            <!-- Timeline item 1: Teaching Assistant -->
+            <div class="timeline-item">
+                <div class="timeline-icon">
+                    <i class="fas fa-chalkboard-teacher"></i> <!-- Example icon -->
                 </div>
-
-                <!-- Timeline item 2: Full Stack Web Developer -->
-                <div class="timeline-item">
-                    <div class="timeline-icon"></div>
-                    <div class="timeline-content">
-                        <h3>Full Stack Web Developer</h3>
-                        <p>MAGIC Spell Studios, RIT, Rochester, NY</p>
-                        <p>May 2023 – Aug 2023</p>
-                        <p>● Working on the Compass project, an innovative 3D viewing platform for product developers. Design and implementation of interactive 3D experiences for the web using Three.js. Conversion of Figma mockups into functional and interactive web prototypes and troubleshooting to ensure a seamless user
-                            experience.</p>
-                    </div>
+                <div class="timeline-content">
+                    <h3>Teaching Assistant</h3>
+                    <p>Rochester Institute of Technology, Rochester, NY</p>
+                    <p>Jan 2023 – Present</p>
+                    <p>●Designing new assignments for the SWEN 261 - Introduction to Software Engineering course on topics like MySQL, Git, AngularJS, Scrum, Node.js, HTML, JavaScript, Java, Software Development Life Cycle (SDLC) and Software Design for future semesters.</p>
+                    <p>●Work with the professor to create content and grade students on their SWEN 383 -Software Design Principles and Design Patterns course assignments.</p>
                 </div>
-
-                <!-- Timeline item 3: Junior Software Developer -->
-                <div class="timeline-item">
-                    <div class="timeline-icon"></div>
-                    <div class="timeline-content">
-                        <h3>Junior Software Developer</h3>
-                        <p>Ericsson India Global Services Pvt., Bangalore, India</p>
-                        <p>Feb 2022 – August 2022</p>
-                        <p>● Delivered software solutions using various languages, demonstrating proficiency in problem-solving and collaboration. Actively contributed to MySQL database development and enhanced software delivery via a Jenkins, Ansible, and Git-based
-                            CI/CD pipeline.</p>
-                    </div>
-                </div>
-
             </div>
-        </section>
 
-        <!-- Skills Section -->
-        <section class="skills">
-            <h2>Skills</h2>
+            <!-- Timeline item 2: Full Stack Web Developer -->
+            <div class="timeline-item">
+                <div class="timeline-icon">
+                    <i class="fas fa-code"></i> <!-- Example icon -->
+                </div>
+                <div class="timeline-content">
+                    <h3>Full Stack Web Developer</h3>
+                    <p>MAGIC Spell Studios, RIT, Rochester, NY</p>
+                    <p>May 2023 – Aug 2023</p>
+                    <p>● Working on the Compass project, an innovative 3D viewing platform for product developers...</p>
+                </div>
+            </div>
 
-            <!-- Technical Skills Section -->
+            <!-- Timeline item 3: Junior Software Developer -->
+            <div class="timeline-item">
+                <div class="timeline-icon">
+                    <i class="fas fa-laptop-code"></i> <!-- Example icon -->
+                </div>
+                <div class="timeline-content">
+                    <h3>Junior Software Developer</h3>
+                    <p>Ericsson India Global Services Pvt., Bangalore, India</p>
+                    <p>Feb 2022 – August 2022</p>
+                    <p>● Delivered software solutions using various languages...</p>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+
+        <section class="skills-section">
+            <h2 class="section-header">Skills</h2>
+
+            <!-- Programming Languages & Technologies -->
+            <!-- Programming Languages -->
             <div class="skills-category">
-                <h3>Technical</h3>
-                <ul>
-                    <li>C, C++</li>
-                    <li>Java</li>
-                    <li>Python</li>
-                    <li>MATLAB</li>
-                    <li>SQL</li>
-                    <li>HTML</li>
-                    <li>CSS</li>
-                    <li>JS</li>
-                    <li>Typescript</li>
-                    <li>R language</li>
-                    <li>Angular</li>
-                    <li>ReactJs</li>
-                    <li>D3.js</li>
-                    <li>Next.js</li>
-                    <li>MySQL</li>
-                    <li>Apache Kafka</li>
-                    <li>Hadoop</li>
-                    <li>Spark</li>
-                    <li>Selenium</li>
-                    <li>Junit</li>
-                    <li>ThreeJs</li>
-                    <li>Tableau</li>
-                    <li>.NET</li>
-                    <li>Terraform</li>
-                </ul>
+                <h3>Programming Languages</h3>
+                <div class="skills-container">
+                    <!-- C, C++ -->
+                    <div class="skill-item">
+                        <img src="path_to_c_cpp_icon.png" alt="C/C++" class="skill-icon">
+                        <span class="skill-name">C, C++</span>
+                        <div class="skill-rating">★★★★☆</div> <!-- Adjust star rating as needed -->
+                    </div>
+                    <!-- Java -->
+                    <div class="skill-item">
+                        <img src="path_to_java_icon.png" alt="Java" class="skill-icon">
+                        <span class="skill-name">Java</span>
+                        <div class="skill-rating">★★★★☆</div> <!-- Adjust star rating as needed -->
+                    </div>
+                    <!-- Python -->
+                    <div class="skill-item">
+                        <img src="path_to_python_icon.png" alt="Python" class="skill-icon">
+                        <span class="skill-name">Python</span>
+                        <div class="skill-rating">★★★★☆</div> <!-- Adjust star rating as needed -->
+                    </div>
+                    <!-- MATLAB -->
+                    <div class="skill-item">
+                        <img src="path_to_matlab_icon.png" alt="MATLAB" class="skill-icon">
+                        <span class="skill-name">MATLAB</span>
+                        <div class="skill-rating">★★★★☆</div> <!-- Adjust star rating as needed -->
+                    </div>
+                    <!-- SQL -->
+                    <div class="skill-item">
+                        <img src="path_to_sql_icon.png" alt="SQL" class="skill-icon">
+                        <span class="skill-name">SQL</span>
+                        <div class="skill-rating">★★★★☆</div> <!-- Adjust star rating as needed -->
+                    </div>
+                    <!-- R Language -->
+                    <div class="skill-item">
+                        <img src="path_to_r_icon.png" alt="R Language" class="skill-icon">
+                        <span class="skill-name">R Language</span>
+                        <div class="skill-rating">★★★★☆</div> <!-- Adjust star rating as needed -->
+                    </div>
+                    <!-- Typescript -->
+                    <div class="skill-item">
+                        <img src="path_to_typescript_icon.png" alt="Typescript" class="skill-icon">
+                        <span class="skill-name">Typescript</span>
+                        <div class="skill-rating">★★★★☆</div> <!-- Adjust star rating as needed -->
+                    </div>
+                </div>
             </div>
 
-            <!-- Tools & Cloud Services Section -->
+            <!-- Web Technologies -->
             <div class="skills-category">
-                <h3>Tools & Cloud Services</h3>
-                <ul>
-                    <li>AWS</li>
-                    <li>Azure Cloud</li>
-                    <li>Jenkins</li>
-                    <li>Travis CI</li>
-                    <li>Jira</li>
-                    <li>Trello</li>
-                    <li>Slack</li>
-                    <li>Figma</li>
-                </ul>
+                <h3>Web Technologies</h3>
+                <div class="skills-container">
+                    <!-- HTML -->
+                    <div class="skill-item">
+                        <img src="path_to_html_icon.png" alt="HTML" class="skill-icon">
+                        <span class="skill-name">HTML</span>
+                        <div class="skill-rating">★★★★★</div>
+                    </div>
+                    <!-- CSS -->
+                    <div class="skill-item">
+                        <img src="path_to_css_icon.png" alt="CSS" class="skill-icon">
+                        <span class="skill-name">CSS</span>
+                        <div class="skill-rating">★★★★☆</div>
+                    </div>
+                    <!-- JavaScript -->
+                    <div class="skill-item">
+                        <img src="path_to_js_icon.png" alt="JavaScript" class="skill-icon">
+                        <span class="skill-name">JS</span>
+                        <div class="skill-rating">★★★★☆</div>
+                    </div>
+                    <!-- Angular -->
+                    <div class="skill-item">
+                        <img src="path_to_angular_icon.png" alt="Angular" class="skill-icon">
+                        <span class="skill-name">Angular</span>
+                        <div class="skill-rating">★★★☆☆</div>
+                    </div>
+                    <!-- ReactJs -->
+                    <div class="skill-item">
+                        <img src="path_to_react_icon.png" alt="ReactJs" class="skill-icon">
+                        <span class="skill-name">ReactJs</span>
+                        <div class="skill-rating">★★★★☆</div>
+                    </div>
+                    <!-- D3.js -->
+                    <div class="skill-item">
+                        <img src="path_to_d3_icon.png" alt="D3.js" class="skill-icon">
+                        <span class="skill-name">D3.js</span>
+                        <div class="skill-rating">★★★☆☆</div>
+                    </div>
+                    <!-- Next.js -->
+                    <div class="skill-item">
+                        <img src="path_to_nextjs_icon.png" alt="Next.js" class="skill-icon">
+                        <span class="skill-name">Next.js</span>
+                        <div class="skill-rating">★★★☆☆</div>
+                    </div>
+                </div>
             </div>
 
-            <!-- Soft Skills Section -->
+            <!-- Frameworks & Libraries -->
+            <div class="skills-category">
+                <h3>Frameworks & Libraries</h3>
+                <div class="skills-container">
+                    <!-- ThreeJs -->
+                    <div class="skill-item">
+                        <img src="path_to_threejs_icon.png" alt="ThreeJs" class="skill-icon">
+                        <span class="skill-name">ThreeJs</span>
+                        <div class="skill-rating">★★★☆☆</div>
+                    </div>
+                    <!-- .NET -->
+                    <div class="skill-item">
+                        <img src="path_to_dotnet_icon.png" alt=".NET" class="skill-icon">
+                        <span class="skill-name">.NET</span>
+                        <div class="skill-rating">★★★★☆</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="skills-category">
+                <h3>Database Technologies</h3>
+                <div class="skills-container">
+                    <!-- MySQL -->
+                    <div class="skill-item">
+                        <img src="path_to_mysql_icon.png" alt="MySQL" class="skill-icon">
+                        <span class="skill-name">MySQL</span>
+                        <div class="skill-rating">★★★★☆</div> <!-- 4-star rating -->
+                    </div>
+                </div>
+            </div>
+
+            <!-- Big Data & DevOps Tools -->
+            <div class="skills-category">
+                <h3>Big Data & DevOps Tools</h3>
+                <div class="skills-container">
+                    <!-- Apache Kafka -->
+                    <div class="skill-item">
+                        <img src="path_to_kafka_icon.png" alt="Apache Kafka" class="skill-icon">
+                        <span class="skill-name">Apache Kafka</span>
+                        <div class="skill-rating">★★★★☆</div>
+                    </div>
+                    <!-- Hadoop -->
+                    <div class="skill-item">
+                        <img src="path_to_hadoop_icon.png" alt="Hadoop" class="skill-icon">
+                        <span class="skill-name">Hadoop</span>
+                        <div class="skill-rating">★★★☆☆</div>
+                    </div>
+                    <!-- Spark -->
+                    <div class="skill-item">
+                        <img src="path_to_spark_icon.png" alt="Spark" class="skill-icon">
+                        <span class="skill-name">Spark</span>
+                        <div class="skill-rating">★★★☆☆</div>
+                    </div>
+                    <!-- Terraform -->
+                    <div class="skill-item">
+                        <img src="path_to_terraform_icon.png" alt="Terraform" class="skill-icon">
+                        <span class="skill-name">Terraform</span>
+                        <div class="skill-rating">★★☆☆☆</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Testing Tools -->
+            <div class="skills-category">
+                <h3>Testing Tools</h3>
+                <div class="skills-container">
+                    <!-- Selenium -->
+                    <div class="skill-item">
+                        <img src="path_to_selenium_icon.png" alt="Selenium" class="skill-icon">
+                        <span class="skill-name">Selenium</span>
+                        <div class="skill-rating">★★★☆☆</div> <!-- 3-star rating -->
+                    </div>
+                    <!-- Junit -->
+                    <div class="skill-item">
+                        <img src="path_to_junit_icon.png" alt="Junit" class="skill-icon">
+                        <span class="skill-name">Junit</span>
+                        <div class="skill-rating">★★★★☆</div> <!-- 4-star rating -->
+                    </div>
+                </div>
+            </div>
+
+            <!-- Data Visualization & Analytics -->
+            <div class="skills-category">
+                <h3>Data Visualization & Analytics</h3>
+                <div class="skills-container">
+                    <!-- Tableau -->
+                    <div class="skill-item">
+                        <img src="path_to_tableau_icon.png" alt="Tableau" class="skill-icon">
+                        <span class="skill-name">Tableau</span>
+                        <div class="skill-rating">★★★★☆</div> <!-- 4-star rating -->
+                    </div>
+                </div>
+            </div>
+
+            <!-- Cloud Services -->
+            <div class="skills-category">
+                <h3>Cloud Services</h3>
+                <div class="skills-container">
+                    <!-- AWS -->
+                    <div class="skill-item">
+                        <img src="path_to_aws_icon.png" alt="AWS" class="skill-icon">
+                        <span class="skill-name">AWS</span>
+                        <div class="skill-rating">★★★★★</div> <!-- 5-star rating -->
+                    </div>
+                    <!-- Azure -->
+                    <div class="skill-item">
+                        <img src="path_to_azure_icon.png" alt="Azure Cloud" class="skill-icon">
+                        <span class="skill-name">Azure Cloud</span>
+                        <div class="skill-rating">★★★★☆</div> <!-- 4-star rating -->
+                    </div>
+                </div>
+            </div>
+
+            <!-- CI/CD & Project Management Tools -->
+            <div class="skills-category">
+                <h3>CI/CD & Project Management</h3>
+                <div class="skills-container">
+                    <!-- Jenkins -->
+                    <div class="skill-item">
+                        <img src="path_to_jenkins_icon.png" alt="Jenkins" class="skill-icon">
+                        <span class="skill-name">Jenkins</span>
+                        <div class="skill-rating">★★★★☆</div> <!-- 4-star rating -->
+                    </div>
+                    <!-- Travis CI -->
+                    <div class="skill-item">
+                        <img src="path_to_travisci_icon.png" alt="Travis CI" class="skill-icon">
+                        <span class="skill-name">Travis CI</span>
+                        <div class="skill-rating">★★★☆☆</div> <!-- 3-star rating -->
+                    </div>
+                    <!-- Jira -->
+                    <div class="skill-item">
+                        <img src="path_to_jira_icon.png" alt="Jira" class="skill-icon">
+                        <span class="skill-name">Jira</span>
+                        <div class="skill-rating">★★★★☆</div> <!-- 4-star rating -->
+                    </div>
+                    <!-- Trello -->
+                    <div class="skill-item">
+                        <img src="path_to_trello_icon.png" alt="Trello" class="skill-icon">
+                        <span class="skill-name">Trello</span>
+                        <div class="skill-rating">★★★☆☆</div> <!-- 3-star rating -->
+                    </div>
+                    <!-- Slack -->
+                    <div class="skill-item">
+                        <img src="path_to_slack_icon.png" alt="Slack" class="skill-icon">
+                        <span class="skill-name">Slack</span>
+                        <div class="skill-rating">★★★★☆</div> <!-- 4-star rating -->
+                    </div>
+                    <!-- Figma -->
+                    <div class="skill-item">
+                        <img src="path_to_figma_icon.png" alt="Figma" class="skill-icon">
+                        <span class="skill-name">Figma</span>
+                        <div class="skill-rating">★★★★☆</div> <!-- 4-star rating -->
+                    </div>
+                </div>
+            </div>
+
+
+
+
+                        <!-- Soft Skills -->
             <div class="skills-category">
                 <h3>Soft Skills</h3>
-                <ul>
-                    <li>Agile</li>
-                    <li>Teamwork</li>
-                    <li>Communication</li>
-                    <li>Problem-Solving</li>
-                    <li>Adaptability</li>
-                </ul>
+                <div class="skills-container">
+                    <!-- Icons can be more abstract for soft skills -->
+                    <!-- Agile -->
+                    <div class="skill-item">
+                        <img src="path_to_agile_icon.png" alt="Agile" class="skill-icon">
+                        <span class="skill-name">Agile</span>
+                        <div class="skill-rating">★★★★★</div> <!-- 5-star rating -->
+                    </div>
+                    <!-- Teamwork -->
+                    <div class="skill-item">
+                        <img src="path_to_teamwork_icon.png" alt="Teamwork" class="skill-icon">
+                        <span class="skill-name">Teamwork</span>
+                        <div class="skill-rating">★★★★★</div> <!-- 5-star rating -->
+                    </div>
+                    <!-- Communication -->
+                    <div class="skill-item">
+                        <img src="path_to_communication_icon.png" alt="Communication" class="skill-icon">
+                        <span class="skill-name">Communication</span>
+                        <div class="skill-rating">★★★★☆</div> <!-- 4-star rating -->
+                    </div>
+                    <!-- Problem-Solving -->
+                    <div class="skill-item">
+                        <img src="path_to_problem_solving_icon.png" alt="Problem-Solving" class="skill-icon">
+                        <span class="skill-name">Problem-Solving</span>
+                        <div class="skill-rating">★★★★☆</div> <!-- 4-star rating -->
+                    </div>
+                    <!-- Adaptability -->
+                    <div class="skill-item">
+                        <img src="path_to_adaptability_icon.png" alt="Adaptability" class="skill-icon">
+                        <span class="skill-name">Adaptability</span>
+                        <div class="skill-rating">★★★★☆</div> <!-- 4-star rating -->
+                    </div>
+                </div>
             </div>
 
             <!-- Certifications Section -->
-            <section class="certifications">
+            <section class="skills-category">
                 <h3>Certifications</h3>
-                <div class="cert-item">
-                    <i class="fas fa-certificate"></i> Oracle Certified Associate, Java SE Programmer - May 2023
-                </div>
-                <div class="cert-item">
-                    <i class="fas fa-cloud"></i> Amazon Web Services (AWS) Certified Cloud Practitioner - Nov 2022
-                </div>
-                <div class="cert-item">
-                    <i class="fas fa-code"></i> Introduction to Web Development by freeCodeCamp - May 2022
+                <div class="certifications-timeline">
+
+                    <!-- Oracle Certified Associate, Java SE Programmer -->
+                    <div class="milestone">
+                        <img src="path_to_java_cert_icon.png" alt="Oracle Certified Java Programmer" class="cert-icon">
+                        <div class="cert-info">
+                            <span class="cert-title">Oracle Certified Associate, Java SE Programmer</span>
+                            <time datetime="2023-05">May 2023</time>
+                        </div>
+                    </div>
+
+                    <!-- AWS Certified Cloud Practitioner -->
+                    <div class="milestone">
+                        <img src="path_to_aws_cert_icon.png" alt="AWS Certified Cloud Practitioner" class="cert-icon">
+                        <div class="cert-info">
+                            <span class="cert-title">AWS Certified Cloud Practitioner</span>
+                            <time datetime="2022-11">November 2022</time>
+                        </div>
+                    </div>
+
+                    <!-- Introduction to Web Development by freeCodeCamp -->
+                    <div class="milestone">
+                        <img src="path_to_freecodecamp_cert_icon.png" alt="freeCodeCamp Web Development" class="cert-icon">
+                        <div class="cert-info">
+                            <span class="cert-title">Introduction to Web Development by freeCodeCamp</span>
+                            <time datetime="2022-05">May 2022</time>
+                        </div>
+                    </div>
+
                 </div>
             </section>
-
         </section>
-
-    </div>
 </div>
+</div>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Montserrat:wght@700&display=swap" rel="stylesheet">
 
 <script src="script.js"></script>
+
 <script>
     document.getElementById('back-button').addEventListener('click', function() {
         window.location.href = 'index.html';

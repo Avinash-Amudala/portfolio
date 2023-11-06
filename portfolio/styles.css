@@ -1,19 +1,52 @@
 body, html {
-
+    font-family: 'Open Sans', sans-serif;
     font-size: 16px;
     margin: 0;
+    background-color: #f4f4f4;
+    color: #333;
 }
 #instruction-bubble {
     position: fixed;
-    bottom: 10%;
-    left: 50%;
-    transform: translateX(-50%);
-    background-color: rgba(255, 255, 255, 0.9);
-    padding: 20px;
-    border-radius: 50px;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+    bottom: 20px;
+    right: 20px; /* Align to the right side */
+    background: rgba(255, 255, 255, 0.9);
+    padding: 10px;
+    border-radius: 15px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     z-index: 1000;
-    animation: bubbleEffect 2s ease-in-out infinite;
+    text-align: center;
+    max-width: 300px;
+}
+
+#instruction-bubble p {
+    margin: 5px 0;
+    font-size: 0.9em;
+    color: #333;
+}
+
+
+/* Responsive typography */
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Montserrat', sans-serif;
+}
+
+@media screen and (max-width: 768px) {
+    /* Adjust font sizes and layout for mobile devices */
+    header {
+        padding: 0.5rem 0;
+    }
+    h1 {
+        font-size: 1.5rem;
+    }
+
+}
+@media only screen and (max-width: 600px) {
+    .hero-text h1 {
+        font-size: 20px;
+    }
+    .hero-text p {
+        font-size: 18px;
+    }
 }
 
 @keyframes bubbleEffect {
@@ -167,10 +200,12 @@ body, html {
     margin-bottom: 10px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
-.name, .info, .section, .work-experience, .skills {
+.name, .info {
     width: 90%; /* Use full width of the slide-content */
     box-sizing: border-box; /* Include padding in the width */
     padding: 0 10px; /* Small padding on the left and right */
+    margin: 0 auto;
+
 }
 
 .info i {
@@ -182,33 +217,53 @@ body, html {
 }
 /* Enhanced section styling */
 .section {
-    background-color: #f9f9f9;
-    padding: 15px;
+    background-color: #fff;
+    padding: 20px;
+    margin-bottom: 20px; /* Add space between sections */
     border-radius: 10px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    margin: 20px 0;
-    font-size: 1em;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
 }
 
-/* Colorful section headers */
-.section h2, .work-experience h2, .skills h2 {
-    background-color: red;
-    color: #fff;
-    padding: 10px;
-    border-radius: 8px;
-    margin: -15px -15px 15px -15px; /* Offset the section padding for a nice effect */
-}
-
-.box h3 {
-    font-size: 1.1em; /* Reduced from 1.2em */
-    margin-bottom: 5px;
+.section h2 {
+    color: #2c3e50;
+    border-bottom: 3px solid #3498db;
+    display: inline-block;
+    padding-bottom: 5px;
+    margin-bottom: 20px;
 }
 
 .box {
-    padding: 8px 15px; /* Reduced padding */
-    margin: 8px 0; /* Reduced margin */
+    background-color: #ecf0f1;
+    padding: 20px;
+    border-left: 5px solid #3498db;
+    margin-bottom: 15px;
 }
 
+.box h3 {
+    font-size: 1.5em;
+    margin-bottom: 5px;
+    color: #2c3e50;
+}
+
+.box p {
+    font-size: 1.2em;
+    margin-bottom: 0;
+}
+
+/* Responsive design adjustments */
+@media (max-width: 768px) {
+    .homepage-content {
+        padding: 20px;
+    }
+
+    .name {
+        font-size: 2em;
+    }
+
+    .contact-info p {
+        font-size: 1em;
+    }
+}
 
 .active-slide {
     min-width: 100vw !important;
@@ -319,13 +374,76 @@ footer {
     background-color: #f0f0f0;
     z-index: 10;
 }
+@keyframes fillBar {
+    from { width: 0; }
+    to { width: 100%; }
+}
 
 .story-bar {
-    height: 100%;
-    flex-grow: 1;
-    background-color: #3f51b5; /* Example color for the bars */
-    margin: 0 2px;
-    width: 0%; /* Initial state is empty */
-    transition: width 2s ease-in-out;
+    width: 0%;
+    height: 4px;
+    background: blue; /* Replace with your desired color */
+    position: relative;
 }
+
+.story-bar-active {
+    animation: fillBar 30s linear forwards;
+}
+
+
+/* Portfolio Section */
+.portfolio-section {
+    text-align: center;
+    padding: 40px 0;
+    background-color: #f7f7f7;
+}
+
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+    padding: 0 20px;
+}
+
+.gallery-item {
+    position: relative;
+    overflow: hidden;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.gallery-item img,
+.gallery-item video {
+    width: 100%;
+    height: auto;
+    transition: transform 0.3s ease;
+}
+
+.gallery-item:hover img,
+.gallery-item:hover video {
+    transform: scale(1.05);
+}
+
+.gallery-item-description {
+    position: absolute;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.8);
+    color: white;
+    width: 100%;
+    padding: 10px;
+    transition: transform 0.3s ease;
+}
+
+.gallery-item:hover .gallery-item-description {
+    transform: translateY(0);
+}
+
+/* Add a hover effect to the whole gallery item */
+.gallery-item:hover {
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+
+
+
 

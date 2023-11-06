@@ -1,26 +1,39 @@
 document.addEventListener('DOMContentLoaded', (event) => {
-    let slidesContainer = document.querySelector('.slides-container');
     let slides = document.querySelectorAll('.slide');
+    let storyBars = document.querySelectorAll('.story-bar');
     let currentIndex = 0;
+    let progressTimeout;
 
     function changeSlide(newIndex) {
-        if (newIndex >= 0 && newIndex < slides.length) {
-            slides.forEach((slide, index) => {
-                slide.style.display = index === newIndex ? 'block' : 'none';
-                if (index === newIndex) {
-                    // Log the computed style of the h1 element to see if it's centered
-                    console.log(window.getComputedStyle(slide.querySelector('h1')));
-                }
-            });
-            currentIndex = newIndex;
-            updateStoryBars(currentIndex);
-        }
+        slides[currentIndex].style.display = 'none'; // Hide current slide
+        slides[newIndex].style.display = 'block'; // Show new slide
+        currentIndex = newIndex;
+        updateProgress();
     }
 
-    // Initialize the first slide as active
-    changeSlide(currentIndex);
+    function updateProgress() {
+        clearTimeout(progressTimeout); // Clear any existing timeout
+        storyBars.forEach(bar => bar.style.width = '0%'); // Reset all bars
+        // Immediately start filling the current bar
+        storyBars[currentIndex].classList.add('story-bar-active');
+        // Set a timeout to reset the bar after 30 seconds
+        progressTimeout = setTimeout(() => {
+            storyBars[currentIndex].classList.remove('story-bar-active');
+            storyBars[currentIndex].style.width = '0%';
+            // Restart the fill animation by re-adding the class
+            setTimeout(() => {
+                storyBars[currentIndex].classList.add('story-bar-active');
+            }, 10);
+        }, 30000); // Timeout set to 30 seconds
+    }
 
-    document.addEventListener('keydown', (e) => {
+    // Set initial slide visibility and start the first progress bar
+    slides.forEach((slide, index) => {
+        slide.style.display = index === 0 ? 'block' : 'none';
+    });
+    updateProgress();
+
+document.addEventListener('keydown', (e) => {
         if (e.key === 'ArrowLeft' && currentIndex > 0) {
             changeSlide(currentIndex - 1);
         } else if (e.key === 'ArrowRight' && currentIndex < slides.length - 1) {
