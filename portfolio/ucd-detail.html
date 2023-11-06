@@ -9,8 +9,7 @@
 </head>
 
 <body>
-<button id="back-button" style="position: absolute; top: 10px; right: 10px; background: none; border: none; font-size: 2em; cursor: pointer;">✖</button>
-
+<button id="back-button" style="position: fixed; top: 10px; right: 10px; background: none; border: none; font-size: 2em; cursor: pointer; z-index: 1000;">✖</button>
 <header>
     <h1>User-Centered Design Projects</h1>
 </header>
@@ -45,7 +44,7 @@
 </footer>
 <script>
     document.getElementById('back-button').addEventListener('click', function() {
-        window.location.href = 'index.html';
+        window.history.back();
     });
 </script>
 </body>

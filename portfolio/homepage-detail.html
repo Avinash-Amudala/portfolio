@@ -191,9 +191,16 @@
         box-shadow: 0 6px 12px rgba(0,0,0,0.15);
     }
 
+    .skill-item {
+        display: flex;
+        align-items: center;
+        margin-bottom: 10px; /* Adjust the margin as needed */
+    }
+
     .skill-icon {
-        font-size: 2em;
-        color: #4b4b4b;
+        max-width: 75px; /* Adjust the max width as needed */
+        max-height: 75px; /* Adjust the max height as needed */
+        margin-right: 10px; /* Adds some space between the icon and the text */
     }
 
     .certifications-container {
@@ -233,7 +240,6 @@
         width: 100%;
         height: auto;
     }
-
     .hero-text {
         position: absolute;
         top: 50%;
@@ -321,7 +327,6 @@
     }
 
 
-
 </style>
 <header style="position: relative; color: white; overflow: hidden;">
     <video autoplay muted loop id="myVideo" style="position: absolute; right: 0; bottom: 0; min-width: 100%; min-height: 100%;">
@@ -337,7 +342,7 @@
 
 <!-- Hero Video Section -->
 <div class="hero-section">
-    <video autoplay muted loop id="myVideo">
+    <video autoplay muted loop id="myVideo2">
         <source src="images/pexels-pavel-danilyuk-5495781 (1440p).mp4" type="video/mp4">
         Your browser does not support HTML5 video.
     </video>
@@ -379,7 +384,7 @@
 
 
 <body style="overflow-x: hidden;">
-<button id="back-button" style="position: absolute; top: 10px; right: 10px; background: none; border: none; font-size: 2em; cursor: pointer;">✖</button>
+<button id="back-button" style="position: fixed; top: 10px; right: 10px; background: none; border: none; font-size: 2em; cursor: pointer; z-index: 1000;">✖</button>
 <div class="center-container">
     <div class="homepage-content">
         <div class="hero-intro">
@@ -471,306 +476,304 @@
     </section>
 
 
-        <section class="skills-section">
-            <h2 class="section-header">Skills</h2>
+    <section class="skills-section">
+        <h2 class="section-header">Skills</h2>
 
-            <!-- Programming Languages & Technologies -->
-            <!-- Programming Languages -->
-            <div class="skills-category">
-                <h3>Programming Languages</h3>
-                <div class="skills-container">
-                    <!-- C, C++ -->
-                    <div class="skill-item">
-                        <img src="path_to_c_cpp_icon.png" alt="C/C++" class="skill-icon">
-                        <span class="skill-name">C, C++</span>
-                        <div class="skill-rating">★★★★☆</div> <!-- Adjust star rating as needed -->
-                    </div>
-                    <!-- Java -->
-                    <div class="skill-item">
-                        <img src="path_to_java_icon.png" alt="Java" class="skill-icon">
-                        <span class="skill-name">Java</span>
-                        <div class="skill-rating">★★★★☆</div> <!-- Adjust star rating as needed -->
-                    </div>
-                    <!-- Python -->
-                    <div class="skill-item">
-                        <img src="path_to_python_icon.png" alt="Python" class="skill-icon">
-                        <span class="skill-name">Python</span>
-                        <div class="skill-rating">★★★★☆</div> <!-- Adjust star rating as needed -->
-                    </div>
-                    <!-- MATLAB -->
-                    <div class="skill-item">
-                        <img src="path_to_matlab_icon.png" alt="MATLAB" class="skill-icon">
-                        <span class="skill-name">MATLAB</span>
-                        <div class="skill-rating">★★★★☆</div> <!-- Adjust star rating as needed -->
-                    </div>
-                    <!-- SQL -->
-                    <div class="skill-item">
-                        <img src="path_to_sql_icon.png" alt="SQL" class="skill-icon">
-                        <span class="skill-name">SQL</span>
-                        <div class="skill-rating">★★★★☆</div> <!-- Adjust star rating as needed -->
-                    </div>
-                    <!-- R Language -->
-                    <div class="skill-item">
-                        <img src="path_to_r_icon.png" alt="R Language" class="skill-icon">
-                        <span class="skill-name">R Language</span>
-                        <div class="skill-rating">★★★★☆</div> <!-- Adjust star rating as needed -->
-                    </div>
-                    <!-- Typescript -->
-                    <div class="skill-item">
-                        <img src="path_to_typescript_icon.png" alt="Typescript" class="skill-icon">
-                        <span class="skill-name">Typescript</span>
-                        <div class="skill-rating">★★★★☆</div> <!-- Adjust star rating as needed -->
-                    </div>
+        <!-- Programming Languages -->
+        <div class="skills-category">
+            <h3>Programming Languages</h3>
+            <div class="skills-container">
+                <!-- C, C++ -->
+                <div class="skill-item">
+                    <img src="png-logos/c:c++.png" alt="C/C++" class="skill-icon">
+                    <span class="skill-name">C, C++</span>
+                    <div class="skill-rating">★★★★☆</div>
+                </div>
+                <!-- Java -->
+                <div class="skill-item">
+                    <img src="png-logos/java.png" alt="Java" class="skill-icon">
+                    <span class="skill-name">Java</span>
+                    <div class="skill-rating">★★★★☆</div>
+                </div>
+                <!-- Python -->
+                <div class="skill-item">
+                    <img src="png-logos/python.png" alt="Python" class="skill-icon">
+                    <span class="skill-name">Python</span>
+                    <div class="skill-rating">★★★★☆</div>
+                </div>
+                <!-- MATLAB -->
+                <div class="skill-item">
+                    <img src="png-logos/Matlab.png" alt="MATLAB" class="skill-icon">
+                    <span class="skill-name">MATLAB</span>
+                    <div class="skill-rating">★★★★☆</div>
+                </div>
+                <!-- SQL -->
+                <div class="skill-item">
+                    <img src="png-logos/sql.png" alt="SQL" class="skill-icon">
+                    <span class="skill-name">SQL</span>
+                    <div class="skill-rating">★★★★☆</div>
+                </div>
+                <!-- R Language -->
+                <div class="skill-item">
+                    <img src="png-logos/r-language.svg" alt="R Language" class="skill-icon">
+                    <span class="skill-name">R Language</span>
+                    <div class="skill-rating">★★★★☆</div>
+                </div>
+                <!-- Typescript -->
+                <div class="skill-item">
+                    <img src="png-logos/typescript.png" alt="Typescript" class="skill-icon">
+                    <span class="skill-name">Typescript</span>
+                    <div class="skill-rating">★★★★☆</div>
                 </div>
             </div>
+        </div>
 
-            <!-- Web Technologies -->
-            <div class="skills-category">
-                <h3>Web Technologies</h3>
-                <div class="skills-container">
-                    <!-- HTML -->
-                    <div class="skill-item">
-                        <img src="path_to_html_icon.png" alt="HTML" class="skill-icon">
-                        <span class="skill-name">HTML</span>
-                        <div class="skill-rating">★★★★★</div>
-                    </div>
-                    <!-- CSS -->
-                    <div class="skill-item">
-                        <img src="path_to_css_icon.png" alt="CSS" class="skill-icon">
-                        <span class="skill-name">CSS</span>
-                        <div class="skill-rating">★★★★☆</div>
-                    </div>
-                    <!-- JavaScript -->
-                    <div class="skill-item">
-                        <img src="path_to_js_icon.png" alt="JavaScript" class="skill-icon">
-                        <span class="skill-name">JS</span>
-                        <div class="skill-rating">★★★★☆</div>
-                    </div>
-                    <!-- Angular -->
-                    <div class="skill-item">
-                        <img src="path_to_angular_icon.png" alt="Angular" class="skill-icon">
-                        <span class="skill-name">Angular</span>
-                        <div class="skill-rating">★★★☆☆</div>
-                    </div>
-                    <!-- ReactJs -->
-                    <div class="skill-item">
-                        <img src="path_to_react_icon.png" alt="ReactJs" class="skill-icon">
-                        <span class="skill-name">ReactJs</span>
-                        <div class="skill-rating">★★★★☆</div>
-                    </div>
-                    <!-- D3.js -->
-                    <div class="skill-item">
-                        <img src="path_to_d3_icon.png" alt="D3.js" class="skill-icon">
-                        <span class="skill-name">D3.js</span>
-                        <div class="skill-rating">★★★☆☆</div>
-                    </div>
-                    <!-- Next.js -->
-                    <div class="skill-item">
-                        <img src="path_to_nextjs_icon.png" alt="Next.js" class="skill-icon">
-                        <span class="skill-name">Next.js</span>
-                        <div class="skill-rating">★★★☆☆</div>
-                    </div>
+        <!-- Web Technologies -->
+        <div class="skills-category">
+            <h3>Web Technologies</h3>
+            <div class="skills-container">
+                <!-- HTML -->
+                <div class="skill-item">
+                    <img src="png-logos/html.png" alt="HTML" class="skill-icon">
+                    <span class="skill-name">HTML</span>
+                    <div class="skill-rating">★★★★★</div>
+                </div>
+                <!-- CSS -->
+                <div class="skill-item">
+                    <img src="png-logos/css.png" alt="CSS" class="skill-icon">
+                    <span class="skill-name">CSS</span>
+                    <div class="skill-rating">★★★★☆</div>
+                </div>
+                <!-- JavaScript -->
+                <div class="skill-item">
+                    <img src="png-logos/js.png" alt="JavaScript" class="skill-icon">
+                    <span class="skill-name">JS</span>
+                    <div class="skill-rating">★★★★☆</div>
+                </div>
+                <!-- Angular -->
+                <div class="skill-item">
+                    <img src="png-logos/Angular.png" alt="Angular" class="skill-icon">
+                    <span class="skill-name">Angular</span>
+                    <div class="skill-rating">★★★☆☆</div>
+                </div>
+                <!-- ReactJs -->
+                <div class="skill-item">
+                    <img src="png-logos/react.png" alt="ReactJs" class="skill-icon">
+                    <span class="skill-name">ReactJs</span>
+                    <div class="skill-rating">★★★★☆</div>
+                </div>
+                <!-- D3.js -->
+                <div class="skill-item">
+                    <img src="png-logos/d3js.svg" alt="D3.js" class="skill-icon">
+                    <span class="skill-name">D3.js</span>
+                    <div class="skill-rating">★★★☆☆</div>
+                </div>
+                <!-- Next.js -->
+                <div class="skill-item">
+                    <img src="png-logos/next-js.svg" alt="Next.js" class="skill-icon">
+                    <span class="skill-name">Next.js</span>
+                    <div class="skill-rating">★★★☆☆</div>
                 </div>
             </div>
+        </div>
 
-            <!-- Frameworks & Libraries -->
-            <div class="skills-category">
-                <h3>Frameworks & Libraries</h3>
-                <div class="skills-container">
-                    <!-- ThreeJs -->
-                    <div class="skill-item">
-                        <img src="path_to_threejs_icon.png" alt="ThreeJs" class="skill-icon">
-                        <span class="skill-name">ThreeJs</span>
-                        <div class="skill-rating">★★★☆☆</div>
-                    </div>
-                    <!-- .NET -->
-                    <div class="skill-item">
-                        <img src="path_to_dotnet_icon.png" alt=".NET" class="skill-icon">
-                        <span class="skill-name">.NET</span>
-                        <div class="skill-rating">★★★★☆</div>
-                    </div>
+        <!-- Frameworks & Libraries -->
+        <div class="skills-category">
+            <h3>Frameworks & Libraries</h3>
+            <div class="skills-container">
+                <!-- ThreeJs -->
+                <div class="skill-item">
+                    <img src="png-logos/threejs.png" alt="ThreeJs" class="skill-icon">
+                    <span class="skill-name">ThreeJs</span>
+                    <div class="skill-rating">★★★☆☆</div>
+                </div>
+                <!-- .NET -->
+                <div class="skill-item">
+                    <img src="png-logos/NET.png" alt=".NET" class="skill-icon">
+                    <span class="skill-name">.NET</span>
+                    <div class="skill-rating">★★★★☆</div>
                 </div>
             </div>
+        </div>
 
-            <div class="skills-category">
-                <h3>Database Technologies</h3>
-                <div class="skills-container">
-                    <!-- MySQL -->
-                    <div class="skill-item">
-                        <img src="path_to_mysql_icon.png" alt="MySQL" class="skill-icon">
-                        <span class="skill-name">MySQL</span>
-                        <div class="skill-rating">★★★★☆</div> <!-- 4-star rating -->
-                    </div>
+        <!-- Database Technologies -->
+        <div class="skills-category">
+            <h3>Database Technologies</h3>
+            <div class="skills-container">
+                <!-- MySQL -->
+                <div class="skill-item">
+                    <img src="png-logos/mysql.png" alt="MySQL" class="skill-icon">
+                    <span class="skill-name">MySQL</span>
+                    <div class="skill-rating">★★★★☆</div>
                 </div>
             </div>
+        </div>
 
-            <!-- Big Data & DevOps Tools -->
-            <div class="skills-category">
-                <h3>Big Data & DevOps Tools</h3>
-                <div class="skills-container">
-                    <!-- Apache Kafka -->
-                    <div class="skill-item">
-                        <img src="path_to_kafka_icon.png" alt="Apache Kafka" class="skill-icon">
-                        <span class="skill-name">Apache Kafka</span>
-                        <div class="skill-rating">★★★★☆</div>
-                    </div>
-                    <!-- Hadoop -->
-                    <div class="skill-item">
-                        <img src="path_to_hadoop_icon.png" alt="Hadoop" class="skill-icon">
-                        <span class="skill-name">Hadoop</span>
-                        <div class="skill-rating">★★★☆☆</div>
-                    </div>
-                    <!-- Spark -->
-                    <div class="skill-item">
-                        <img src="path_to_spark_icon.png" alt="Spark" class="skill-icon">
-                        <span class="skill-name">Spark</span>
-                        <div class="skill-rating">★★★☆☆</div>
-                    </div>
-                    <!-- Terraform -->
-                    <div class="skill-item">
-                        <img src="path_to_terraform_icon.png" alt="Terraform" class="skill-icon">
-                        <span class="skill-name">Terraform</span>
-                        <div class="skill-rating">★★☆☆☆</div>
-                    </div>
+        <!-- Big Data & DevOps Tools -->
+        <div class="skills-category">
+            <h3>Big Data & DevOps Tools</h3>
+            <div class="skills-container">
+                <!-- Apache Kafka -->
+                <div class="skill-item">
+                    <img src="png-logos/kafka.png" alt="Apache Kafka" class="skill-icon">
+                    <span class="skill-name">Apache Kafka</span>
+                    <div class="skill-rating">★★★★☆</div>
+                </div>
+                <!-- Hadoop -->
+                <div class="skill-item">
+                    <img src="png-logos/hadoop.png" alt="Hadoop" class="skill-icon">
+                    <span class="skill-name">Hadoop</span>
+                    <div class="skill-rating">★★★☆☆</div>
+                </div>
+                <!-- Spark -->
+                <div class="skill-item">
+                    <img src="png-logos/spark.png" alt="Spark" class="skill-icon">
+                    <span class="skill-name">Spark</span>
+                    <div class="skill-rating">★★★☆☆</div>
+                </div>
+                <!-- Terraform -->
+                <div class="skill-item">
+                    <img src="png-logos/terraform.png" alt="Terraform" class="skill-icon">
+                    <span class="skill-name">Terraform</span>
+                    <div class="skill-rating">★★☆☆☆</div>
                 </div>
             </div>
+        </div>
 
-            <!-- Testing Tools -->
-            <div class="skills-category">
-                <h3>Testing Tools</h3>
-                <div class="skills-container">
-                    <!-- Selenium -->
-                    <div class="skill-item">
-                        <img src="path_to_selenium_icon.png" alt="Selenium" class="skill-icon">
-                        <span class="skill-name">Selenium</span>
-                        <div class="skill-rating">★★★☆☆</div> <!-- 3-star rating -->
-                    </div>
-                    <!-- Junit -->
-                    <div class="skill-item">
-                        <img src="path_to_junit_icon.png" alt="Junit" class="skill-icon">
-                        <span class="skill-name">Junit</span>
-                        <div class="skill-rating">★★★★☆</div> <!-- 4-star rating -->
-                    </div>
+        <!-- Testing Tools -->
+        <div class="skills-category">
+            <h3>Testing Tools</h3>
+            <div class="skills-container">
+                <!-- Selenium -->
+                <div class="skill-item">
+                    <img src="png-logos/selenium.png" alt="Selenium" class="skill-icon">
+                    <span class="skill-name">Selenium</span>
+                    <div class="skill-rating">★★★☆☆</div>
+                </div>
+                <!-- Junit -->
+                <div class="skill-item">
+                    <img src="png-logos/junit.png" alt="Junit" class="skill-icon">
+                    <span class="skill-name">Junit</span>
+                    <div class="skill-rating">★★★★☆</div>
                 </div>
             </div>
+        </div>
 
-            <!-- Data Visualization & Analytics -->
-            <div class="skills-category">
-                <h3>Data Visualization & Analytics</h3>
-                <div class="skills-container">
-                    <!-- Tableau -->
-                    <div class="skill-item">
-                        <img src="path_to_tableau_icon.png" alt="Tableau" class="skill-icon">
-                        <span class="skill-name">Tableau</span>
-                        <div class="skill-rating">★★★★☆</div> <!-- 4-star rating -->
-                    </div>
+        <!-- Data Visualization & Analytics -->
+        <div class="skills-category">
+            <h3>Data Visualization & Analytics</h3>
+            <div class="skills-container">
+                <!-- Tableau -->
+                <div class="skill-item">
+                    <img src="png-logos/tableau.png" alt="Tableau" class="skill-icon">
+                    <span class="skill-name">Tableau</span>
+                    <div class="skill-rating">★★★★☆</div>
                 </div>
             </div>
+        </div>
 
-            <!-- Cloud Services -->
-            <div class="skills-category">
-                <h3>Cloud Services</h3>
-                <div class="skills-container">
-                    <!-- AWS -->
-                    <div class="skill-item">
-                        <img src="path_to_aws_icon.png" alt="AWS" class="skill-icon">
-                        <span class="skill-name">AWS</span>
-                        <div class="skill-rating">★★★★★</div> <!-- 5-star rating -->
-                    </div>
-                    <!-- Azure -->
-                    <div class="skill-item">
-                        <img src="path_to_azure_icon.png" alt="Azure Cloud" class="skill-icon">
-                        <span class="skill-name">Azure Cloud</span>
-                        <div class="skill-rating">★★★★☆</div> <!-- 4-star rating -->
-                    </div>
+        <!-- Cloud Services -->
+        <div class="skills-category">
+            <h3>Cloud Services</h3>
+            <div class="skills-container">
+                <!-- AWS -->
+                <div class="skill-item">
+                    <img src="png-logos/AWS.png" alt="AWS" class="skill-icon">
+                    <span class="skill-name">AWS</span>
+                    <div class="skill-rating">★★★★★</div>
+                </div>
+                <!-- Azure -->
+                <div class="skill-item">
+                    <img src="png-logos/azure.png" alt="Azure Cloud" class="skill-icon">
+                    <span class="skill-name">Azure Cloud</span>
+                    <div class="skill-rating">★★★★☆</div>
                 </div>
             </div>
+        </div>
 
-            <!-- CI/CD & Project Management Tools -->
-            <div class="skills-category">
-                <h3>CI/CD & Project Management</h3>
-                <div class="skills-container">
-                    <!-- Jenkins -->
-                    <div class="skill-item">
-                        <img src="path_to_jenkins_icon.png" alt="Jenkins" class="skill-icon">
-                        <span class="skill-name">Jenkins</span>
-                        <div class="skill-rating">★★★★☆</div> <!-- 4-star rating -->
-                    </div>
-                    <!-- Travis CI -->
-                    <div class="skill-item">
-                        <img src="path_to_travisci_icon.png" alt="Travis CI" class="skill-icon">
-                        <span class="skill-name">Travis CI</span>
-                        <div class="skill-rating">★★★☆☆</div> <!-- 3-star rating -->
-                    </div>
-                    <!-- Jira -->
-                    <div class="skill-item">
-                        <img src="path_to_jira_icon.png" alt="Jira" class="skill-icon">
-                        <span class="skill-name">Jira</span>
-                        <div class="skill-rating">★★★★☆</div> <!-- 4-star rating -->
-                    </div>
-                    <!-- Trello -->
-                    <div class="skill-item">
-                        <img src="path_to_trello_icon.png" alt="Trello" class="skill-icon">
-                        <span class="skill-name">Trello</span>
-                        <div class="skill-rating">★★★☆☆</div> <!-- 3-star rating -->
-                    </div>
-                    <!-- Slack -->
-                    <div class="skill-item">
-                        <img src="path_to_slack_icon.png" alt="Slack" class="skill-icon">
-                        <span class="skill-name">Slack</span>
-                        <div class="skill-rating">★★★★☆</div> <!-- 4-star rating -->
-                    </div>
-                    <!-- Figma -->
-                    <div class="skill-item">
-                        <img src="path_to_figma_icon.png" alt="Figma" class="skill-icon">
-                        <span class="skill-name">Figma</span>
-                        <div class="skill-rating">★★★★☆</div> <!-- 4-star rating -->
-                    </div>
+        <!-- CI/CD & Project Management Tools -->
+        <div class="skills-category">
+            <h3>CI/CD & Project Management</h3>
+            <div class="skills-container">
+                <!-- Jenkins -->
+                <div class="skill-item">
+                    <img src="png-logos/jenkins.png" alt="Jenkins" class="skill-icon">
+                    <span class="skill-name">Jenkins</span>
+                    <div class="skill-rating">★★★★☆</div>
+                </div>
+                <!-- Travis CI -->
+                <div class="skill-item">
+                    <img src="png-logos/travisCI.png" alt="Travis CI" class="skill-icon">
+                    <span class="skill-name">Travis CI</span>
+                    <div class="skill-rating">★★★☆☆</div>
+                </div>
+                <!-- Jira -->
+                <div class="skill-item">
+                    <img src="png-logos/jira.png" alt="Jira" class="skill-icon">
+                    <span class="skill-name">Jira</span>
+                    <div class="skill-rating">★★★★☆</div>
+                </div>
+                <!-- Trello -->
+                <div class="skill-item">
+                    <!-- Assuming there is a Trello icon, if not replace with the correct filename -->
+                    <img src="png-logos/trello.png" alt="Trello" class="skill-icon">
+                    <span class="skill-name">Trello</span>
+                    <div class="skill-rating">★★★☆☆</div>
+                </div>
+                <!-- Slack -->
+                <div class="skill-item">
+                    <img src="png-logos/slack.png" alt="Slack" class="skill-icon">
+                    <span class="skill-name">Slack</span>
+                    <div class="skill-rating">★★★★☆</div>
+                </div>
+                <!-- Figma -->
+                <div class="skill-item">
+                    <img src="png-logos/figma.png" alt="Figma" class="skill-icon">
+                    <span class="skill-name">Figma</span>
+                    <div class="skill-rating">★★★★☆</div>
                 </div>
             </div>
+        </div>
 
-
-
-
-                        <!-- Soft Skills -->
-            <div class="skills-category">
-                <h3>Soft Skills</h3>
-                <div class="skills-container">
-                    <!-- Icons can be more abstract for soft skills -->
-                    <!-- Agile -->
-                    <div class="skill-item">
-                        <img src="path_to_agile_icon.png" alt="Agile" class="skill-icon">
-                        <span class="skill-name">Agile</span>
-                        <div class="skill-rating">★★★★★</div> <!-- 5-star rating -->
-                    </div>
-                    <!-- Teamwork -->
-                    <div class="skill-item">
-                        <img src="path_to_teamwork_icon.png" alt="Teamwork" class="skill-icon">
-                        <span class="skill-name">Teamwork</span>
-                        <div class="skill-rating">★★★★★</div> <!-- 5-star rating -->
-                    </div>
-                    <!-- Communication -->
-                    <div class="skill-item">
-                        <img src="path_to_communication_icon.png" alt="Communication" class="skill-icon">
-                        <span class="skill-name">Communication</span>
-                        <div class="skill-rating">★★★★☆</div> <!-- 4-star rating -->
-                    </div>
-                    <!-- Problem-Solving -->
-                    <div class="skill-item">
-                        <img src="path_to_problem_solving_icon.png" alt="Problem-Solving" class="skill-icon">
-                        <span class="skill-name">Problem-Solving</span>
-                        <div class="skill-rating">★★★★☆</div> <!-- 4-star rating -->
-                    </div>
-                    <!-- Adaptability -->
-                    <div class="skill-item">
-                        <img src="path_to_adaptability_icon.png" alt="Adaptability" class="skill-icon">
-                        <span class="skill-name">Adaptability</span>
-                        <div class="skill-rating">★★★★☆</div> <!-- 4-star rating -->
-                    </div>
+        <!-- Soft Skills -->
+        <div class="skills-category">
+            <h3>Soft Skills</h3>
+            <div class="skills-container">
+                <!-- Agile -->
+                <div class="skill-item">
+                    <img src="png-logos/agile.png" alt="Agile" class="skill-icon">
+                    <span class="skill-name">Agile</span>
+                    <div class="skill-rating">★★★★★</div>
+                </div>
+                <!-- Teamwork -->
+                <div class="skill-item">
+                    <img src="png-logos/teamwork.png" alt="Teamwork" class="skill-icon">
+                    <span class="skill-name">Teamwork</span>
+                    <div class="skill-rating">★★★★★</div>
+                </div>
+                <!-- Communication -->
+                <div class="skill-item">
+                    <img src="png-logos/communication.png" alt="Communication" class="skill-icon">
+                    <span class="skill-name">Communication</span>
+                    <div class="skill-rating">★★★★☆</div>
+                </div>
+                <!-- Problem-Solving -->
+                <div class="skill-item">
+                    <img src="png-logos/problem-solving.png" alt="Problem-Solving" class="skill-icon">
+                    <span class="skill-name">Problem-Solving</span>
+                    <div class="skill-rating">★★★★☆</div>
+                </div>
+                <!-- Adaptability -->
+                <div class="skill-item">
+                    <img src="png-logos/adaptability.png" alt="Adaptability" class="skill-icon">
+                    <span class="skill-name">Adaptability</span>
+                    <div class="skill-rating">★★★★☆</div>
                 </div>
             </div>
+        </div>
+    </section>
 
-            <!-- Certifications Section -->
+                <!-- Certifications Section -->
             <section class="skills-category">
                 <h3>Certifications</h3>
                 <div class="certifications-timeline">
@@ -810,11 +813,11 @@
 <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Montserrat:wght@700&display=swap" rel="stylesheet">
 
 <script src="script.js"></script>
-
 <script>
     document.getElementById('back-button').addEventListener('click', function() {
-        window.location.href = 'index.html';
+        window.history.back();
     });
 </script>
+
 </body>
 </html>

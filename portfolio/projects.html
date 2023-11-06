@@ -6,8 +6,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
   <title>Projects - Avinash's Portfolio</title>
   <link rel="stylesheet" href="styles.css">
-</head>
-<button id="back-button" style="position: absolute; top: 10px; right: 10px; background: none; border: none; font-size: 2em; cursor: pointer;">✖</button>
+  <button id="back-button" style="position: fixed; top: 10px; right: 10px; background: none; border: none; font-size: 2em; cursor: pointer; z-index: 1000;">✖</button>
 
 <header>
   <h1>Project Details</h1>
@@ -247,7 +246,7 @@
 <script src="script.js"></script>
     <script>
       document.getElementById('back-button').addEventListener('click', function() {
-        window.location.href = 'index.html';
+        window.history.back();
       });
     </script>
 </body>

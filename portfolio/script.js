@@ -9,8 +9,21 @@ document.addEventListener('DOMContentLoaded', (event) => {
         slides[newIndex].style.display = 'block'; // Show new slide
         currentIndex = newIndex;
         updateProgress();
+        window.location.hash = 'slide' + newIndex;
     }
+    window.addEventListener('hashchange', function() {
+        // When the hash changes (e.g., when using the back button), read the new hash and change to that slide
+        var slideIndex = window.location.hash.replace('#slide', '');
+        changeSlide(parseInt(slideIndex));
+    });
 
+    // On page load, check if there's a hash and navigate to that slide
+    document.addEventListener('DOMContentLoaded', function() {
+        if(window.location.hash) {
+            var slideIndex = window.location.hash.replace('#slide', '');
+            changeSlide(parseInt(slideIndex));
+        }
+    });
     function updateProgress() {
         clearTimeout(progressTimeout); // Clear any existing timeout
         storyBars.forEach(bar => bar.style.width = '0%'); // Reset all bars
