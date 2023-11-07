@@ -74,8 +74,14 @@
   </div>
 </div>
 <script>
-  window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };
+  if (window.location.hostname !== "localhost") {
+    var script = document.createElement('script');
+    script.defer = true;
+    script.src = "/_vercel/insights/script.js";
+    document.head.appendChild(script);
+  }
 </script>
-<script defer src="/_vercel/insights/script.js"></script>
+
+
 </body>
 </html>
