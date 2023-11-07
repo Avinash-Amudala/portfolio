@@ -327,7 +327,99 @@
         border-radius: 8px;
         margin: -15px -15px 15px -15px;
     }
+    .navigation-boxes {
+        display: flex;
+        justify-content: space-around;
+        margin: 20px;
+    }
 
+    .nav-box {
+        width: 500px;
+        height: 200px; /* Added height */
+        padding: 20px; /* Increased padding */
+        margin: 10px;
+        text-align: center;
+        background: #f5f5f5;
+        color: #333;
+        text-decoration: none;
+        border-radius: 5px;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+        transition: background 0.3s, box-shadow 0.3s;
+        position: relative; /* Needed for absolute positioning of video */
+        overflow: hidden; /* Prevents video from overflowing the box */
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        z-index: 1;
+    }
+    .nav-box::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        background: rgba(0, 0, 0, 0.3);
+        z-index: 0;
+    }
+
+    .nav-box span {
+        display: inline-block;
+        color: white; /* Make the text white for better contrast */
+        text-transform: uppercase;
+        font-size: 1.5em; /* Adjust size as needed */
+        text-shadow: 0 0 5px rgba(0, 0, 0, 0.7),
+        0 0 10px rgba(0, 0, 0, 0.5),
+        0 0 20px rgba(0, 0, 0, 0.3),
+        0 0 40px rgba(0, 0, 0, 0.2); /* Multiple shadows for a glow effect */
+        transform: translateZ(10px); /* Give a 3D position effect */
+        perspective: 500px; /* Depth perspective */
+        z-index: 2;
+        transition: transform 0.3s, text-shadow 0.3s;
+    }
+
+    /* Add an overlay to darken the video and make the text stand out */
+    .nav-box::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: rgba(0, 0, 0, 0.5); /* Dark overlay */
+        z-index: 1; /* Below the text but above the video */
+    }
+
+    /* Ensure the video is set to cover the container and is placed behind everything else */
+    .nav-box video {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        z-index: 0;
+    }
+
+    .nav-box:hover {
+        background: #eaeaea; /* Light background */
+        box-shadow:
+                0 0 10px #ff8c00, /* Innermost shadow with a bright color */
+                0 0 20px #ff8c00, /* Middle shadow with a spread */
+                0 0 30px #ff8c00, /* Outermost shadow with a large spread */
+                0 5px 15px rgba(222, 148, 10, 0.3); /* Deep shadow for contrast */
+        transition: background 0.3s, box-shadow 0.3s;
+        cursor: pointer;
+    }
+    .nav-box:hover span {
+        /* Slightly scale the text to give a popping effect */
+        transform: scale(1.05) translateZ(10px);
+        /* Bright text-shadow to match the glowing effect */
+        text-shadow: 0 0 5px #ff8c00,
+        0 0 10px #ff8c00,
+        0 0 15px #ff8c00,
+        0 0 20px #ff8c00;
+    }
 
 </style>
 <header style="position: relative; color: white; overflow: hidden;">
@@ -479,7 +571,6 @@
 
         </div>
     </section>
-
 
     <section class="skills-section">
         <h2 class="section-header">Skills</h2>
@@ -777,6 +868,42 @@
             </div>
         </div>
         </section>
+
+    <div class="navigation-boxes">
+        <a href="ucd-detail.html" class="nav-box">
+            <video autoplay loop muted>
+                <source src="images/ucd-home.mp4" type="video/mp4">
+            </video>
+            <span>UCD Process</span>
+        </a>
+
+        <a href="projects.html" class="nav-box">
+            <video autoplay loop muted>
+                <source src="images/video (2160p).mp4" type="video/mp4">
+            </video>
+            <span>Projects</span>
+        </a>
+        <a href="contact.html" class="nav-box">
+            <video autoplay loop muted>
+                <source src="images/contact&resume.mp4" type="video/mp4">
+            </video>
+            <span>Contact & Resume</span>
+        </a>
+    </div>
+
+    <!-- Sections -->
+    <section id="ucdProcess">
+        <!-- UCD Process content goes here -->
+    </section>
+
+    <section id="projects">
+        <!-- Projects content goes here -->
+    </section>
+
+    <section id="contactResume">
+        <!-- Content for Contact & Resume -->
+    </section>
+
 </div>
 
 </div>
