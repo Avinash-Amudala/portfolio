@@ -101,10 +101,24 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .slide h1 {
+    color: #fff; /* Change the text color to white for better visibility */
+    text-shadow:
+            1px 1px 0px #000, /* These shadows create the 3D effect */
+            2px 2px 0px #000,
+            3px 3px 0px #000,
+            4px 4px 0px #000;
     margin: 0;
-    text-align: center; /* Centers text horizontally */
-    width: 100%; /* Ensures the h1 element spans the full width of its parent */
+    text-align: center;
+    width: 100%;
     margin-top: 400px;
+    transform: translateZ(0); /* For better 3D layering on some browsers */
+    position: relative; /* Ensures the text is positioned correctly */
+    z-index: 10; /* Make sure the text is above other elements */
+    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+    display: inline-block; /* Shrink the background to the text size */
+    padding: 10px; /* Add some space around the text */
+    border-radius: 5px; /* Optional: rounded corners for the background */
+    animation: neonGlow 1.5s ease-in-out infinite alternate;
 }
 
 .controls {
