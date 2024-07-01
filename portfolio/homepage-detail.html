@@ -6,6 +6,14 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     <title>Avinash's Homepage</title>
     <link rel="stylesheet" href="styles.css">
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-WDSMRDBX10"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-WDSMRDBX10');
+    </script>
 </head>
 <style>
     /* Work Experience Road Path */
@@ -166,10 +174,11 @@
     }
 
     .skills-container {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
-        gap: 20px;
-        justify-items: center;
+        display: flex;
+        flex-wrap: wrap;
+        list-style-type: none;
+        padding: 0;
+        justify-content: normal;
     }
 
     .skill-badge, .cert-badge {
@@ -530,28 +539,30 @@
                 <div class="timeline-content">
                     <h3>Software Engineer Co-op</h3>
                     <p>Rochester Institute of Technology, Rochester, NY</p>
-                    <p>Dec 2022 – Present</p>
-                    <p>• Spearheaded the successful migration of critical university applications to Kubernetes, bolstering scalability and slashing operational overhead in a cloud-native environment.</p>
-                    <p>• Leveraged Azure Kubernetes Service (AKS) to streamline deployment and management, adhering to industry best practices for 13% enhanced cloud scalability and fortified security measures.</p>
-                    <p>• Orchestrated seamless collaboration across cross-functional teams within an Agile/Scrum framework, driving iterative feature delivery and ensuring top-tier software development standards.</p>
-                    <p>• Implemented continuous integration and deployment (CI/CD) pipelines, reduction in release cycle times.</p>
-                    <p>• Engineered a transformative approach to system architecture, optimizing resource allocation and enhancing application performance by 25%.</p>
+                    <p>Jan 2023 – Present</p>
+                    <p>● Led the development of a Transfer Credits application using Solr and Express server for SSR, enhancing data retrieval efficiency.</p>
+                    <p>● Contributed to critical university applications (RIT eServices, Tiger Center, Campus Maps) ensuring optimal performance and user satisfaction.</p>
+                    <p>● Developed and maintained enterprise web applications using Java, Angular, and PHP, focusing on enhancing user experience and security.</p>
+                    <p>● Orchestrated seamless collaboration across cross-functional teams within an Agile/Scrum framework, driving iterative feature delivery and ensuring top-tier software development standards.</p>
+                    <p>● Implemented continuous integration and deployment (CI/CD) pipelines, reducing release cycle times.</p>
+                    <p>● Engineered a transformative approach to system architecture, optimizing resource allocation and enhancing application performance by 25%.</p>
                 </div>
             </div>
 
-            <!-- Timeline item 2: Full Stack Web Developer Intern -->
+            <!-- Timeline item 2: Full Stack Web Developer -->
             <div class="timeline-item">
                 <div class="timeline-icon">
                     <i class="fas fa-code"></i> <!-- Example icon -->
                 </div>
                 <div class="timeline-content">
-                    <h3>Full Stack Web Developer Intern</h3>
+                    <h3>Full Stack Web Developer</h3>
                     <p>MAGIC Spell Studios, RIT, Rochester, NY</p>
-                    <p>May 2022 – Aug 2022</p>
-                    <p>• Organized the creation of Compass project, utilizing cutting-edge Azure Services to construct an immersive 3D viewing platform.</p>
-                    <p>• Translated Figma designs into interactive web prototypes, prioritizing seamless user experiences and optimal performance, leading to a 25% boost in user satisfaction.</p>
-                    <p>• Coordinated the integration of Azure Services to enhance product visualization capabilities, rise in user retention and increase in conversion rates.</p>
-                    <p>• Innovated solutions to streamline the development process, reducing time-to-market by 12% and enhancing overall project efficiency by implementing agile methodologies.</p>
+                    <p>May 2023 – Aug 2023</p>
+                    <p>● Pioneered the Compass project, leveraging Azure Services to develop a 3D viewing platform for product visualization.</p>
+                    <p>● Transformed Figma designs into dynamic web prototypes, focusing on user experience and performance.</p>
+                    <p>● Organized the creation of the Compass project, utilizing cutting-edge Azure Services to construct an immersive 3D viewing platform.</p>
+                    <p>● Coordinated the integration of Azure Services to enhance product visualization capabilities, resulting in a rise in user retention and increase in conversion rates.</p>
+                    <p>● Innovated solutions to streamline the development process, reducing time-to-market by 12% and enhancing overall project efficiency by implementing agile methodologies.</p>
                 </div>
             </div>
 
@@ -563,9 +574,12 @@
                 <div class="timeline-content">
                     <h3>Junior Software Developer</h3>
                     <p>Ericsson India Global Services Pvt., Bangalore, India</p>
-                    <p>Feb 2022 – August 2022</p>
-                    <p>• Developed software solutions using languages such as Java, Python, and SQL, demonstrating proficiency in problem-solving and effective collaboration.</p>
-                    <p>• Contributed to MySQL database development and improved software delivery through a Jenkins, Ansible, and Git-based CI/CD pipeline.</p>
+                    <p>Feb 2022 – Aug 2022</p>
+                    <p>● Engineered software solutions using C++, Python, PHP, and SQL, improving development efficiency and collaboration.</p>
+                    <p>● Streamlined software delivery through CI/CD pipeline implementation using Jenkins, Ansible, and Git.</p>
+                    <p>● Involved in LTE/NR protocol layers development, acquiring knowledge in 3GPP standards and wireless communication.</p>
+                    <p>● Developed software solutions using languages such as Java, Python, and SQL, demonstrating proficiency in problem-solving and effective collaboration.</p>
+                    <p>● Contributed to MySQL database development and improved software delivery through a Jenkins, Ansible, and Git-based CI/CD pipeline.</p>
                 </div>
             </div>
 
@@ -579,10 +593,34 @@
         <div class="skills-category">
             <h3>Programming Languages</h3>
             <div class="skills-container">
-                <!-- C, C++ -->
+                <!-- PHP -->
                 <div class="skill-item">
-                    <img src="png-logos/c:c++.png" alt="C/C++" class="skill-icon">
-                    <span class="skill-name">C, C++</span>
+                    <img src="png-logos/php.png" alt="PHP" class="skill-icon">
+                    <span class="skill-name">PHP</span>
+                    <div class="skill-rating">★★★★☆</div>
+                </div>
+                <!-- HTML5 -->
+                <div class="skill-item">
+                    <img src="png-logos/html5.png" alt="HTML5" class="skill-icon">
+                    <span class="skill-name">HTML5</span>
+                    <div class="skill-rating">★★★★☆</div>
+                </div>
+                <!-- JavaScript -->
+                <div class="skill-item">
+                    <img src="png-logos/javascript.png" alt="JavaScript" class="skill-icon">
+                    <span class="skill-name">JavaScript</span>
+                    <div class="skill-rating">★★★★☆</div>
+                </div>
+                <!-- C# -->
+                <div class="skill-item">
+                    <img src="png-logos/csharp.png" alt="C#" class="skill-icon">
+                    <span class="skill-name">C#</span>
+                    <div class="skill-rating">★★★☆☆</div>
+                </div>
+                <!-- C++ -->
+                <div class="skill-item">
+                    <img src="png-logos/c++.png" alt="C++" class="skill-icon">
+                    <span class="skill-name">C++</span>
                     <div class="skill-rating">★★★★☆</div>
                 </div>
                 <!-- Java -->
@@ -597,22 +635,28 @@
                     <span class="skill-name">Python</span>
                     <div class="skill-rating">★★★★☆</div>
                 </div>
-                <!-- R Language -->
+                <!-- TypeScript -->
                 <div class="skill-item">
-                    <img src="png-logos/r-language.svg" alt="R Language" class="skill-icon">
-                    <span class="skill-name">R Language</span>
+                    <img src="png-logos/typescript.png" alt="TypeScript" class="skill-icon">
+                    <span class="skill-name">TypeScript</span>
                     <div class="skill-rating">★★★★☆</div>
                 </div>
-                <!-- .NET -->
+                <!-- SQL -->
                 <div class="skill-item">
-                    <img src="png-logos/NET.png" alt=".NET" class="skill-icon">
-                    <span class="skill-name">.NET</span>
+                    <img src="png-logos/sql.png" alt="SQL" class="skill-icon">
+                    <span class="skill-name">SQL</span>
                     <div class="skill-rating">★★★★☆</div>
                 </div>
-                <!-- Typescript -->
+                <!-- HTML -->
                 <div class="skill-item">
-                    <img src="png-logos/typescript.png" alt="Typescript" class="skill-icon">
-                    <span class="skill-name">Typescript</span>
+                    <img src="png-logos/html.png" alt="HTML" class="skill-icon">
+                    <span class="skill-name">HTML</span>
+                    <div class="skill-rating">★★★★☆</div>
+                </div>
+                <!-- CSS -->
+                <div class="skill-item">
+                    <img src="png-logos/css.png" alt="CSS" class="skill-icon">
+                    <span class="skill-name">CSS</span>
                     <div class="skill-rating">★★★★☆</div>
                 </div>
             </div>
@@ -671,22 +715,24 @@
         <div class="skills-category">
             <h3>Database Technologies</h3>
             <div class="skills-container">
-                <!-- MySQL -->
+                <div class="skill-item">
+                    <img src="png-logos/oracle.png" alt="OracleDB" class="skill-icon">
+                    <span class="skill-name">OracleDB</span>
+                    <div class="skill-rating">★★★★☆</div>
+                </div>
+                <div class="skill-item">
+                    <img src="png-logos/sqlserver.png" alt="SQLServer" class="skill-icon">
+                    <span class="skill-name">SQLServer</span>
+                    <div class="skill-rating">★★★★☆</div>
+                </div>
                 <div class="skill-item">
                     <img src="png-logos/mysql.png" alt="MySQL" class="skill-icon">
                     <span class="skill-name">MySQL</span>
                     <div class="skill-rating">★★★★☆</div>
                 </div>
-                <!-- Postgres -->
                 <div class="skill-item">
-                    <img src="png-logos/postgres.svg" alt="Postgres" class="skill-icon">
+                    <img src="png-logos/postgres.png" alt="Postgres" class="skill-icon">
                     <span class="skill-name">Postgres</span>
-                    <div class="skill-rating">★★★★☆</div>
-                </div>
-                <!-- MS T-SQL -->
-                <div class="skill-item">
-                    <img src="png-logos/mssql.png" alt="MS T-SQL" class="skill-icon">
-                    <span class="skill-name">MS T-SQL</span>
                     <div class="skill-rating">★★★★☆</div>
                 </div>
             </div>
@@ -775,18 +821,21 @@
 
         <!-- Cloud Services -->
         <div class="skills-category">
-            <h3>Cloud Services</h3>
+            <h3>Cloud Technologies</h3>
             <div class="skills-container">
-                <!-- AWS -->
                 <div class="skill-item">
-                    <img src="png-logos/AWS.png" alt="AWS" class="skill-icon">
+                    <img src="png-logos/aws.png" alt="AWS" class="skill-icon">
                     <span class="skill-name">AWS</span>
-                    <div class="skill-rating">★★★★★</div>
+                    <div class="skill-rating">★★★★☆</div>
                 </div>
-                <!-- Azure -->
                 <div class="skill-item">
-                    <img src="png-logos/azure.png" alt="Azure Cloud" class="skill-icon">
-                    <span class="skill-name">Azure Cloud</span>
+                    <img src="png-logos/azure.png" alt="Azure" class="skill-icon">
+                    <span class="skill-name">Azure</span>
+                    <div class="skill-rating">★★★★☆</div>
+                </div>
+                <div class="skill-item">
+                    <img src="png-logos/terraform.png" alt="Terraform" class="skill-icon">
+                    <span class="skill-name">Terraform</span>
                     <div class="skill-rating">★★★★☆</div>
                 </div>
             </div>

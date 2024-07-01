@@ -37,6 +37,15 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
   <title>Avinash's Portfolio</title>
   <link rel="stylesheet" href="styles.css">
+
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-WDSMRDBX10"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-WDSMRDBX10');
+  </script>
 </head>
 <body>
 <!-- Story Bars Container -->
@@ -54,13 +63,12 @@
 </div>
 
 <div class="slides-container">
-
   <div class="slide" id="homepage" data-detail-url="homepage-detail.html">
     <h1>Homepage</h1>
   </div>
 
   <!-- UCD Slide -->
-  <div class="slide" id="ucd" data-detail-url= "ucd-detail.html">
+  <div class="slide" id="ucd" data-detail-url="ucd-detail.html">
     <h1>UCD Process</h1>
   </div>
   <!-- Projects Slide -->
@@ -73,6 +81,7 @@
     <h1>Contact & Resume</h1>
   </div>
 </div>
+
 <script>
   if (window.location.hostname !== "localhost") {
     var script = document.createElement('script');
@@ -82,6 +91,6 @@
   }
 </script>
 
-
+<script src="script.js"></script>
 </body>
 </html>
