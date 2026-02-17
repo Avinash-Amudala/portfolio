@@ -118,16 +118,7 @@ export default function Contact() {
                   rel="noopener noreferrer"
                   className="flex items-center justify-between rounded-lg bg-[var(--color-accent)] px-4 py-3 text-sm font-medium text-white transition-all hover:bg-blue-600 hover:shadow-lg hover:shadow-blue-500/20"
                 >
-                  <span>Full-time Resume</span>
-                  <Download size={16} />
-                </a>
-                <a
-                  href="/resumes/Avinash Resume-software-coop.pdf"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center justify-between rounded-lg border border-[var(--color-border)] bg-[var(--color-surface-light)] px-4 py-3 text-sm font-medium text-[var(--color-text-primary)] transition-all hover:border-[var(--color-accent)]/30 hover:text-white"
-                >
-                  <span>Co-op/Intern Resume</span>
+                  <span>Download Resume</span>
                   <Download size={16} />
                 </a>
               </div>
