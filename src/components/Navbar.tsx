@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X, Download } from "lucide-react";
+import { Menu, X, Download, Sparkles } from "lucide-react";
 
 const navLinks = [
   { name: "Home", href: "#home" },
@@ -45,7 +45,7 @@ export default function Navbar() {
         initial={{ y: -100 }}
         animate={{ y: 0 }}
         transition={{ duration: 0.6, ease: "easeOut" }}
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
           scrolled
             ? "glass shadow-lg shadow-black/20"
             : "bg-transparent"
@@ -55,8 +55,11 @@ export default function Navbar() {
           <div className="flex h-16 items-center justify-between">
             <a
               href="#home"
-              className="text-lg font-bold tracking-tight"
+              className="group flex items-center gap-2 text-lg font-bold tracking-tight"
             >
+              <div className="rounded-lg bg-gradient-to-r from-[var(--color-accent)] to-[var(--color-accent-cyan)] p-1.5 transition-transform group-hover:scale-110">
+                <Sparkles size={14} className="text-white" />
+              </div>
               <span className="gradient-text">AA</span>
             </a>
 
@@ -66,7 +69,7 @@ export default function Navbar() {
                 <a
                   key={link.name}
                   href={link.href}
-                  className={`relative px-3 py-2 text-sm font-medium transition-colors ${
+                  className={`relative px-3 py-2 text-sm font-medium transition-colors rounded-lg ${
                     activeSection === link.href.replace("#", "")
                       ? "text-white"
                       : "text-[var(--color-text-secondary)] hover:text-white"
@@ -76,7 +79,7 @@ export default function Navbar() {
                   {activeSection === link.href.replace("#", "") && (
                     <motion.div
                       layoutId="activeNav"
-                      className="absolute inset-x-0 -bottom-px h-0.5 bg-[var(--color-accent)]"
+                      className="absolute inset-x-1 -bottom-px h-0.5 rounded-full bg-gradient-to-r from-[var(--color-accent)] to-[var(--color-accent-cyan)]"
                       transition={{ type: "spring", stiffness: 400, damping: 30 }}
                     />
                   )}
@@ -86,7 +89,7 @@ export default function Navbar() {
                 href="/resumes/Avinash Resume-software-FTE.pdf"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="ml-4 flex items-center gap-2 rounded-lg bg-[var(--color-accent)] px-4 py-2 text-sm font-medium text-white transition-all hover:bg-blue-600 hover:shadow-lg hover:shadow-blue-500/20"
+                className="ml-4 flex items-center gap-2 rounded-xl bg-gradient-to-r from-[var(--color-accent)] to-blue-600 px-4 py-2 text-sm font-semibold text-white transition-all hover:shadow-lg hover:shadow-blue-500/20 hover:-translate-y-0.5"
               >
                 <Download size={14} />
                 Resume
@@ -96,7 +99,7 @@ export default function Navbar() {
             {/* Mobile Toggle */}
             <button
               onClick={() => setMobileOpen(!mobileOpen)}
-              className="md:hidden p-2 text-[var(--color-text-secondary)] hover:text-white"
+              className="md:hidden p-2 rounded-lg text-[var(--color-text-secondary)] hover:text-white hover:bg-[var(--color-surface-light)] transition-all"
             >
               {mobileOpen ? <X size={24} /> : <Menu size={24} />}
             </button>
@@ -122,7 +125,11 @@ export default function Navbar() {
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: i * 0.1 }}
                   onClick={() => setMobileOpen(false)}
-                  className="text-xl font-medium text-[var(--color-text-primary)] hover:text-[var(--color-accent)]"
+                  className={`text-xl font-medium transition-colors ${
+                    activeSection === link.href.replace("#", "")
+                      ? "gradient-text"
+                      : "text-[var(--color-text-primary)] hover:text-[var(--color-accent)]"
+                  }`}
                 >
                   {link.name}
                 </motion.a>
@@ -131,7 +138,7 @@ export default function Navbar() {
                 href="/resumes/Avinash Resume-software-FTE.pdf"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="mt-4 flex items-center gap-2 rounded-lg bg-[var(--color-accent)] px-6 py-3 text-sm font-medium text-white"
+                className="mt-4 flex items-center gap-2 rounded-xl bg-gradient-to-r from-[var(--color-accent)] to-blue-600 px-6 py-3 text-sm font-semibold text-white"
               >
                 <Download size={14} />
                 Resume
