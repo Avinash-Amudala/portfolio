@@ -1,16 +1,21 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { ExternalLink, Github, FileText, BookOpen } from "lucide-react";
+import { ExternalLink, Github, FileText, BookOpen, ArrowUpRight } from "lucide-react";
 import SectionHeading from "./SectionHeading";
 import { projects } from "@/data/portfolio-data";
+import { Spotlight } from "@/components/ui/spotlight";
 
 const featuredProjects = projects.filter((p) => p.featured);
 
 export default function FeaturedProjects() {
   return (
-    <section id="projects" className="section-padding dot-grid">
-      <div className="mx-auto max-w-6xl">
+    <section id="projects" className="section-padding mesh-gradient relative">
+      {/* Background accents */}
+      <div className="absolute top-0 right-0 h-[400px] w-[400px] rounded-full bg-[var(--color-accent-cyan)] opacity-[0.02] blur-[120px]" />
+      <div className="absolute bottom-0 left-0 h-[400px] w-[400px] rounded-full bg-[var(--color-accent-purple)] opacity-[0.02] blur-[120px]" />
+
+      <div className="mx-auto max-w-6xl relative">
         <SectionHeading
           title="Featured Projects"
           subtitle="Production AI systems and research platforms"
@@ -26,10 +31,12 @@ export default function FeaturedProjects() {
               viewport={{ once: true }}
               className="group relative"
             >
-              <div className="relative rounded-xl border border-[var(--color-border)] bg-[var(--color-surface)] p-6 transition-all duration-300 hover:border-[var(--color-accent)]/30 hover:shadow-xl hover:shadow-blue-500/5 hover:-translate-y-1">
+              <div className="relative rounded-2xl border border-[var(--color-border)] bg-[var(--color-surface)] p-6 transition-all duration-300 hover:border-[var(--color-accent)]/30 hover:shadow-xl hover:shadow-blue-500/5 hover:-translate-y-1 overflow-hidden">
+                <Spotlight size={300} className="from-blue-500/15 via-transparent to-transparent" />
+
                 {/* Badge */}
                 {project.badge && (
-                  <span className="absolute top-4 right-4 rounded-full bg-[var(--color-accent-purple)]/20 px-3 py-1 text-xs font-medium text-[var(--color-accent-purple)]">
+                  <span className="absolute top-4 right-4 rounded-full bg-gradient-to-r from-[var(--color-accent-purple)]/20 to-[var(--color-accent-pink)]/20 px-3 py-1 text-xs font-medium text-[var(--color-accent-purple)] border border-[var(--color-accent-purple)]/20">
                     {project.badge}
                   </span>
                 )}
@@ -37,12 +44,12 @@ export default function FeaturedProjects() {
                 {/* Category indicator */}
                 <div className="mb-4 flex items-center gap-2">
                   <div
-                    className={`h-2 w-2 rounded-full ${
+                    className={`h-2.5 w-2.5 rounded-full ${
                       project.category === "ai-ml"
-                        ? "bg-[var(--color-accent-cyan)]"
+                        ? "bg-[var(--color-accent-cyan)] shadow-sm shadow-cyan-500/50"
                         : project.category === "research"
-                        ? "bg-[var(--color-accent-purple)]"
-                        : "bg-[var(--color-accent)]"
+                        ? "bg-[var(--color-accent-purple)] shadow-sm shadow-purple-500/50"
+                        : "bg-[var(--color-accent)] shadow-sm shadow-blue-500/50"
                     }`}
                   />
                   <span className="text-xs font-mono uppercase tracking-wider text-[var(--color-text-secondary)]">
@@ -60,7 +67,7 @@ export default function FeaturedProjects() {
                   {project.title}
                 </h3>
 
-                <p className="mb-1 font-mono text-xs text-[var(--color-text-secondary)]">
+                <p className="mb-1 font-mono text-xs text-[var(--color-accent-cyan)]/60">
                   {project.period}
                 </p>
 
@@ -73,7 +80,7 @@ export default function FeaturedProjects() {
                   {project.tags.map((tag) => (
                     <span
                       key={tag}
-                      className="rounded-md bg-[var(--color-surface-light)] px-2.5 py-1 text-xs font-medium text-[var(--color-text-secondary)]"
+                      className="rounded-lg bg-[var(--color-surface-light)] px-2.5 py-1 text-xs font-medium text-[var(--color-text-secondary)] border border-[var(--color-border)]/50"
                     >
                       {tag}
                     </span>
@@ -81,13 +88,13 @@ export default function FeaturedProjects() {
                 </div>
 
                 {/* Links */}
-                <div className="flex items-center gap-3">
+                <div className="flex items-center gap-3 pt-2 border-t border-[var(--color-border)]">
                   {project.github && (
                     <a
                       href={project.github}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="flex items-center gap-1.5 text-sm text-[var(--color-text-secondary)] transition-colors hover:text-[var(--color-accent)]"
+                      className="flex items-center gap-1.5 text-sm text-[var(--color-text-secondary)] transition-all hover:text-[var(--color-accent)] hover:-translate-y-0.5"
                     >
                       <Github size={14} />
                       Code
@@ -98,10 +105,11 @@ export default function FeaturedProjects() {
                       href={project.live}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="flex items-center gap-1.5 text-sm text-[var(--color-text-secondary)] transition-colors hover:text-[var(--color-accent-cyan)]"
+                      className="flex items-center gap-1.5 text-sm text-[var(--color-text-secondary)] transition-all hover:text-[var(--color-accent-cyan)] hover:-translate-y-0.5"
                     >
                       <ExternalLink size={14} />
                       Live
+                      <ArrowUpRight size={10} />
                     </a>
                   )}
                   {project.writeup && (
@@ -109,7 +117,7 @@ export default function FeaturedProjects() {
                       href={project.writeup}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="flex items-center gap-1.5 text-sm text-[var(--color-text-secondary)] transition-colors hover:text-[var(--color-accent-purple)]"
+                      className="flex items-center gap-1.5 text-sm text-[var(--color-text-secondary)] transition-all hover:text-[var(--color-accent-purple)] hover:-translate-y-0.5"
                     >
                       <FileText size={14} />
                       Write-up
@@ -120,7 +128,7 @@ export default function FeaturedProjects() {
                       href={project.doi}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="flex items-center gap-1.5 text-sm text-[var(--color-text-secondary)] transition-colors hover:text-green-400"
+                      className="flex items-center gap-1.5 text-sm text-[var(--color-text-secondary)] transition-all hover:text-green-400 hover:-translate-y-0.5"
                     >
                       <BookOpen size={14} />
                       Paper
