@@ -1,157 +1,114 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { ArrowRight, Github, ExternalLink, BookOpen } from "lucide-react";
 import Link from "next/link";
 import { flagshipProjects } from "@/data/portfolio-data";
 
+const categoryBadge: Record<string, string> = {
+  "mcp-telecom": "Flagship",
+  proxima: "Research",
+  "llm-incident-copilot": "Infrastructure",
+};
+
+const techStacks: Record<string, string[]> = {
+  "mcp-telecom": ["Python", "MCP SDK", "Netmiko", "ncclient", "pysnmp", "gRPC"],
+  proxima: ["Python", "NumPy", "SciPy", "pandas", "FastAPI", "React"],
+  "llm-incident-copilot": ["Python", "FAISS", "Qdrant", "Ollama", "Groq", "FastAPI"],
+};
+
 export default function FlagshipCards() {
   return (
-    <section className="section-padding mesh-gradient relative">
-      <div className="mx-auto max-w-5xl">
-        <div className="grid gap-6">
+    <section className="section-gap px-6 border-t border-[hsl(var(--border))]">
+      <div className="mx-auto max-w-[1200px]">
+        <div className="grid gap-8 lg:grid-cols-3">
           {flagshipProjects.map((project, i) => (
             <motion.div
               key={project.slug}
-              initial={{ opacity: 0, y: 30 }}
+              initial={{ opacity: 0, y: 24 }}
               whileInView={{ opacity: 1, y: 0 }}
-              transition={{ delay: i * 0.1, duration: 0.5 }}
+              transition={{ delay: i * 0.08, duration: 0.45 }}
               viewport={{ once: true }}
-              className="group"
+              className="group relative flex flex-col rounded-xl border border-[hsl(var(--border))] bg-[hsl(var(--bg))] p-6 transition-all duration-200 hover:-translate-y-1 hover:shadow-lg hover:shadow-[hsl(var(--accent)/0.06)] hover:border-[hsl(var(--accent)/0.3)]"
             >
-              <div className="rounded-2xl border border-[var(--color-border)] bg-[var(--color-surface)] p-6 sm:p-8 transition-all duration-300 hover:border-[var(--color-accent)]/30 hover:shadow-xl hover:shadow-blue-500/5">
-                <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-4 mb-4">
-                  <div>
-                    <h3 className="text-xl sm:text-2xl font-bold text-white group-hover:text-[var(--color-accent)] transition-colors">
-                      {project.title}
-                    </h3>
-                    <p className="mt-1 text-sm text-[var(--color-text-secondary)]">
-                      {project.tagline}
-                    </p>
-                  </div>
-                  <span className="shrink-0 rounded-full bg-[var(--color-surface-light)] px-3 py-1 text-xs font-mono text-[var(--color-accent-cyan)] border border-[var(--color-border)]">
-                    {project.status}
-                  </span>
-                </div>
+              {/* Badge */}
+              <span className="mb-4 inline-flex w-fit rounded-full bg-[hsl(var(--subtle))] px-3 py-1 text-xs font-medium text-[hsl(var(--muted))] border border-[hsl(var(--border))]">
+                {categoryBadge[project.slug] ?? "Project"}
+              </span>
 
-                <div className="grid sm:grid-cols-2 gap-4 mb-6">
-                  <div>
-                    <p className="text-xs font-mono uppercase tracking-wider text-[var(--color-text-secondary)] mb-1">
-                      Problem
-                    </p>
-                    <p className="text-sm text-[var(--color-text-secondary)] leading-relaxed">
-                      {project.problem}
-                    </p>
-                  </div>
-                  <div>
-                    <p className="text-xs font-mono uppercase tracking-wider text-[var(--color-text-secondary)] mb-1">
-                      Solution
-                    </p>
-                    <p className="text-sm text-[var(--color-text-secondary)] leading-relaxed">
-                      {project.solution}
-                    </p>
-                  </div>
-                </div>
+              {/* Title */}
+              <h3 className="text-[22px] font-bold text-[hsl(var(--fg))] mb-2 group-hover:text-[hsl(var(--accent))] transition-colors">
+                {project.title}
+              </h3>
 
-                <div className="flex flex-wrap gap-2 mb-6">
-                  {project.metrics.map((metric) => (
-                    <span
-                      key={metric}
-                      className="rounded-lg bg-[var(--color-accent)]/10 px-3 py-1.5 text-xs font-mono font-medium text-[var(--color-accent)]"
-                    >
-                      {metric}
-                    </span>
-                  ))}
-                </div>
+              {/* Problem sentence */}
+              <p className="text-[15px] leading-relaxed text-[hsl(var(--muted))] mb-5 flex-1">
+                {project.problem}
+              </p>
 
-                {/* Live badges */}
-                {project.slug === "mcp-telecom" && (
-                  <div className="flex flex-wrap items-center gap-2 mb-4">
-                    <img
-                      src="https://img.shields.io/pypi/v/mcp-telecom?style=flat-square&color=3b82f6"
-                      alt="PyPI version"
-                      className="h-5"
-                    />
-                    <img
-                      src="https://img.shields.io/pypi/dm/mcp-telecom?style=flat-square&color=06b6d4"
-                      alt="PyPI downloads"
-                      className="h-5"
-                    />
-                    <img
-                      src="https://img.shields.io/github/stars/Avinash-Amudala/MCP-Telecom?style=flat-square&color=8b5cf6"
-                      alt="GitHub stars"
-                      className="h-5"
-                    />
-                    <img
-                      src="https://img.shields.io/github/actions/workflow/status/Avinash-Amudala/MCP-Telecom/ci.yml?style=flat-square&label=CI"
-                      alt="CI status"
-                      className="h-5"
-                    />
-                  </div>
-                )}
-                {project.slug === "proxima" && (
-                  <div className="flex flex-wrap items-center gap-2 mb-4">
-                    <img
-                      src="https://img.shields.io/github/stars/Avinash-Amudala/PROXIMA?style=flat-square&color=8b5cf6"
-                      alt="GitHub stars"
-                      className="h-5"
-                    />
-                    <img
-                      src="https://img.shields.io/github/license/Avinash-Amudala/PROXIMA?style=flat-square"
-                      alt="License"
-                      className="h-5"
-                    />
-                  </div>
-                )}
-
-                <div className="flex items-center justify-between border-t border-[var(--color-border)] pt-4">
-                  <div className="flex items-center gap-4">
-                    {project.github && (
-                      <a
-                        href={project.github}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="flex items-center gap-1.5 text-sm text-[var(--color-text-secondary)] transition-colors hover:text-white"
-                      >
-                        <Github size={14} />
-                        Code
-                      </a>
-                    )}
-                    {project.pypi && (
-                      <a
-                        href={project.pypi}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="flex items-center gap-1.5 text-sm text-[var(--color-text-secondary)] transition-colors hover:text-[var(--color-accent-cyan)]"
-                      >
-                        <ExternalLink size={14} />
-                        PyPI
-                      </a>
-                    )}
-                    {project.doi && (
-                      <a
-                        href={project.doi}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="flex items-center gap-1.5 text-sm text-[var(--color-text-secondary)] transition-colors hover:text-green-400"
-                      >
-                        <BookOpen size={14} />
-                        Paper
-                      </a>
-                    )}
-                  </div>
-                  <Link
-                    href={`/projects/${project.slug}`}
-                    className="flex items-center gap-1.5 text-sm font-medium text-[var(--color-accent)] transition-colors hover:text-white group/link"
+              {/* Metric chips */}
+              <div className="flex flex-wrap gap-2 mb-4">
+                {project.metrics.slice(0, 3).map((metric) => (
+                  <span
+                    key={metric}
+                    className="rounded-md bg-[hsl(var(--subtle))] px-2.5 py-1 text-xs font-[family-name:var(--font-mono)] font-medium text-[hsl(var(--fg))]"
                   >
-                    Case study
-                    <ArrowRight
-                      size={14}
-                      className="transition-transform group-hover/link:translate-x-1"
-                    />
-                  </Link>
-                </div>
+                    {metric}
+                  </span>
+                ))}
               </div>
+
+              {/* Tech stack chips */}
+              <div className="flex flex-wrap gap-1.5 mb-5">
+                {(techStacks[project.slug] ?? []).map((tech) => (
+                  <span
+                    key={tech}
+                    className="rounded-md border border-[hsl(var(--border))] px-2 py-0.5 text-[11px] text-[hsl(var(--muted))]"
+                  >
+                    {tech}
+                  </span>
+                ))}
+              </div>
+
+              {/* Links */}
+              <div className="flex items-center gap-4 pt-4 border-t border-[hsl(var(--border))] text-sm">
+                <Link
+                  href={`/projects/${project.slug}`}
+                  className="text-[hsl(var(--accent))] hover:underline font-medium"
+                >
+                  Case study &rarr;
+                </Link>
+                {project.github && (
+                  <a
+                    href={project.github}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-[hsl(var(--muted))] hover:text-[hsl(var(--fg))] transition-colors"
+                  >
+                    GitHub &nearr;
+                  </a>
+                )}
+              </div>
+
+              {/* Live badges for MCP-Telecom */}
+              {project.slug === "mcp-telecom" && (
+                <div className="flex flex-wrap items-center gap-2 mt-4">
+                  <img
+                    src="https://img.shields.io/pypi/v/mcp-telecom?style=flat-square"
+                    alt="PyPI version"
+                    className="h-[18px]"
+                  />
+                  <img
+                    src="https://img.shields.io/pypi/dm/mcp-telecom?style=flat-square"
+                    alt="PyPI downloads"
+                    className="h-[18px]"
+                  />
+                  <img
+                    src="https://img.shields.io/github/stars/Avinash-Amudala/MCP-Telecom?style=flat-square"
+                    alt="GitHub stars"
+                    className="h-[18px]"
+                  />
+                </div>
+              )}
             </motion.div>
           ))}
         </div>

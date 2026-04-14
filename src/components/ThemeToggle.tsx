@@ -4,29 +4,31 @@ import { useEffect, useState } from "react";
 import { Sun, Moon } from "lucide-react";
 
 export default function ThemeToggle() {
-  const [theme, setTheme] = useState<"dark" | "light">("dark");
+  const [dark, setDark] = useState(true);
 
   useEffect(() => {
-    const stored = localStorage.getItem("theme") as "dark" | "light" | null;
-    const initial = stored ?? "dark";
-    setTheme(initial);
-    document.documentElement.setAttribute("data-theme", initial);
+    const stored = localStorage.getItem("theme");
+    const prefersDark =
+      stored === "dark" ||
+      (!stored && window.matchMedia("(prefers-color-scheme: dark)").matches);
+    setDark(prefersDark);
+    document.documentElement.classList.toggle("dark", prefersDark);
   }, []);
 
   const toggle = () => {
-    const next = theme === "dark" ? "light" : "dark";
-    setTheme(next);
-    localStorage.setItem("theme", next);
-    document.documentElement.setAttribute("data-theme", next);
+    const next = !dark;
+    setDark(next);
+    localStorage.setItem("theme", next ? "dark" : "light");
+    document.documentElement.classList.toggle("dark", next);
   };
 
   return (
     <button
       onClick={toggle}
-      className="ml-2 rounded-lg p-2 text-[var(--color-text-secondary)] transition-all hover:text-white hover:bg-[var(--color-surface-light)]"
-      aria-label="Toggle theme"
+      className="rounded-lg p-2 text-[hsl(var(--muted))] transition-colors hover:text-[hsl(var(--fg))] hover:bg-[hsl(var(--subtle))]"
+      aria-label={dark ? "Switch to light mode" : "Switch to dark mode"}
     >
-      {theme === "dark" ? <Sun size={16} /> : <Moon size={16} />}
+      {dark ? <Sun size={16} /> : <Moon size={16} />}
     </button>
   );
 }

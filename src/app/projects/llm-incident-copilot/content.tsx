@@ -4,7 +4,7 @@ import CaseStudyLayout from "@/components/CaseStudyLayout";
 
 function ArchitectureDiagram() {
   return (
-    <div className="font-mono text-xs text-[var(--color-text-secondary)]">
+    <div className="font-[family-name:var(--font-mono)] text-xs text-[hsl(var(--muted))]">
       <pre className="whitespace-pre overflow-x-auto leading-relaxed">
 {`┌─────────────────────────────────────────────────────────┐
 │                     User Query                          │
@@ -46,6 +46,7 @@ export default function LLMIncidentCopilotContent() {
   return (
     <CaseStudyLayout
       title="LLM Incident Copilot"
+      subtitle="Evidence-grounded RAG for production log debugging."
       status="Released — open source"
       problem="Production incident debugging requires reading through multi-megabyte log files to find root causes. Existing AI tools generate plausible-sounding diagnoses but hallucinate details — fabricating error messages, timestamps, and causal chains that don't appear in the actual logs. In high-stakes incidents, a wrong diagnosis wastes time and can make the situation worse."
       approach="The LLM Incident Copilot is a RAG system with a strict evidence requirement: every AI conclusion must cite actual log lines with timestamps. Logs are chunked, embedded, and stored in a dual vector store (FAISS for local speed, Qdrant for persistence). At query time, relevant chunks are retrieved, re-ranked, and passed to the LLM with instructions to only make claims supported by the provided evidence. An evidence guardrail layer validates that citations correspond to real log entries."
@@ -134,6 +135,7 @@ export default function LLMIncidentCopilotContent() {
           icon: "github",
         },
       ]}
+      lessonsLearned="The evidence guardrail is the entire value proposition — without it, this is just another chatbot over logs. The hardest part was making the citation check fast enough to not degrade the user experience. Chunking strategy matters enormously: too small and you lose context, too large and retrieval precision drops. I ended up with a time-window-based chunking strategy that preserves temporal locality."
       timeline="Built 2025–2026. Designed as a response to hallucination problems in production debugging tools. Open source."
     />
   );

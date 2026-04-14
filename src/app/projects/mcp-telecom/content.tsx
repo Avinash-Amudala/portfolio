@@ -4,7 +4,7 @@ import CaseStudyLayout from "@/components/CaseStudyLayout";
 
 function ArchitectureDiagram() {
   return (
-    <div className="font-mono text-xs text-[var(--color-text-secondary)]">
+    <div className="font-[family-name:var(--font-mono)] text-xs text-[hsl(var(--muted))]">
       <pre className="whitespace-pre overflow-x-auto leading-relaxed">
 {`┌─────────────────────────────────────────────────────────┐
 │                    LLM / AI Agent                       │
@@ -46,7 +46,7 @@ function ArchitectureDiagram() {
 }
 
 function VendorMatrix() {
-  const vendors = [
+  const vendors: { name: string; ssh: boolean; netconf: boolean; snmp: boolean; gnmi: boolean }[] = [
     { name: "Nokia SR OS", ssh: true, netconf: true, snmp: true, gnmi: true },
     { name: "Cisco IOS", ssh: true, netconf: false, snmp: true, gnmi: false },
     {
@@ -84,31 +84,31 @@ function VendorMatrix() {
     <div className="overflow-x-auto mt-4">
       <table className="w-full text-sm text-left">
         <thead>
-          <tr className="border-b border-[var(--color-border)]">
-            <th className="pb-3 font-semibold text-white">Vendor Platform</th>
-            <th className="pb-3 font-semibold text-white text-center">SSH</th>
-            <th className="pb-3 font-semibold text-white text-center">
+          <tr className="border-b border-[hsl(var(--border))]">
+            <th className="pb-3 font-semibold text-[hsl(var(--fg))]">Vendor Platform</th>
+            <th className="pb-3 font-semibold text-[hsl(var(--fg))] text-center">SSH</th>
+            <th className="pb-3 font-semibold text-[hsl(var(--fg))] text-center">
               NETCONF
             </th>
-            <th className="pb-3 font-semibold text-white text-center">SNMP</th>
-            <th className="pb-3 font-semibold text-white text-center">gNMI</th>
+            <th className="pb-3 font-semibold text-[hsl(var(--fg))] text-center">SNMP</th>
+            <th className="pb-3 font-semibold text-[hsl(var(--fg))] text-center">gNMI</th>
           </tr>
         </thead>
         <tbody>
           {vendors.map((v) => (
             <tr
               key={v.name}
-              className="border-b border-[var(--color-border)]/50"
+              className="border-b border-[hsl(var(--border))]"
             >
-              <td className="py-2.5 text-[var(--color-text-secondary)] font-mono text-xs">
+              <td className="py-2.5 text-[hsl(var(--muted))] font-[family-name:var(--font-mono)] text-xs">
                 {v.name}
               </td>
               {[v.ssh, v.netconf, v.snmp, v.gnmi].map((supported, i) => (
                 <td key={i} className="py-2.5 text-center">
                   {supported ? (
-                    <span className="text-green-400">&#10003;</span>
+                    <span className="text-[hsl(var(--success))]">&#10003;</span>
                   ) : (
-                    <span className="text-[var(--color-text-secondary)]">
+                    <span className="text-[hsl(var(--muted))]">
                       &mdash;
                     </span>
                   )}
@@ -126,6 +126,7 @@ export default function MCPTelecomContent() {
   return (
     <CaseStudyLayout
       title="MCP-Telecom"
+      subtitle="The first Model Context Protocol server for network equipment."
       status="Active — v0.2.0 on PyPI"
       problem="LLM agents have no standardized way to interact with network equipment. Each vendor has different CLIs, APIs, and protocols. Existing automation tools (Ansible, Nornir) are designed for scripts, not conversational AI. There is no Model Context Protocol server for the telecom domain — meaning AI agents are locked out of network operations entirely."
       approach="MCP-Telecom is a production-grade MCP server that exposes 60+ tools for multi-vendor network equipment via four transport protocols (SSH, NETCONF, SNMP, gNMI). It includes a 20+ blocked-pattern safety layer that prevents destructive commands, connection pooling for efficient device reuse, a parallel executor for multi-device operations, and LLDP/CDP topology discovery with BFS traversal. The entire system is published on PyPI as a pip-installable package."
@@ -247,6 +248,7 @@ export default function MCPTelecomContent() {
           icon: "pypi",
         },
       ]}
+      lessonsLearned="Building for the MCP spec while it was still evolving meant re-fitting tool schemas more than once. The bigger lesson was on the safety side: I underestimated how often an LLM will confidently suggest a command that would take down a box. The safety gate started as one file of regexes and grew into a proper policy layer. If I were starting over, I'd build the policy layer first and the tool surface second."
       timeline="Started March 2025. v0.1.0 released April 2025. v0.2.0 (current) released May 2025 with gNMI support, expanded vendor coverage, and Containerlab integration. v0.3 in development with RESTCONF transport."
     />
   );

@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import MCPTelecomContent from "./content";
+import { SoftwareJsonLd } from "@/components/JsonLd";
 
 export const metadata: Metadata = {
   title: "MCP-Telecom — First MCP Server for Network Equipment",
@@ -8,5 +9,15 @@ export const metadata: Metadata = {
 };
 
 export default function MCPTelecomPage() {
-  return <MCPTelecomContent />;
+  return (
+    <>
+      <SoftwareJsonLd
+        name="MCP-Telecom"
+        description="The first Model Context Protocol server for multi-vendor network equipment. 60+ tools, 7 vendors, on PyPI."
+        url="https://avinash-amudala.com/projects/mcp-telecom"
+        codeRepository="https://github.com/Avinash-Amudala/MCP-Telecom"
+      />
+      <MCPTelecomContent />
+    </>
+  );
 }

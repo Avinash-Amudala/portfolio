@@ -2,17 +2,19 @@
 
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X, Download } from "lucide-react";
+import { Menu, X } from "lucide-react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import ThemeToggle from "./ThemeToggle";
 
 const navLinks = [
   { name: "Home", href: "/" },
-  { name: "Talks", href: "/talks" },
+  { name: "About", href: "/about" },
   { name: "Writing", href: "/writing" },
+  { name: "Projects", href: "/projects" },
+  { name: "Talks", href: "/talks" },
   { name: "Now", href: "/now" },
-  { name: "Archive", href: "/archive" },
+  { name: "Contact", href: "/contact" },
 ];
 
 export default function SiteNav() {
@@ -21,133 +23,101 @@ export default function SiteNav() {
   const pathname = usePathname();
 
   useEffect(() => {
-    const handleScroll = () => setScrolled(window.scrollY > 50);
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
+    const onScroll = () => setScrolled(window.scrollY > 50);
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
   useEffect(() => {
     setMobileOpen(false);
   }, [pathname]);
 
+  const isActive = (href: string) =>
+    href === "/" ? pathname === "/" : pathname.startsWith(href);
+
   return (
     <>
-      <motion.nav
-        initial={{ y: -100 }}
-        animate={{ y: 0 }}
-        transition={{ duration: 0.6, ease: "easeOut" }}
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
-          scrolled ? "glass shadow-lg shadow-black/20" : "bg-transparent"
+      <nav
+        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+          scrolled
+            ? "bg-[hsl(var(--bg)/0.85)] backdrop-blur-md border-b border-[hsl(var(--border))] shadow-sm"
+            : "bg-transparent"
         }`}
       >
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div className="mx-auto max-w-[1200px] px-6">
           <div className="flex h-16 items-center justify-between">
+            {/* Logo */}
             <Link
               href="/"
-              className="group flex items-center gap-2 text-lg font-bold tracking-tight font-mono"
+              className="text-lg font-bold tracking-tight font-[family-name:var(--font-mono)] text-[hsl(var(--fg))] hover:text-[hsl(var(--accent))] transition-colors"
             >
-              <span className="gradient-text">AA</span>
+              AA
             </Link>
 
+            {/* Desktop links */}
             <div className="hidden md:flex items-center gap-1">
-              {navLinks.map((link) => {
-                const isActive =
-                  link.href === "/"
-                    ? pathname === "/"
-                    : pathname.startsWith(link.href);
-                return (
-                  <Link
-                    key={link.name}
-                    href={link.href}
-                    className={`relative px-3 py-2 text-sm font-medium transition-colors rounded-lg ${
-                      isActive
-                        ? "text-white"
-                        : "text-[var(--color-text-secondary)] hover:text-white"
-                    }`}
-                  >
-                    {link.name}
-                    {isActive && (
-                      <motion.div
-                        layoutId="activeNav"
-                        className="absolute inset-x-1 -bottom-px h-0.5 rounded-full bg-gradient-to-r from-[var(--color-accent)] to-[var(--color-accent-cyan)]"
-                        transition={{
-                          type: "spring",
-                          stiffness: 400,
-                          damping: 30,
-                        }}
-                      />
-                    )}
-                  </Link>
-                );
-              })}
-              <ThemeToggle />
-              <a
-                href="/resumes/avinash-amudala-swe.pdf"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="ml-3 flex items-center gap-2 rounded-xl bg-gradient-to-r from-[var(--color-accent)] to-blue-600 px-4 py-2 text-sm font-semibold text-white transition-all hover:shadow-lg hover:shadow-blue-500/20 hover:-translate-y-0.5"
-              >
-                <Download size={14} />
-                Resume
-              </a>
+              {navLinks.map((link) => (
+                <Link
+                  key={link.name}
+                  href={link.href}
+                  className={`px-3 py-2 text-sm font-medium rounded-md transition-colors ${
+                    isActive(link.href)
+                      ? "text-[hsl(var(--fg))]"
+                      : "text-[hsl(var(--muted))] hover:text-[hsl(var(--fg))]"
+                  }`}
+                >
+                  {link.name}
+                </Link>
+              ))}
+              <div className="ml-2 border-l border-[hsl(var(--border))] pl-2">
+                <ThemeToggle />
+              </div>
             </div>
 
-            <div className="flex md:hidden items-center gap-2">
+            {/* Mobile controls */}
+            <div className="flex md:hidden items-center gap-1">
               <ThemeToggle />
               <button
                 onClick={() => setMobileOpen(!mobileOpen)}
-                className="p-2 rounded-lg text-[var(--color-text-secondary)] hover:text-white hover:bg-[var(--color-surface-light)] transition-all"
+                className="p-2 rounded-md text-[hsl(var(--muted))] hover:text-[hsl(var(--fg))] hover:bg-[hsl(var(--subtle))] transition-colors"
+                aria-label="Toggle menu"
               >
-                {mobileOpen ? <X size={24} /> : <Menu size={24} />}
+                {mobileOpen ? <X size={20} /> : <Menu size={20} />}
               </button>
             </div>
           </div>
         </div>
-      </motion.nav>
+      </nav>
 
+      {/* Mobile drawer */}
       <AnimatePresence>
         {mobileOpen && (
           <motion.div
-            initial={{ opacity: 0, y: -20 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -20 }}
-            className="fixed inset-0 z-40 glass pt-20"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 z-40 bg-[hsl(var(--bg)/0.95)] backdrop-blur-md pt-20"
           >
-            <div className="flex flex-col items-center gap-6 p-8">
-              {navLinks.map((link, i) => {
-                const isActive =
-                  link.href === "/"
-                    ? pathname === "/"
-                    : pathname.startsWith(link.href);
-                return (
-                  <motion.div
-                    key={link.name}
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ delay: i * 0.1 }}
+            <div className="flex flex-col items-center gap-2 p-8">
+              {navLinks.map((link, i) => (
+                <motion.div
+                  key={link.name}
+                  initial={{ opacity: 0, y: 12 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: i * 0.05 }}
+                >
+                  <Link
+                    href={link.href}
+                    className={`block px-6 py-3 text-lg font-medium rounded-md transition-colors ${
+                      isActive(link.href)
+                        ? "text-[hsl(var(--accent))]"
+                        : "text-[hsl(var(--fg))] hover:text-[hsl(var(--accent))]"
+                    }`}
                   >
-                    <Link
-                      href={link.href}
-                      className={`text-xl font-medium transition-colors ${
-                        isActive
-                          ? "gradient-text"
-                          : "text-[var(--color-text-primary)] hover:text-[var(--color-accent)]"
-                      }`}
-                    >
-                      {link.name}
-                    </Link>
-                  </motion.div>
-                );
-              })}
-              <a
-                href="/resumes/avinash-amudala-swe.pdf"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="mt-4 flex items-center gap-2 rounded-xl bg-gradient-to-r from-[var(--color-accent)] to-blue-600 px-6 py-3 text-sm font-semibold text-white"
-              >
-                <Download size={14} />
-                Resume
-              </a>
+                    {link.name}
+                  </Link>
+                </motion.div>
+              ))}
             </div>
           </motion.div>
         )}
