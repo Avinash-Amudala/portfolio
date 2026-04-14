@@ -49,9 +49,10 @@ export default function SiteNav() {
             {/* Logo */}
             <Link
               href="/"
-              className="text-lg font-bold tracking-tight font-[family-name:var(--font-mono)] text-[hsl(var(--fg))] hover:text-[hsl(var(--accent))] transition-colors"
+              className="text-sm font-bold tracking-tight text-[hsl(var(--fg))] hover:text-[hsl(var(--accent))] transition-colors"
             >
-              AA
+              <span className="hidden sm:inline">Avinash Amudala</span>
+              <span className="sm:hidden font-[family-name:var(--font-mono)]">AA</span>
             </Link>
 
             {/* Desktop links */}

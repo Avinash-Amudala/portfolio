@@ -7,12 +7,22 @@ export default function HomeHero() {
   return (
     <section className="relative section-gap px-6">
       <div className="mx-auto max-w-[1200px]">
-        {/* Kicker */}
+        {/* Name */}
         <motion.p
           initial={{ opacity: 0, y: 12 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
-          className="text-sm text-[hsl(var(--muted))] mb-6"
+          className="text-lg font-semibold text-[hsl(var(--fg))] mb-1"
+        >
+          Avinash Amudala
+        </motion.p>
+
+        {/* Kicker */}
+        <motion.p
+          initial={{ opacity: 0, y: 12 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.03 }}
+          className="text-sm text-[hsl(var(--muted))] mb-8"
         >
           Software Engineer · Nokia · Sunnyvale
         </motion.p>
@@ -21,7 +31,7 @@ export default function HomeHero() {
         <motion.h1
           initial={{ opacity: 0, y: 12 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.05 }}
+          transition={{ duration: 0.5, delay: 0.06 }}
           className="text-display text-[hsl(var(--fg))] mb-6 max-w-[900px]"
         >
           I build AI systems for telecom and experimentation.
