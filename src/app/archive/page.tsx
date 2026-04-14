@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import ArchiveContent from "./content";
+import ArchiveContent from "./client";
 
 export const metadata: Metadata = {
   title: "Archive",

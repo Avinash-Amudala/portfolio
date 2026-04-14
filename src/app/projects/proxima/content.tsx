@@ -4,7 +4,7 @@ import CaseStudyLayout from "@/components/CaseStudyLayout";
 
 function ApproachDiagram() {
   return (
-    <div className="font-mono text-xs text-[var(--color-text-secondary)]">
+    <div className="font-[family-name:var(--font-mono)] text-xs text-[hsl(var(--muted))]">
       <pre className="whitespace-pre overflow-x-auto leading-relaxed">
 {`┌─────────────────────────────────────────────────────────┐
 │                  A/B Test Platform                       │
@@ -40,6 +40,7 @@ export default function ProximaContent() {
   return (
     <CaseStudyLayout
       title="PROXIMA"
+      subtitle="A validation framework for proxy metrics in online controlled experiments."
       status="Research / Preprint (stat.ME, pending)"
       problem="Teams running A/B tests often rely on short-term proxy metrics (e.g., click-through rate) to make shipping decisions about long-term outcomes (e.g., retention). If the proxy is unreliable — due to sign flips, segment-level paradoxes, or weak correlation — teams unknowingly ship regressions. There is no standard framework for quantifying whether a proxy metric is trustworthy enough to base decisions on."
       approach="PROXIMA introduces a formal framework for proxy metric validation. It computes a composite reliability score R ∈ [0,1] based on three pillars: directional agreement (does the proxy agree with the oracle on which variant wins?), rank preservation (Kendall's τ_b across experiments), and segment-level fragility detection (Simpson's Paradox reversals where the proxy says one thing for the whole population but the opposite for subgroups). A shipping decision simulator then estimates the expected regret of trusting the proxy."
@@ -139,6 +140,7 @@ export default function ProximaContent() {
           icon: "paper",
         },
       ]}
+      lessonsLearned="The hardest part wasn't the statistics — it was defining what 'reliable' means precisely enough to compute. The framework went through three complete redesigns of the scoring function before converging on the composite R. I also learned that evaluation on public datasets is necessary for credibility, but the datasets that have both proxy and long-term outcomes are rare. Criteo and KuaiRec were the only viable options."
       timeline="Research started June 2025. 14-page paper with formal definitions, Proposition 1, Algorithm 1. Zenodo DOI registered. arXiv submission to stat.ME pending. Code and data publicly available on GitHub."
     />
   );

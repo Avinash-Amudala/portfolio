@@ -1,99 +1,93 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Github, ExternalLink, BookOpen } from "lucide-react";
 import { personalInfo } from "@/data/portfolio-data";
 
 export default function HomeHero() {
   return (
-    <section className="relative flex min-h-[80vh] items-center justify-center overflow-hidden">
-      <div className="absolute inset-0 bg-gradient-to-b from-[#050510] via-[#0a0a1a] to-[var(--color-background)]" />
-
-      <div className="absolute top-1/4 left-1/4 -translate-x-1/2 -translate-y-1/2 h-[500px] w-[500px] rounded-full bg-[var(--color-accent)] opacity-[0.04] blur-[120px]" />
-      <div className="absolute bottom-1/4 right-1/4 h-[400px] w-[400px] rounded-full bg-[var(--color-accent-purple)] opacity-[0.03] blur-[100px]" />
-
-      <div className="relative z-10 mx-auto max-w-4xl px-4 text-center">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-        >
-          <div className="inline-flex items-center gap-2 rounded-full border border-[var(--color-border)] bg-[var(--color-surface)]/50 px-4 py-1.5 mb-8 backdrop-blur-sm">
-            <span className="relative flex h-2 w-2">
-              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75" />
-              <span className="relative inline-flex rounded-full h-2 w-2 bg-green-500" />
-            </span>
-            <span className="text-xs font-medium text-[var(--color-text-secondary)]">
-              Available for opportunities
-            </span>
-          </div>
-        </motion.div>
-
-        <motion.h1
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.1 }}
-          className="mb-6 text-3xl font-bold tracking-tight sm:text-4xl lg:text-5xl leading-tight"
-        >
-          <span className="text-[var(--color-text-primary)]">
-            I build AI systems for telecom and experimentation.
-          </span>{" "}
-          <span className="text-[var(--color-text-secondary)]">
-            Creator of{" "}
-            <a
-              href={personalInfo.pypi}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="gradient-text hover:underline"
-            >
-              MCP-Telecom
-            </a>{" "}
-            — the first Model Context Protocol server for network equipment.
-          </span>
-        </motion.h1>
-
+    <section className="relative section-gap px-6">
+      <div className="mx-auto max-w-[1200px]">
+        {/* Kicker */}
         <motion.p
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 12 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.2 }}
-          className="mb-8 text-lg font-mono text-[var(--color-accent-cyan)]"
+          transition={{ duration: 0.5 }}
+          className="text-sm text-[hsl(var(--muted))] mb-6"
         >
-          {personalInfo.heroMetrics}
+          Software Engineer · Nokia · Sunnyvale
         </motion.p>
 
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
+        {/* Display headline */}
+        <motion.h1
+          initial={{ opacity: 0, y: 12 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.3 }}
-          className="flex items-center justify-center gap-6 flex-wrap"
+          transition={{ duration: 0.5, delay: 0.05 }}
+          className="text-display text-[hsl(var(--fg))] mb-6 max-w-[900px]"
         >
-          <a
-            href={personalInfo.github}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="flex items-center gap-2 text-sm font-medium text-[var(--color-text-secondary)] transition-colors hover:text-white"
-          >
-            <Github size={16} />
-            GitHub
-          </a>
+          I build AI systems for telecom and experimentation.
+        </motion.h1>
+
+        {/* Sub-headline */}
+        <motion.p
+          initial={{ opacity: 0, y: 12 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.1 }}
+          className="text-[22px] leading-[1.4] text-[hsl(var(--muted))] mb-8 max-w-[800px]"
+        >
+          Creator of{" "}
           <a
             href={personalInfo.pypi}
             target="_blank"
             rel="noopener noreferrer"
-            className="flex items-center gap-2 text-sm font-medium text-[var(--color-text-secondary)] transition-colors hover:text-white"
+            className="text-[hsl(var(--accent))] hover:underline"
           >
-            <ExternalLink size={16} />
-            PyPI
-          </a>
-          <a
-            href={personalInfo.scholar}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="flex items-center gap-2 text-sm font-medium text-[var(--color-text-secondary)] transition-colors hover:text-white"
-          >
-            <BookOpen size={16} />
-            Google Scholar
-          </a>
+            MCP-Telecom
+          </a>{" "}
+          — the first Model Context Protocol server for network equipment.
+          60+ tools, 7 vendors, shipped on PyPI. Currently researching proxy
+          metric validation for online experiments.
+        </motion.p>
+
+        {/* Inline link bar */}
+        <motion.div
+          initial={{ opacity: 0, y: 12 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.15 }}
+          className="flex flex-wrap items-center gap-x-5 gap-y-2 text-sm mb-10"
+        >
+          {[
+            { label: "GitHub", href: personalInfo.github },
+            { label: "PyPI", href: personalInfo.pypi },
+            { label: "Google Scholar", href: personalInfo.scholar },
+            { label: "ORCID", href: personalInfo.orcid },
+            { label: "Resume", href: "/resumes/avinash-amudala-swe.pdf" },
+          ].map((link) => (
+            <a
+              key={link.label}
+              href={link.href}
+              target={link.label === "Resume" ? "_blank" : "_blank"}
+              rel="noopener noreferrer"
+              className="text-[hsl(var(--muted))] hover:text-[hsl(var(--accent))] transition-colors"
+            >
+              {link.label}
+            </a>
+          ))}
+        </motion.div>
+
+        {/* Status pill */}
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.5, delay: 0.2 }}
+          className="inline-flex items-center gap-2 rounded-full border border-[hsl(var(--border))] bg-[hsl(var(--subtle))] px-4 py-2"
+        >
+          <span className="relative flex h-2 w-2">
+            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[hsl(var(--success))] opacity-75" />
+            <span className="relative inline-flex rounded-full h-2 w-2 bg-[hsl(var(--success))]" />
+          </span>
+          <span className="text-xs text-[hsl(var(--muted))]">
+            Available for senior SWE / AI infra roles
+          </span>
         </motion.div>
       </div>
     </section>
