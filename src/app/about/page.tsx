@@ -7,6 +7,7 @@ import {
 } from "lucide-react";
 import Link from "next/link";
 import { certifications, education } from "@/data/portfolio-data";
+import HolographicCard from "@/components/HolographicCard";
 
 export const metadata: Metadata = {
   title: "About",
@@ -46,27 +47,35 @@ export default function AboutPage() {
     <article className="section-gap px-6">
       <div className="mx-auto max-w-[720px]">
         {/* Header */}
-        <div className="mb-12">
-          <h1 className="text-[48px] font-bold leading-[1.1] text-[hsl(var(--fg))] mb-4">
-            About
-          </h1>
-          <div className="flex flex-wrap items-center gap-x-4 gap-y-1 text-sm text-[hsl(var(--muted))]">
-            <span className="inline-flex items-center gap-1.5">
-              <Briefcase size={14} />
-              Software Engineer at Nokia
-            </span>
-            <span className="inline-flex items-center gap-1.5">
-              <MapPin size={14} />
-              Sunnyvale, CA
-            </span>
-            <span className="inline-flex items-center gap-1.5">
-              <span className="relative flex h-2 w-2">
-                <span className="animate-ping absolute h-full w-full rounded-full bg-[hsl(var(--success))] opacity-75" />
-                <span className="relative rounded-full h-2 w-2 bg-[hsl(var(--success))]" />
+        <div className="mb-12 flex flex-col-reverse items-start gap-8 sm:flex-row sm:items-center sm:justify-between">
+          <div>
+            <h1 className="text-[48px] font-bold leading-[1.1] text-[hsl(var(--fg))] mb-4">
+              About
+            </h1>
+            <div className="flex flex-wrap items-center gap-x-4 gap-y-1 text-sm text-[hsl(var(--muted))]">
+              <span className="inline-flex items-center gap-1.5">
+                <Briefcase size={14} />
+                Software Engineer at Nokia
               </span>
-              Available for opportunities
-            </span>
+              <span className="inline-flex items-center gap-1.5">
+                <MapPin size={14} />
+                Sunnyvale, CA
+              </span>
+              <span className="inline-flex items-center gap-1.5">
+                <span className="relative flex h-2 w-2">
+                  <span className="animate-ping absolute h-full w-full rounded-full bg-[hsl(var(--success))] opacity-75" />
+                  <span className="relative rounded-full h-2 w-2 bg-[hsl(var(--success))]" />
+                </span>
+                Available for opportunities
+              </span>
+            </div>
           </div>
+          <HolographicCard
+            src="/images/avinash-portrait.webp"
+            alt="Portrait of Avinash Amudala"
+            caption="avinash@sunnyvale:~$"
+            className="w-[200px] shrink-0 sm:w-[220px]"
+          />
         </div>
 
         {/* Bio: How I got here */}

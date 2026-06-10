@@ -19,6 +19,7 @@ import {
   Copy,
   Search,
   Archive,
+  SquareTerminal,
   type LucideIcon,
 } from "lucide-react";
 import { personalInfo } from "@/data/portfolio-data";
@@ -66,6 +67,14 @@ export default function CommandPalette() {
       { id: "talks", label: "Talks", section: "Pages", icon: Mic2, run: go("/talks") },
       { id: "now", label: "Now", section: "Pages", icon: Clock, run: go("/now") },
       { id: "archive", label: "Archive", section: "Pages", icon: Archive, run: go("/archive") },
+      {
+        id: "terminal",
+        label: "Terminal",
+        hint: "Interactive shell",
+        section: "Pages",
+        icon: SquareTerminal,
+        run: go("/terminal"),
+      },
       { id: "contact", label: "Contact", section: "Pages", icon: Mail, run: go("/contact") },
       {
         id: "mcp-telecom",
