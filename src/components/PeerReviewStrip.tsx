@@ -14,8 +14,8 @@ export default function PeerReviewStrip() {
           transition={{ duration: 0.4 }}
         >
           <div className="flex items-baseline justify-between mb-6">
-            <h2 className="text-sm font-semibold text-[hsl(var(--fg))] uppercase tracking-wider">
-              Academic &amp; Review
+            <h2 className="font-[family-name:var(--font-mono)] text-xs uppercase tracking-[0.2em] text-[hsl(var(--accent))]">
+              04 · Academic &amp; Review
             </h2>
             <Link
               href="/talks"

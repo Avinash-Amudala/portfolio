@@ -1,25 +1,28 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useSyncExternalStore } from "react";
 import { Sun, Moon } from "lucide-react";
 
-export default function ThemeToggle() {
-  const [dark, setDark] = useState(true);
+function subscribe(callback: () => void) {
+  const observer = new MutationObserver(callback);
+  observer.observe(document.documentElement, {
+    attributes: true,
+    attributeFilter: ["class"],
+  });
+  return () => observer.disconnect();
+}
 
-  useEffect(() => {
-    const stored = localStorage.getItem("theme");
-    const prefersDark =
-      stored === "dark" ||
-      (!stored && window.matchMedia("(prefers-color-scheme: dark)").matches);
-    setDark(prefersDark);
-    document.documentElement.classList.toggle("dark", prefersDark);
-  }, []);
+export default function ThemeToggle() {
+  const dark = useSyncExternalStore(
+    subscribe,
+    () => document.documentElement.classList.contains("dark"),
+    () => true
+  );
 
   const toggle = () => {
     const next = !dark;
-    setDark(next);
-    localStorage.setItem("theme", next ? "dark" : "light");
     document.documentElement.classList.toggle("dark", next);
+    localStorage.setItem("theme", next ? "dark" : "light");
   };
 
   return (
