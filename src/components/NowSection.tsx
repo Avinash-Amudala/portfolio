@@ -15,9 +15,9 @@ export default function NowSection() {
           transition={{ duration: 0.4 }}
         >
           <div className="flex items-baseline justify-between mb-6">
-            <h2 className="text-sm font-semibold text-[hsl(var(--fg))] uppercase tracking-wider">
-              Now{" "}
-              <span className="font-normal normal-case text-[hsl(var(--muted))]">
+            <h2 className="font-[family-name:var(--font-mono)] text-xs uppercase tracking-[0.2em] text-[hsl(var(--accent))]">
+              02 · Now{" "}
+              <span className="normal-case text-[hsl(var(--muted))]">
                 (April 2026)
               </span>
             </h2>
@@ -29,10 +29,10 @@ export default function NowSection() {
             </Link>
           </div>
 
-          <div className="space-y-1 text-[15px] text-[hsl(var(--muted))]">
+          <div className="glass-card space-y-2 rounded-2xl p-6 text-[15px] text-[hsl(var(--muted))]">
             {nowItems.slice(0, 3).map((item) => (
               <p key={item.label}>
-                <span className="text-[hsl(var(--fg))] mr-2">&rarr;</span>
+                <span className="text-[hsl(var(--accent))] mr-2">&rarr;</span>
                 {item.description}
               </p>
             ))}

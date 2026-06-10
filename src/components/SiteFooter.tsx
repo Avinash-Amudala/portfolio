@@ -4,7 +4,11 @@ import { personalInfo } from "@/data/portfolio-data";
 
 export default function SiteFooter() {
   return (
-    <footer className="border-t border-[hsl(var(--border))] bg-[hsl(var(--subtle))]">
+    <footer className="relative bg-[hsl(var(--subtle))]">
+      <div
+        aria-hidden="true"
+        className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-[hsl(var(--accent)/0.5)] to-transparent"
+      />
       <div className="mx-auto max-w-[1200px] px-6 py-16">
         {/* Three-column layout */}
         <div className="grid gap-12 sm:grid-cols-3">

@@ -1,29 +1,42 @@
 @import "tailwindcss";
 
-/* ── Design tokens (Section 4) ── */
+/* ── Design tokens ── */
 :root {
-  --bg: 0 0% 100%;
-  --fg: 220 15% 10%;
-  --muted: 220 10% 45%;
-  --subtle: 220 15% 96%;
-  --border: 220 15% 90%;
-  --accent: 220 90% 56%;
+  --bg: 220 30% 99%;
+  --fg: 230 25% 9%;
+  --muted: 230 12% 42%;
+  --subtle: 225 25% 96%;
+  --border: 228 18% 88%;
+  --accent: 200 95% 42%;
+  --accent-2: 262 85% 56%;
+  --accent-3: 320 85% 52%;
   --accent-fg: 0 0% 100%;
-  --success: 142 70% 45%;
+  --success: 152 70% 40%;
   --warn: 38 92% 50%;
   --danger: 0 72% 50%;
-  --code-bg: 220 15% 97%;
+  --code-bg: 225 25% 96%;
+  --glass: 0 0% 100%;
+  --glass-alpha: 0.6;
+  --glass-border-alpha: 0.9;
+  --glow-alpha: 0.12;
 }
 
 .dark {
-  --bg: 220 20% 6%;
-  --fg: 220 15% 96%;
-  --muted: 220 10% 65%;
-  --subtle: 220 15% 10%;
-  --border: 220 15% 16%;
-  --accent: 220 90% 66%;
-  --accent-fg: 220 20% 6%;
-  --code-bg: 220 15% 8%;
+  --bg: 232 45% 4%;
+  --fg: 220 25% 96%;
+  --muted: 226 14% 66%;
+  --subtle: 230 35% 8%;
+  --border: 228 25% 15%;
+  --accent: 190 95% 58%;
+  --accent-2: 262 90% 70%;
+  --accent-3: 320 90% 65%;
+  --accent-fg: 232 45% 5%;
+  --success: 152 70% 48%;
+  --code-bg: 231 40% 7%;
+  --glass: 230 40% 50%;
+  --glass-alpha: 0.06;
+  --glass-border-alpha: 0.16;
+  --glow-alpha: 0.22;
 }
 
 /* ── Base ── */
@@ -37,22 +50,27 @@ body {
 }
 
 ::selection {
-  background: hsl(var(--accent) / 0.25);
+  background: hsl(var(--accent) / 0.3);
   color: hsl(var(--fg));
 }
 
 /* ── Scrollbar ── */
-::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar { width: 8px; }
 ::-webkit-scrollbar-track { background: hsl(var(--bg)); }
-::-webkit-scrollbar-thumb { background: hsl(var(--border)); border-radius: 3px; }
-::-webkit-scrollbar-thumb:hover { background: hsl(var(--accent)); }
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, hsl(var(--accent) / 0.5), hsl(var(--accent-2) / 0.5));
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, hsl(var(--accent)), hsl(var(--accent-2)));
+}
 
 /* ── Typography helpers ── */
 .text-display {
-  font-size: 4rem;
-  line-height: 1.05;
+  font-size: 4.25rem;
+  line-height: 1.04;
   font-weight: 700;
-  letter-spacing: -0.02em;
+  letter-spacing: -0.03em;
 }
 
 @media (max-width: 640px) {
@@ -63,8 +81,29 @@ body {
 
 @media (min-width: 641px) and (max-width: 1024px) {
   .text-display {
-    font-size: 3rem;
+    font-size: 3.25rem;
   }
+}
+
+/* Gradient headline text */
+.text-gradient {
+  background: linear-gradient(
+    100deg,
+    hsl(var(--fg)) 0%,
+    hsl(var(--accent)) 45%,
+    hsl(var(--accent-2)) 75%,
+    hsl(var(--accent-3)) 100%
+  );
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: gradient-pan 8s ease-in-out infinite alternate;
+}
+
+@keyframes gradient-pan {
+  0% { background-position: 0% center; }
+  100% { background-position: 100% center; }
 }
 
 /* ── Spacing ── */
@@ -87,6 +126,103 @@ body {
 .bg-surface { background-color: hsl(var(--bg)); }
 .bg-subtle { background-color: hsl(var(--subtle)); }
 .border-default { border-color: hsl(var(--border)); }
+
+/* ── Glassmorphism ── */
+.glass {
+  background: hsl(var(--glass) / var(--glass-alpha));
+  border: 1px solid hsl(var(--border) / var(--glass-border-alpha));
+  backdrop-filter: blur(16px) saturate(1.4);
+  -webkit-backdrop-filter: blur(16px) saturate(1.4);
+}
+
+.glass-card {
+  position: relative;
+  background: hsl(var(--glass) / var(--glass-alpha));
+  border: 1px solid hsl(var(--border) / var(--glass-border-alpha));
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-radius: 1rem;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+.glass-card:hover {
+  border-color: hsl(var(--accent) / 0.45);
+  box-shadow:
+    0 0 24px hsl(var(--accent) / var(--glow-alpha)),
+    0 0 60px hsl(var(--accent-2) / calc(var(--glow-alpha) * 0.5));
+}
+
+/* Gradient ring border (for avatars, badges, featured cards) */
+.gradient-ring {
+  position: relative;
+  border-radius: 1rem;
+  background:
+    linear-gradient(hsl(var(--bg)), hsl(var(--bg))) padding-box,
+    linear-gradient(135deg, hsl(var(--accent)), hsl(var(--accent-2)), hsl(var(--accent-3))) border-box;
+  border: 1px solid transparent;
+}
+
+/* Neon glow text/elements */
+.glow-accent {
+  text-shadow:
+    0 0 12px hsl(var(--accent) / 0.6),
+    0 0 40px hsl(var(--accent) / 0.3);
+}
+
+/* ── Background scenery ── */
+.bg-grid {
+  background-image:
+    linear-gradient(hsl(var(--fg) / 0.04) 1px, transparent 1px),
+    linear-gradient(90deg, hsl(var(--fg) / 0.04) 1px, transparent 1px);
+  background-size: 56px 56px;
+  mask-image: radial-gradient(ellipse 80% 60% at 50% 0%, black 30%, transparent 75%);
+  -webkit-mask-image: radial-gradient(ellipse 80% 60% at 50% 0%, black 30%, transparent 75%);
+}
+
+.bg-aurora {
+  background:
+    radial-gradient(ellipse 50% 40% at 20% 10%, hsl(var(--accent) / 0.14), transparent 60%),
+    radial-gradient(ellipse 45% 38% at 80% 15%, hsl(var(--accent-2) / 0.13), transparent 60%),
+    radial-gradient(ellipse 60% 45% at 55% 0%, hsl(var(--accent-3) / 0.07), transparent 65%);
+  animation: aurora-drift 16s ease-in-out infinite alternate;
+}
+
+@keyframes aurora-drift {
+  0% { transform: translate3d(0, 0, 0) scale(1); }
+  50% { transform: translate3d(-2%, 1.5%, 0) scale(1.05); }
+  100% { transform: translate3d(2%, -1%, 0) scale(1.02); }
+}
+
+/* ── Marquee ── */
+.marquee-track {
+  display: flex;
+  width: max-content;
+  animation: marquee-scroll 40s linear infinite;
+}
+
+.marquee-track:hover {
+  animation-play-state: paused;
+}
+
+@keyframes marquee-scroll {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+.marquee-mask {
+  mask-image: linear-gradient(90deg, transparent, black 12%, black 88%, transparent);
+  -webkit-mask-image: linear-gradient(90deg, transparent, black 12%, black 88%, transparent);
+}
+
+/* ── Terminal cursor blink ── */
+.cursor-blink {
+  animation: cursor-blink 1.1s step-end infinite;
+}
+
+@keyframes cursor-blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
 
 /* ── Focus states (accessibility) ── */
 :focus-visible {

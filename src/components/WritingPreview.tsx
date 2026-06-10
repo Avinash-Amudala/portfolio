@@ -32,8 +32,8 @@ export default function WritingPreview() {
           transition={{ duration: 0.4 }}
         >
           <div className="flex items-baseline justify-between mb-6">
-            <h2 className="text-sm font-semibold text-[hsl(var(--fg))] uppercase tracking-wider">
-              Selected Writing
+            <h2 className="font-[family-name:var(--font-mono)] text-xs uppercase tracking-[0.2em] text-[hsl(var(--accent))]">
+              03 · Selected Writing
             </h2>
             <Link
               href="/writing"
@@ -43,16 +43,20 @@ export default function WritingPreview() {
             </Link>
           </div>
 
-          <div className="space-y-3">
+          <div className="space-y-2">
             {recentPosts.map((post) => (
-              <div key={post.slug} className="flex items-baseline gap-4">
+              <Link
+                key={post.slug}
+                href="/writing"
+                className="group flex items-baseline gap-4 rounded-lg px-3 py-2 -mx-3 transition-colors hover:bg-[hsl(var(--accent)/0.06)]"
+              >
                 <span className="shrink-0 text-sm font-[family-name:var(--font-mono)] text-[hsl(var(--muted))] w-20">
                   {post.date}
                 </span>
-                <span className="text-[15px] text-[hsl(var(--fg))]">
+                <span className="text-[15px] text-[hsl(var(--fg))] transition-colors group-hover:text-[hsl(var(--accent))]">
                   {post.title}
                 </span>
-              </div>
+              </Link>
             ))}
           </div>
         </motion.div>

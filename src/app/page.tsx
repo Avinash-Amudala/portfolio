@@ -1,5 +1,7 @@
 import HomeHero from "@/components/HomeHero";
 import FlagshipCards from "@/components/FlagshipCards";
+import StatsSection from "@/components/StatsSection";
+import TechMarquee from "@/components/TechMarquee";
 import NowSection from "@/components/NowSection";
 import WritingPreview from "@/components/WritingPreview";
 import PeerReviewStrip from "@/components/PeerReviewStrip";
@@ -10,6 +12,8 @@ export default function Home() {
     <>
       <PersonJsonLd />
       <HomeHero />
+      <TechMarquee />
+      <StatsSection />
       <FlagshipCards />
       <NowSection />
       <WritingPreview />

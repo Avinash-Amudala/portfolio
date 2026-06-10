@@ -3,6 +3,10 @@ import { Inter, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 import SiteNav from "@/components/SiteNav";
 import SiteFooter from "@/components/SiteFooter";
+import ScrollProgress from "@/components/ScrollProgress";
+import ParticleField from "@/components/ParticleField";
+import CommandPalette from "@/components/CommandPalette";
+import BackToTop from "@/components/BackToTop";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -77,13 +81,22 @@ export default function RootLayout({
       suppressHydrationWarning
     >
       <body className="font-[family-name:var(--font-sans)] antialiased">
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `try{var t=localStorage.getItem("theme");var d=t?t==="dark":matchMedia("(prefers-color-scheme: dark)").matches;document.documentElement.classList.toggle("dark",d);}catch(e){}`,
+          }}
+        />
         <a href="#main" className="skip-link">
           Skip to content
         </a>
+        <ParticleField />
+        <ScrollProgress />
         <SiteNav />
+        <CommandPalette />
         <main id="main" className="min-h-screen pt-16">
           {children}
         </main>
+        <BackToTop />
         <SiteFooter />
       </body>
     </html>
