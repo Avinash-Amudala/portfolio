@@ -3,8 +3,10 @@
 import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import Link from "next/link";
-import { ArrowRight, ChevronDown, Sparkles } from "lucide-react";
+import Image from "next/image";
+import { ArrowRight, ChevronDown, SquareTerminal } from "lucide-react";
 import { personalInfo } from "@/data/portfolio-data";
+import NetworkGlobe from "./NetworkGlobe";
 
 const roles = [
   "AI systems for telecom.",
@@ -108,6 +110,13 @@ function TerminalCard() {
             <span className="cursor-blink inline-block h-[1em] w-[7px] translate-y-[0.15em] bg-[hsl(var(--accent))]" />
           </p>
         </div>
+        <Link
+          href="/terminal"
+          className="flex items-center gap-2 border-t border-[hsl(var(--border))] px-4 py-2.5 font-[family-name:var(--font-mono)] text-[11px] text-[hsl(var(--muted))] transition-colors hover:text-[hsl(var(--accent))]"
+        >
+          <SquareTerminal size={12} />
+          Launch the interactive terminal &rarr;
+        </Link>
       </div>
     </motion.div>
   );
@@ -143,9 +152,18 @@ export default function HomeHero() {
             initial={{ opacity: 0, y: 12 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.05 }}
-            className="mb-2 flex items-center gap-2 font-[family-name:var(--font-mono)] text-sm text-[hsl(var(--accent))]"
+            className="mb-2 flex items-center gap-2.5 font-[family-name:var(--font-mono)] text-sm text-[hsl(var(--accent))]"
           >
-            <Sparkles size={14} />
+            <span className="gradient-ring shrink-0 overflow-hidden !rounded-full">
+              <Image
+                src="/images/avinash-portrait.webp"
+                alt="Avinash Amudala"
+                width={28}
+                height={28}
+                className="block rounded-full"
+                priority
+              />
+            </span>
             Avinash Amudala · Software Engineer @ Nokia, Sunnyvale
           </motion.p>
 
@@ -234,9 +252,20 @@ export default function HomeHero() {
           </motion.div>
         </div>
 
-        {/* Terminal showcase */}
-        <div className="hidden justify-center lg:flex">
-          <TerminalCard />
+        {/* Globe + terminal showcase */}
+        <div className="relative hidden items-center justify-center lg:flex">
+          <motion.div
+            initial={{ opacity: 0, scale: 0.9 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+            aria-hidden="true"
+            className="absolute -top-16 left-1/2 -translate-x-1/2"
+          >
+            <NetworkGlobe size={460} />
+          </motion.div>
+          <div className="relative mt-40">
+            <TerminalCard />
+          </div>
         </div>
       </div>
 

@@ -1,10 +1,21 @@
 import type { MetadataRoute } from "next";
+import { getPublishedPosts } from "@/lib/posts";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = "https://avinash-amudala.com";
   const now = new Date();
 
+  const postEntries: MetadataRoute.Sitemap = getPublishedPosts().map(
+    (post) => ({
+      url: `${baseUrl}/writing/${post.slug}`,
+      lastModified: new Date(post.date),
+      changeFrequency: "monthly",
+      priority: 0.6,
+    })
+  );
+
   return [
+    ...postEntries,
     { url: baseUrl, lastModified: now, changeFrequency: "weekly", priority: 1 },
     { url: `${baseUrl}/about`, lastModified: now, changeFrequency: "monthly", priority: 0.8 },
     { url: `${baseUrl}/experience`, lastModified: now, changeFrequency: "monthly", priority: 0.8 },
@@ -19,5 +30,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${baseUrl}/contact`, lastModified: now, changeFrequency: "yearly", priority: 0.5 },
     { url: `${baseUrl}/cv`, lastModified: now, changeFrequency: "monthly", priority: 0.6 },
     { url: `${baseUrl}/uses`, lastModified: now, changeFrequency: "yearly", priority: 0.3 },
+    { url: `${baseUrl}/terminal`, lastModified: now, changeFrequency: "yearly", priority: 0.3 },
   ];
 }
