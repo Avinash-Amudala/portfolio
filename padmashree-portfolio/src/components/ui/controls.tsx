@@ -20,6 +20,15 @@ const sizes: Record<Size, string> = {
   md: "text-[0.95rem] px-5 py-3",
 };
 
+/** Shared button class builder, for anchors that need button styling (e.g. a PDF link). */
+export function buttonClasses(
+  variant: Variant = "primary",
+  size: Size = "md",
+  className?: string,
+): string {
+  return cn(base, variants[variant], variant !== "ghost" && sizes[size], className);
+}
+
 type ButtonProps = {
   href?: string;
   variant?: Variant;
@@ -38,7 +47,7 @@ export function Button({
   children,
   ...rest
 }: ButtonProps) {
-  const cls = cn(base, variants[variant], variant !== "ghost" && sizes[size], className);
+  const cls = buttonClasses(variant, size, className);
 
   if (href) {
     if (/^https?:\/\//.test(href)) {
