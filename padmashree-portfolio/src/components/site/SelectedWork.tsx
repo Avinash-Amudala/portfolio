@@ -5,6 +5,7 @@ import { SectionHeading, Num } from "@/components/ui/text";
 import { Tag } from "@/components/ui/controls";
 import { cn } from "@/lib/cn";
 import { fullPlaybooks, workCards, type Playbook } from "@/content/playbooks";
+import { FlagshipFeature } from "@/components/site/FlagshipFeature";
 
 function CardBody({ p }: { p: Playbook }) {
   return (
@@ -85,10 +86,16 @@ export function SelectedWork() {
           lede="Each one follows the same shape: the problem, what she found, what she built, how it works, and the numbers. The interactive pieces run on her real data."
         />
 
-        <div className="mt-12 grid gap-5 md:grid-cols-2">
-          {fullPlaybooks.map((p) => (
-            <PlaybookCard key={p.slug} p={p} />
-          ))}
+        <div className="mt-12">
+          <FlagshipFeature />
+        </div>
+
+        <div className="mt-5 grid gap-5 md:grid-cols-2">
+          {fullPlaybooks
+            .filter((p) => p.slug !== "hours-per-unit")
+            .map((p) => (
+              <PlaybookCard key={p.slug} p={p} />
+            ))}
         </div>
 
         <h3 className="eyebrow mt-16">More work</h3>
