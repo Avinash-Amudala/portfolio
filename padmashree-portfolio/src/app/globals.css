@@ -241,3 +241,101 @@
     transform: none;
   }
 }
+
+/* Long-form playbook prose. Editorial, numbers in the mono face where wrapped in Num. */
+.prose {
+  color: var(--color-ink-2);
+  font-size: 1.02rem;
+  line-height: 1.7;
+}
+.prose > * + * {
+  margin-top: 1.1em;
+}
+.prose h2 {
+  font-family: var(--font-display);
+  color: var(--color-ink);
+  font-size: clamp(1.4rem, 2.2vw, 1.85rem);
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  font-weight: 500;
+  margin-top: 1.8em;
+}
+.prose h3 {
+  font-family: var(--font-display);
+  color: var(--color-ink);
+  font-size: 1.25rem;
+  line-height: 1.2;
+  font-weight: 500;
+  margin-top: 1.5em;
+}
+.prose strong {
+  color: var(--color-ink);
+  font-weight: 600;
+}
+.prose a {
+  color: var(--color-accent);
+  text-decoration: underline;
+  text-decoration-color: color-mix(in srgb, var(--color-accent) 32%, transparent);
+  text-underline-offset: 3px;
+}
+.prose a:hover {
+  color: var(--color-accent-deep);
+  text-decoration-color: var(--color-accent);
+}
+.prose ul,
+.prose ol {
+  list-style: none;
+  padding-left: 0;
+}
+.prose li {
+  position: relative;
+  padding-left: 1.5em;
+}
+.prose li + li {
+  margin-top: 0.5em;
+}
+.prose ul > li::before {
+  content: "";
+  position: absolute;
+  left: 0.25em;
+  top: 0.68em;
+  width: 6px;
+  height: 6px;
+  border-radius: 9999px;
+  background: var(--color-accent);
+}
+.prose ol {
+  counter-reset: prose-counter;
+}
+.prose ol > li::before {
+  counter-increment: prose-counter;
+  content: counter(prose-counter);
+  position: absolute;
+  left: 0;
+  top: 0.05em;
+  font-family: var(--font-mono);
+  font-size: 0.85em;
+  font-weight: 600;
+  color: var(--color-accent);
+}
+.prose blockquote {
+  border-left: 2px solid var(--color-accent);
+  padding-left: 1rem;
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: 1.15em;
+  color: var(--color-ink);
+}
+.prose code {
+  font-family: var(--font-mono);
+  font-size: 0.88em;
+  background: var(--color-sunken);
+  padding: 0.1em 0.35em;
+  border-radius: 4px;
+  color: var(--color-ink);
+}
+.prose hr {
+  border: 0;
+  border-top: 1px solid var(--color-hairline);
+  margin: 2.4em 0;
+}

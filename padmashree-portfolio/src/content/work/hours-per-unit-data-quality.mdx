@@ -1,0 +1,38 @@
+## What I found
+
+The metric was impossible until the source was clean. Overlapping payroll exports and
+amended punches survived as separate rows: about <Num>1,043</Num> duplicated employee-days,
+<Num>5,985</Num> duplicated hours, and <Num>967</Num> copies that did not even agree with
+each other. Any average built on that was going to be wrong in a way nobody could trace.
+
+## What I built
+
+A load that treats a day as one thing. It replaces a day whole rather than mixing rows
+from two files, records where every row came from, writes the tie-break rule down, and logs
+the conflicts it cannot resolve instead of quietly dropping them.
+
+## How it works
+
+Click through the four fixes and watch the duplicate count fall to zero while the exceptions
+tab fills.
+
+<Figure caption="Payroll load over about 110,000 punch rows across 290 employees.">
+  <DataQualityFix />
+</Figure>
+
+The tie-break rule is the quiet part that matters: the latest pull wins, because it carries
+the corrected punch. It is written down, so the load makes the same decision every time and
+anyone can check it.
+
+## Impact
+
+- Duplicated employee-days went from about <Num>1,043</Num> to <Num>0</Num>.
+- About <Num>1,957</Num> conflicts, roughly <Num>8,800</Num> hours, are logged to an
+  exceptions tab instead of silently distorting the average.
+- The hours-per-unit metric could finally exist, because its input could be reconciled.
+
+## The transferable lesson
+
+Fix the source before the metric. A number built on data you cannot reconcile will be wrong
+in a way that surfaces months later, in a meeting, when it is hardest to explain. A written
+tie-break rule and an exceptions log are cheap insurance against that.

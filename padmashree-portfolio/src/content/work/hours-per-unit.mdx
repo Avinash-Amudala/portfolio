@@ -1,0 +1,41 @@
+## What I found
+
+The line was not falling apart. Every spike in hours per unit lined up with a week we
+barely built anything. When a week ships <Num>2</Num> units, a normal load of fixed hours
+divides into a huge number. The metric was measuring volume, not how hard the crew worked.
+
+## What I built
+
+A model that pairs weekly hours against units built for the full 2026 year to date, per
+assembly line and as a rollup, with a minimum-volume filter and a rolling-average option.
+The point was to stop anyone from quoting a three-unit week as if it were a trend.
+
+## How it works
+
+Drag the minimum weekly volume. Weeks below the line drop out, and the headline range
+recomputes in place. Watch the band on the top chart collapse and the threshold line move
+across the units chart.
+
+<Figure caption="Real weekly data from the 2026 production ramp. Total across all lines.">
+  <HpuDenominator />
+</Figure>
+
+Raw, hours per unit runs from about <Num>42</Num> to <Num>545</Num>, a spread of roughly
+<Num>13x</Num>. Set the minimum to <Num>13</Num> units and the range tightens to about
+<Num>42</Num> to <Num>96</Num>, roughly <Num>2x</Num>. Same crew, same plant. The swing was
+the denominator.
+
+## Impact
+
+- The metric became something a director could act on, instead of a number that set off
+  an alarm every low-volume week.
+- It shipped with a rule attached: read it on a minimum volume or a rolling average before
+  it goes in a deck.
+- The same structure supports per-line views for battery pack, EDU, general assembly, full
+  vehicle, and HPC, weekly, monthly, or quarterly.
+
+## The transferable lesson
+
+A ratio is only as stable as its denominator. Before a per-unit metric goes near a meeting
+during a ramp, decide the minimum volume it is allowed to speak at. That one decision is
+the difference between a number people argue about and a number they can steer by.

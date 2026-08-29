@@ -1,0 +1,34 @@
+## What I found
+
+Intrinsic value is a function of a handful of assumptions, and two of them do most of the
+work: the discount rate and the terminal growth rate. Small moves in either swing the answer
+by a lot, which is exactly why a single point estimate is not worth much on its own.
+
+## What I built
+
+A discounted cash flow model with a residual-income cross-check. The DCF projects free cash
+flow and discounts it at WACC; the residual-income model values the same equity from book
+value plus economic profit. When two independent methods land near each other, the number is
+more defensible.
+
+## How it works
+
+Move WACC and terminal growth and watch the intrinsic value respond. The residual-income
+estimate uses a cost of equity, so it reacts to terminal growth but not to WACC, which is a
+useful reminder that the two methods are not the same lens.
+
+<Figure caption="Illustrative sample assumptions, not audited financials or investment advice.">
+  <DcfValuation />
+</Figure>
+
+## Impact
+
+- A single estimate becomes a range, with the drivers of that range named.
+- The two methods cross-check near the base case, which is the signal that the assumptions
+  are internally consistent rather than tuned to a target.
+
+## The transferable lesson
+
+A valuation is only as honest as its assumptions. Show the sensitivity, name the two or three
+drivers that actually move the answer, and cross-check with a second method before you commit
+to a number in front of anyone.

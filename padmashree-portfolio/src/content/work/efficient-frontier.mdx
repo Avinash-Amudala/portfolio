@@ -1,0 +1,36 @@
+## What I found
+
+Past a point, more risk stops paying. The efficient frontier draws exactly where that point
+is: for any level of risk, there is a best achievable return, and chasing return beyond the
+sensible range just buys volatility.
+
+## What I built
+
+A mean-variance model of a <Num>$100M</Num> equity portfolio across five stocks. It builds
+the covariance from each asset's volatility and the correlation matrix, traces the frontier,
+and reports the risk-adjusted ratios at whatever point you choose.
+
+## How it works
+
+Drag the risk-tolerance point along the frontier. The allocation and the four ratios,
+Sharpe, Treynor, Jensen's Alpha, and the Information Ratio, update live.
+
+<Figure caption="Illustrative sample data, not live prices. Unconstrained weights.">
+  <EfficientFrontier />
+</Figure>
+
+The minimum-variance portfolio here sits below the volatility of every single stock in it,
+which is the whole point of diversification: the mix is steadier than any of its parts.
+
+## Impact
+
+- The frontier turns an abstract risk conversation into a concrete choice between named
+  portfolios.
+- The ratios say how well each portfolio is paid for the risk it carries, not just how much
+  it might return.
+
+## The transferable lesson
+
+The frontier is a decision tool, not a forecast. It narrows the field to the portfolios worth
+considering at a given risk, and the ratios rank how efficiently each one uses that risk.
+Judgment still picks the point; the model makes the trade-off honest.

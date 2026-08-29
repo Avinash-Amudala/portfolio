@@ -1,0 +1,32 @@
+## What I found
+
+The month-end number depended on who ran it. The GL report was pulled from NetSuite by
+hand, and merged cells broke the paste every single month. Two people could run the same
+close and get two different starting points.
+
+## What I built
+
+A load that arrives on a scheduled email and reads itself. The raw data lands untouched in
+its own tab, and columns are found by name rather than position, so an added upstream column
+no longer breaks the whole thing. Failed pulls retry instead of vanishing.
+
+## How it works
+
+<Figure caption="Month-end GL load, NetSuite to a stable report.">
+  <CloseAutomation />
+</Figure>
+
+The honest detail is the <Num>3</Num> versions. It did not work on the first try. It took
+three passes to make it stable enough that I stopped thinking about it on close night.
+
+## Impact
+
+- The close step went from about <Num>2</Num> hours to about <Num>30</Num> minutes.
+- It has run live for <Num>7</Num> months without a manual pull.
+- The output is the same every time, so the answer no longer depends on who ran it.
+
+## The transferable lesson
+
+Automation is not the flashy part. The win is that a fragile, person-dependent step becomes
+something you can trust at eleven at night on close, and that trust is worth more than the
+saved time.

@@ -16,7 +16,7 @@ export const dcfModel = {
   illustrative: true,
   unit: "USD millions",
 
-  baseFreeCashFlowUsdM: 2400,
+  baseFreeCashFlowUsdM: 1750,
   nearTermGrowth: 0.06,
   projectionYears: 5,
 
@@ -29,12 +29,12 @@ export const dcfModel = {
   /** Residual income cross-check inputs (per share). */
   residualIncome: {
     bookValuePerShare: 34,
-    eps: 7.5,
-    epsGrowth: 0.06,
+    eps: 11,
+    epsGrowth: 0.07,
     costOfEquity: 0.09,
     years: 5,
   },
 
   /** Illustrative market reference price, for context only. */
   referencePriceUsd: 120,
-} as const;
+};
