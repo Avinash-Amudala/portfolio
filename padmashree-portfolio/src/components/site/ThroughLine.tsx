@@ -23,22 +23,17 @@ export function ThroughLine() {
             </div>
           </div>
 
-          <dl className="grid gap-8 sm:grid-cols-3 sm:gap-0 sm:divide-x sm:divide-hairline lg:col-span-7">
+          <div className="grid gap-8 sm:grid-cols-3 sm:gap-0 sm:divide-x sm:divide-hairline lg:col-span-7">
             {headlineMetrics.map((m, i) => (
               <div key={m.label} className={cn("sm:px-6", i === 0 && "sm:pl-0")}>
-                <dd
-                  className={cn(
-                    "metric-xl",
-                    i === 2 ? "text-accent" : "text-ink",
-                  )}
-                >
+                <div className={cn("metric-xl", i === 2 ? "text-accent" : "text-ink")}>
                   <Num>{m.value}</Num>
-                </dd>
-                <dt className="mt-2 text-sm font-medium text-ink">{m.label}</dt>
+                </div>
+                <div className="mt-2 text-sm font-medium text-ink">{m.label}</div>
                 <p className="mt-1 text-xs text-ink-muted">{m.source}</p>
               </div>
             ))}
-          </dl>
+          </div>
         </div>
       </Container>
     </Section>

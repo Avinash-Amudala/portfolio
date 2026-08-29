@@ -39,7 +39,7 @@ custom properties (`var(--color-accent)`) for use inside SVG charts.
 | Sunken surface | `--color-sunken` | `#eef1f3` |
 | Ink (primary) | `--color-ink` | `#13222b` |
 | Ink (secondary) | `--color-ink-2` | `#3a4a53` |
-| Ink (muted) | `--color-ink-muted` | `#61737d` |
+| Ink (muted) | `--color-ink-muted` | `#556069` |
 | Hairline | `--color-hairline` | `#e3e7e9` |
 | Accent (deep teal) | `--color-accent` | `#0e6e63` |
 | Accent (deep) | `--color-accent-deep` | `#094f48` |

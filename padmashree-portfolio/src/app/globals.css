@@ -18,7 +18,7 @@
   /* Ink (near-black, slight cool, never pure #000) */
   --color-ink: #13222b;
   --color-ink-2: #3a4a53;
-  --color-ink-muted: #61737d;
+  --color-ink-muted: #556069;
 
   /* Hairlines */
   --color-hairline: #e3e7e9;
@@ -322,7 +322,6 @@
   border-left: 2px solid var(--color-accent);
   padding-left: 1rem;
   font-family: var(--font-display);
-  font-style: italic;
   font-size: 1.15em;
   color: var(--color-ink);
 }

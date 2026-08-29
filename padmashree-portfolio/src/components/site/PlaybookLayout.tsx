@@ -54,7 +54,7 @@ export function PlaybookLayout({
         <article className="prose mt-10">{children}</article>
 
         {playbook.illustrative ? (
-          <p className="mt-10 rounded-md border border-hairline bg-sunken/60 p-4 text-xs text-ink-muted">
+          <p className="mt-10 rounded-md border border-hairline bg-sunken/60 p-4 text-xs text-ink-2">
             This playbook uses clearly-labeled illustrative sample data, not proprietary
             figures. The method is the point.
           </p>

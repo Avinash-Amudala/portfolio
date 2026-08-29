@@ -32,7 +32,7 @@ export default function AboutPage() {
               </p>
             ))}
 
-            <blockquote className="mt-8 border-l-2 border-accent pl-5 font-display text-xl italic text-ink">
+            <blockquote className="mt-8 border-l-2 border-accent pl-5 font-display text-xl text-ink">
               {throughLine.heading}
             </blockquote>
 

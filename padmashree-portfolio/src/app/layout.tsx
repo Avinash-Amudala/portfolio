@@ -4,13 +4,16 @@ import "./globals.css";
 import { siteConfig } from "@/lib/site";
 import { SiteHeader } from "@/components/site/SiteHeader";
 import { SiteFooter } from "@/components/site/SiteFooter";
+import { PersonJsonLd } from "@/components/seo/PersonJsonLd";
 
 // Three roles, never one font doing everything (spec section 2).
+// Source Serif 4 is a variable font (one file for the weight range) and carries the LCP
+// headline, so it is preloaded. The mono face is numbers-only and is not preloaded, to
+// keep it from competing with the headline font on slow connections.
 const displaySerif = Source_Serif_4({
   subsets: ["latin"],
   variable: "--font-source-serif",
   display: "swap",
-  style: ["normal", "italic"],
 });
 
 const plexSans = IBM_Plex_Sans({
@@ -18,13 +21,15 @@ const plexSans = IBM_Plex_Sans({
   weight: ["400", "500", "600", "700"],
   variable: "--font-plex-sans",
   display: "swap",
+  preload: false,
 });
 
 const plexMono = IBM_Plex_Mono({
   subsets: ["latin"],
-  weight: ["400", "500", "600"],
+  weight: ["400", "500"],
   variable: "--font-plex-mono",
   display: "swap",
+  preload: false,
 });
 
 export const viewport: Viewport = {
@@ -83,6 +88,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
         >
           Skip to content
         </a>
+        <PersonJsonLd />
         <SiteHeader />
         <main id="main" className="flex-1">
           {children}
