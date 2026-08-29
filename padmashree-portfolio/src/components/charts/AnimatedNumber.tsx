@@ -3,9 +3,9 @@
 import { useEffect, useRef, useState } from "react";
 
 /**
- * Counts up to `value` once, when scrolled into view. Renders the final value on the
- * server and under reduced motion, so it is correct without JavaScript and never
- * flashes for content already on screen.
+ * Counts up to `value` once, when scrolled into view. The server and reduced-motion
+ * render the final value (correct without JavaScript, no flash). State only changes
+ * inside the async IntersectionObserver and requestAnimationFrame callbacks.
  */
 export function AnimatedNumber({
   value,
@@ -27,14 +27,7 @@ export function AnimatedNumber({
   useEffect(() => {
     const el = ref.current;
     if (!el) return;
-
-    const prefersReduced = window.matchMedia(
-      "(prefers-reduced-motion: reduce)",
-    ).matches;
-    if (prefersReduced) {
-      setDisplay(value);
-      return;
-    }
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
 
     let raf = 0;
     const run = () => {
@@ -50,12 +43,6 @@ export function AnimatedNumber({
       raf = requestAnimationFrame(tick);
     };
 
-    // Only reset to the start value when the element is below the fold, so on-screen
-    // counters do not visibly jump before animating.
-    const rect = el.getBoundingClientRect();
-    const belowFold = rect.top > window.innerHeight * 0.9;
-    if (belowFold) setDisplay(from);
-
     const io = new IntersectionObserver(
       (entries) => {
         if (entries[0].isIntersecting) {
@@ -63,7 +50,7 @@ export function AnimatedNumber({
           io.disconnect();
         }
       },
-      { threshold: 0.4 },
+      { threshold: 0, rootMargin: "0px 0px 10% 0px" },
     );
     io.observe(el);
 
