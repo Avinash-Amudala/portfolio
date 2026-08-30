@@ -1,5 +1,5 @@
-import Link from "next/link";
-import { ArrowRight, ArrowUpRight } from "lucide-react";
+import Image from "next/image";
+import { ArrowRight } from "lucide-react";
 import { Container } from "@/components/ui/layout";
 import { Eyebrow } from "@/components/ui/text";
 import { Button, buttonClasses } from "@/components/ui/controls";
@@ -9,7 +9,7 @@ export function Hero() {
   return (
     <section className="border-b border-hairline">
       <Container className="py-16 sm:py-20 lg:py-28">
-        <div className="grid items-center gap-12 lg:grid-cols-12 lg:gap-8">
+        <div className="grid items-center gap-12 lg:grid-cols-12 lg:gap-10">
           <div className="lg:col-span-7">
             <Eyebrow>Padmashree · Manufacturing and Operations Finance</Eyebrow>
             <h1 className="display-hero mt-5 max-w-2xl text-balance">
@@ -36,30 +36,21 @@ export function Hero() {
             </div>
           </div>
 
-          {/* The single strongest proof metric: the flagship analysis. */}
-          <aside className="reveal lg:col-span-5">
-            <figure className="rounded-lg border border-hairline bg-surface p-6 shadow-sm sm:p-7">
-              <figcaption className="eyebrow">
-                Flagship analysis · Hours per unit
-              </figcaption>
-              <p className="metric-xl mt-4 text-accent">
-                13x <span className="text-ink-muted">to</span> 2x
-              </p>
-              <p className="mt-4 text-sm leading-relaxed text-ink-2">
-                A swing that looked like a broken production line was really the
-                denominator. Read on a minimum weekly volume, the hours-per-unit range
-                collapses from about <span className="num">42 to 545</span> down to
-                about <span className="num">42 to 96</span>.
-              </p>
-              <Link
-                href="/work/hours-per-unit"
-                className="mt-5 inline-flex items-center gap-1.5 text-sm font-medium text-accent hover:text-accent-deep"
-              >
-                Read the playbook
-                <ArrowUpRight size={16} aria-hidden />
-              </Link>
+          <div className="lg:col-span-5">
+            <figure className="reveal mx-auto max-w-[280px] sm:max-w-xs lg:max-w-none">
+              <div className="overflow-hidden rounded-lg border border-hairline bg-surface shadow-sm">
+                <Image
+                  src="/padmashree-portrait.jpg"
+                  alt="Padmashree"
+                  width={1400}
+                  height={1750}
+                  priority
+                  sizes="(max-width: 639px) 280px, (max-width: 1023px) 320px, 420px"
+                  className="block h-auto w-full"
+                />
+              </div>
             </figure>
-          </aside>
+          </div>
         </div>
       </Container>
     </section>

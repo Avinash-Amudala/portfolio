@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
 import { Container } from "@/components/ui/layout";
@@ -50,9 +51,14 @@ export default function AboutPage() {
 
           <aside className="lg:pt-1">
             <div className="rounded-lg border border-hairline bg-surface p-6 shadow-sm">
-              <div className="flex size-14 items-center justify-center rounded-full bg-accent-soft font-display text-2xl font-semibold text-accent-deep">
-                P
-              </div>
+              <Image
+                src="/padmashree-avatar.jpg"
+                alt="Padmashree"
+                width={512}
+                height={512}
+                sizes="64px"
+                className="size-16 rounded-full object-cover"
+              />
               <dl className="mt-5 space-y-3 text-sm">
                 <div>
                   <dt className="eyebrow">Role</dt>
