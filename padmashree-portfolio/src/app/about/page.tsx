@@ -12,7 +12,7 @@ import { bio, throughLine } from "@/content/data/credentials";
 export const metadata: Metadata = {
   title: "About",
   description:
-    "Padmashree is a manufacturing and operations finance analyst and Chartered Accountant, finishing an MS in Finance (STEM), open to relocation across the US.",
+    "Padmashree is a manufacturing and operations finance analyst and Chartered Accountant with an MS in Finance (STEM), open to relocation across the US.",
 };
 
 export default function AboutPage() {

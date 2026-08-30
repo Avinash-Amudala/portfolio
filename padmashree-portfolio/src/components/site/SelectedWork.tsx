@@ -83,7 +83,7 @@ export function SelectedWork() {
           eyebrow="Selected work"
           headingId="work-heading"
           title="Playbooks, not slides."
-          lede="Each one follows the same shape: the problem, what she found, what she built, how it works, and the numbers. The interactive pieces run on her real data."
+          lede="Each one follows the same shape: the problem, what she found, what she built, and how it works. The interactive pieces use illustrative sample data, not any employer's actual figures, because the point is the method and that it rebuilds for any company."
         />
 
         <div className="mt-12">

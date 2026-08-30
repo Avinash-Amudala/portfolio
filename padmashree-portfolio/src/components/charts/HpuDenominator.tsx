@@ -54,7 +54,7 @@ const monthMarks = hpuWeekly
 
 function describe(minVolume: number, r: ReturnType<typeof hpuRangeAtThreshold>) {
   if (minVolume === 0) {
-    return "Raw, hours per unit runs from about 42 to 545 across the built weeks, a spread of roughly 13x. The spikes look alarming.";
+    return "Raw, hours per unit runs from about 39 to 463 across the built weeks, a spread of roughly 12x. The spikes look alarming.";
   }
   if (r.weeksIncluded === 0) {
     return "No week reached that volume, so there is nothing to average.";
@@ -80,7 +80,7 @@ export function HpuDenominator({ defaultMinVolume = 0 }: { defaultMinVolume?: nu
 
   const valueText =
     minVolume === 0
-      ? `No minimum. Range about 42 to 545 hours per unit, roughly 13x, ${range.weeksIncluded} of ${range.weeksTotal} weeks.`
+      ? `No minimum. Range about 39 to 463 hours per unit, roughly 12x, ${range.weeksIncluded} of ${range.weeksTotal} weeks.`
       : range.weeksIncluded === 0
         ? `Minimum ${minVolume} units. No weeks qualify.`
         : `Minimum ${minVolume} units. Range about ${Math.round(range.min)} to ${Math.round(range.max)} hours per unit, roughly ${range.spread.toFixed(1)} times, ${range.weeksIncluded} of ${range.weeksTotal} weeks.`;
@@ -135,7 +135,7 @@ export function HpuDenominator({ defaultMinVolume = 0 }: { defaultMinVolume?: nu
         />
         <div className="mt-1 flex justify-between text-xs text-ink-muted">
           <span className="num">0</span>
-          <span className="num">13</span>
+          <span className="num">12</span>
           <span className="num">20</span>
         </div>
       </div>

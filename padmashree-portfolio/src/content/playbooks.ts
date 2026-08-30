@@ -3,13 +3,11 @@
   which interactive centerpiece each full write-up carries. The long-form body for
   each full playbook lives in src/content/work/<slug>.mdx and renders at /work/<slug>.
 
-  Full playbooks (spec decision, default set): hours-per-unit, hours-per-unit
-  data-quality fix, opex/capex forecast, month-end close automation, efficient
-  frontier, Dollar General valuation. Everything else from spec section 6.6 is a
-  short card, not a full playbook.
-
-  OpenClaw was left blank in the decisions, so it is a clearly labeled TBD stub.
-  It is never fabricated and is excluded from the public Selected Work listing.
+  Public portfolio note: the case studies drawn from prior FP&A roles are shown
+  with illustrative sample figures, not any employer's actual data. They are
+  attributed by function rather than by company. The point is the method and the
+  tool, which rebuild for any company. The academic and OpenClaw pieces use public
+  or clearly-labeled sample inputs.
 */
 
 export type InteractiveKey =
@@ -52,76 +50,80 @@ export const playbooks: Playbook[] = [
     order: 1,
     kind: "playbook",
     title: "Hours per unit: the denominator problem",
-    org: "Harbinger Motors",
+    org: "Manufacturing FP&A",
     period: "2026",
     problem:
-      "Hours per unit swung from about 42 to 545 across the year. Was the line falling apart?",
+      "Hours per unit swung from about 39 to 463 across the year. Was the line falling apart?",
     insight:
       "The swing was the denominator, not the crew. Every spike in hours per unit lined up with a trough in units built.",
     impact: [
-      { value: "13x to 2x", label: "spread once read on a minimum volume" },
-      { value: "31 weeks", label: "modeled, per line and as a rollup" },
+      { value: "12x to 2x", label: "spread once read on a minimum weekly volume" },
+      { value: "30 weeks", label: "modeled, per line and as a rollup" },
     ],
-    tags: ["NetSuite", "Excel", "Unit economics", "Production ramp"],
+    tags: ["ERP data", "Excel", "Unit economics", "Production ramp"],
     interactive: "hpu-denominator",
     hasWriteup: true,
+    illustrative: true,
   },
   {
     slug: "hours-per-unit-data-quality",
     order: 2,
     kind: "playbook",
     title: "Hours per unit: the data-quality fix",
-    org: "Harbinger Motors",
+    org: "Manufacturing FP&A",
     period: "2026",
     problem:
       "Overlapping payroll exports left thousands of duplicated hours. The metric could not be trusted.",
     insight:
       "Fix the source before the metric. Replace a day whole, tag every row, and write down the tie-break rule.",
     impact: [
-      { value: "1,043 to 0", label: "duplicated employee-days" },
-      { value: "1,957", label: "conflicts logged, not hidden" },
+      { value: "1,180 to 0", label: "duplicated employee-days" },
+      { value: "2,040", label: "conflicts logged, not hidden" },
     ],
     tags: ["Payroll data", "Excel", "Data quality", "Reconciliation"],
     interactive: "data-quality",
     hasWriteup: true,
+    illustrative: true,
   },
   {
     slug: "opex-capex-forecast",
     order: 3,
     kind: "playbook",
     title: "OpEx and CapEx forecast, line by line",
-    org: "Harbinger Motors",
+    org: "Manufacturing FP&A",
     period: "FY26",
     problem:
-      "Build an $11.1M facilities plan for Department 120 that a director can actually steer.",
+      "Build a $9.6M facilities plan that a director can actually steer.",
     insight:
       "A facilities cost conversation is really a lease conversation. Only about $0.9M is discretionary.",
     impact: [
-      { value: "$11.1M", label: "planned across 258 lines" },
-      { value: "82%", label: "of CapEx phased into H2" },
+      { value: "$9.6M", label: "planned across 240 lines" },
+      { value: "79%", label: "of CapEx phased into H2" },
     ],
     tags: ["Excel", "Lease schedules", "ASC 842", "CapEx planning"],
     interactive: "opex-capex",
     hasWriteup: true,
+    illustrative: true,
   },
   {
     slug: "month-end-close-automation",
     order: 4,
     kind: "playbook",
     title: "Month-end close automation",
-    org: "Harbinger Motors",
+    org: "Manufacturing FP&A",
     period: "2026",
     problem:
       "The month-end GL report was pulled by hand and broke on merged cells every close.",
     insight:
       "Make it load itself and find columns by name, so the answer stops depending on who ran it.",
     impact: [
-      { value: "120 to 30 min", label: "per close" },
-      { value: "7 months", label: "running live" },
+      { value: "135 to 25 min", label: "per close" },
+      { value: "6 months", label: "running live" },
     ],
-    tags: ["NetSuite", "Automation", "Google Apps Script", "Month-end close"],
+    tags: ["ERP", "Automation", "Google Apps Script", "Month-end close"],
     interactive: "close-automation",
     hasWriteup: true,
+    illustrative: true,
   },
   {
     slug: "efficient-frontier",
@@ -189,21 +191,22 @@ export const playbooks: Playbook[] = [
     order: 8,
     kind: "card",
     title: "Financial close and reporting automation",
-    org: "NTT DATA",
+    org: "Corporate FP&A",
     period: "2024",
     problem: "Close data validation and reconciliation were manual and slow.",
     insight:
       "Self-initiated Excel and Power BI automation of the checks, adopted as the team standard.",
-    impact: [{ value: "30%", label: "fewer discrepancies" }],
+    impact: [{ value: "Team standard", label: "adopted across the team" }],
     tags: ["Excel", "Power BI", "Reconciliation"],
     hasWriteup: false,
+    illustrative: true,
   },
   {
     slug: "multi-year-cost-allocation",
     order: 9,
     kind: "card",
     title: "Multi-year cost allocation forecasting model",
-    org: "NTT DATA",
+    org: "Corporate FP&A",
     period: "2025",
     problem: "Planning needed a driver-based multi-year cost view built from a blank page.",
     insight:
@@ -211,6 +214,7 @@ export const playbooks: Playbook[] = [
     impact: [{ value: "Multi-year", label: "driver-based model" }],
     tags: ["Excel", "Driver-based modeling", "Forecasting"],
     hasWriteup: false,
+    illustrative: true,
   },
   {
     slug: "powerbi-expense-forecasting",

@@ -37,7 +37,7 @@ export default function OpengraphImage() {
           </div>
           <div style={{ display: "flex", alignItems: "baseline", gap: 32, marginTop: 40 }}>
             <div style={{ fontSize: 56, fontWeight: 700, color: "#0e6e63" }}>
-              13x to 2x
+              12x to 2x
             </div>
             <div style={{ fontSize: 24, color: "#3a4a53", maxWidth: 540 }}>
               Read an hours-per-unit swing on a minimum volume and it collapses.
@@ -53,7 +53,7 @@ export default function OpengraphImage() {
             color: "#61737d",
           }}
         >
-          <span>Garden Grove, CA · relocating to Sparks / Reno, NV</span>
+          <span>Sunnyvale, CA · open to relocation</span>
           <span>Chartered Accountant · MS Finance (STEM)</span>
         </div>
       </div>

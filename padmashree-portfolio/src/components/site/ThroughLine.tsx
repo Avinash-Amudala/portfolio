@@ -1,5 +1,5 @@
 import { Container, Section } from "@/components/ui/layout";
-import { Eyebrow, Num } from "@/components/ui/text";
+import { Eyebrow } from "@/components/ui/text";
 import { cn } from "@/lib/cn";
 import { throughLine } from "@/content/data/credentials";
 import { headlineMetrics } from "@/content/data/headline-metrics";
@@ -26,10 +26,15 @@ export function ThroughLine() {
           <div className="grid gap-8 sm:grid-cols-3 sm:gap-0 sm:divide-x sm:divide-hairline lg:col-span-7">
             {headlineMetrics.map((m, i) => (
               <div key={m.label} className={cn("sm:px-6", i === 0 && "sm:pl-0")}>
-                <div className={cn("metric-xl", i === 2 ? "text-accent" : "text-ink")}>
-                  <Num>{m.value}</Num>
+                <div
+                  className={cn(
+                    "font-display text-2xl font-medium leading-tight sm:text-[1.7rem]",
+                    i === 2 ? "text-accent" : "text-ink",
+                  )}
+                >
+                  {m.value}
                 </div>
-                <div className="mt-2 text-sm font-medium text-ink">{m.label}</div>
+                <div className="mt-3 text-sm font-medium text-ink">{m.label}</div>
                 <p className="mt-1 text-xs text-ink-muted">{m.source}</p>
               </div>
             ))}

@@ -20,7 +20,7 @@ export function FlagshipFeature() {
           </p>
           <p className="mt-4 text-sm leading-relaxed text-ink-2">
             Drag the minimum weekly volume up. Weeks below the line drop out and the
-            range recomputes. At 13 units it collapses from about 13x to about 2x.
+            range recomputes. At 12 units it collapses from about 12x to about 2x.
           </p>
           <Link
             href={`/work/${p.slug}`}

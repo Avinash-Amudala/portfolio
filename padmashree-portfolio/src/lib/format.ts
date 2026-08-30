@@ -5,7 +5,7 @@
 
 const compact = new Intl.NumberFormat("en-US", { maximumFractionDigits: 1 });
 
-/** Plain integer or fractional count with grouping, e.g. 1,043 or 49.7. */
+/** Plain integer or fractional count with grouping, e.g. 1,180 or 49.7. */
 export function fmtNumber(value: number, fractionDigits = 0): string {
   return new Intl.NumberFormat("en-US", {
     minimumFractionDigits: fractionDigits,
@@ -22,17 +22,17 @@ export function fmtUsd(value: number): string {
   }).format(value);
 }
 
-/** US dollars in millions, e.g. $11.1M or $0.9M. */
+/** US dollars in millions, e.g. $9.6M or $0.9M. */
 export function fmtUsdM(valueInMillions: number, fractionDigits = 1): string {
   return `$${valueInMillions.toFixed(fractionDigits)}M`;
 }
 
-/** Percentage from a 0..100 value, e.g. 82%. */
+/** Percentage from a 0..100 value, e.g. 79%. */
 export function fmtPct(value: number, fractionDigits = 0): string {
   return `${compact.format(Number(value.toFixed(fractionDigits)))}%`;
 }
 
-/** Ratio spread, e.g. 13x or 2.0x. */
+/** Ratio spread, e.g. 12x or 2.0x. */
 export function fmtMultiple(value: number, fractionDigits = 0): string {
   return `${value.toFixed(fractionDigits)}x`;
 }

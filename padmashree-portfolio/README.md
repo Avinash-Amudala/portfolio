@@ -71,7 +71,7 @@ src/
     ui/                design-system primitives
     mdx/               MDX component map
   content/
-    data/              typed seed data (real figures from the design doc section 6)
+    data/              typed seed data (illustrative sample figures)
     work/*.mdx         the playbook write-ups
   lib/                 formatting, matrix math, hooks, site config
 design/                the DESIGN.md anchor and the project design system
@@ -80,10 +80,12 @@ public/                resume PDF, static assets
 
 ## Data sources
 
-Real figures come from the internship review deck and resume, as transcribed in the design
-doc section 6 and stored in `src/content/data/`. Two models use clearly-labeled
-illustrative sample inputs, not proprietary data: the efficient frontier
-(`efficient-frontier.ts`) and the Dollar General valuation (`dcf.ts`).
+All figures shown on the site are illustrative sample data, not any employer's actual
+numbers. The case studies drawn from prior FP&A roles are attributed by function rather
+than by company and carry an on-page "illustrative sample data" note; the point is the
+method and the tool, which rebuild for any company. The academic pieces (efficient
+frontier, Dollar General valuation) and the OpenClaw skill use public or clearly-labeled
+sample inputs.
 
 ## Accessibility and performance
 
@@ -107,8 +109,9 @@ if it clears the first-paint rule.
 
 Resolved after the first draft, using her real resume and project files: OpenClaw is a
 full playbook, the contact email is set (`padmashree379@gmail.com`), and the experience
-dates, location (Garden Grove, CA, relocating to Sparks / Reno, NV), and resume content
-all come from her actual resume.
+dates, location (Sunnyvale, CA, open to relocation), and resume content come from her
+actual resume. Employer-specific figures across the site are shown as illustrative
+samples, not actual internal numbers.
 
 Still open before launch:
 
@@ -117,9 +120,10 @@ Still open before launch:
 2. **LinkedIn handle.** The link uses her member-id URL, which resolves to her profile.
    Swap in the final custom handle if she has one, and match it everywhere
    (`src/lib/site.ts`).
-3. **Resume PDF** (`public/padmashree-resume.pdf`) is regenerated from her real resume with
-   the **phone number omitted**, because the public site carries no phone (privacy rule).
-   Her full resume, with phone, can be sent directly to recruiters when she applies.
+3. **Resume PDF** (`public/padmashree-resume.pdf`) is the public version: **phone number
+   omitted** (the public site carries no phone, privacy rule) and employer-specific figures
+   stated as accomplishments rather than exact internal numbers. Her full detailed resume,
+   with phone, can be sent directly to recruiters when she applies.
 4. **Efficient frontier and DCF inputs** are illustrative samples. Swap in the real
    five-stock inputs and Dollar General assumptions if she has them saved.
 5. **Line-level HPU data** (per assembly line) for the hours-per-unit toggle, if available.

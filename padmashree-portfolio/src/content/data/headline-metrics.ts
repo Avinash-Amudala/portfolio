@@ -9,15 +9,19 @@ export type HeadlineMetric = {
 };
 
 export const headlineMetrics: HeadlineMetric[] = [
-  { value: "25%", label: "faster month-end close", source: "NTT DATA automation" },
   {
-    value: "30%",
-    label: "fewer reconciliation discrepancies",
-    source: "NTT DATA reconciliation model",
+    value: "Built",
+    label: "cost models from a blank page for a manufacturing ramp",
+    source: "Manufacturing and operations finance",
   },
   {
-    value: "$11.1M",
-    label: "facilities plan built line by line",
-    source: "Harbinger Dept 120 FY26",
+    value: "Automated",
+    label: "the month-end close, now self-service",
+    source: "Process automation",
+  },
+  {
+    value: "Adopted",
+    label: "a reconciliation model that became the team standard",
+    source: "FP&A",
   },
 ];

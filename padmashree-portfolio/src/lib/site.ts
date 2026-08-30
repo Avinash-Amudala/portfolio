@@ -22,9 +22,9 @@ export const siteConfig = {
     process.env.NEXT_PUBLIC_SITE_URL?.replace(/\/$/, "") ??
     "https://padmashree.online",
 
-  location: "Garden Grove, CA · open to relocation, on-site in Sparks / Reno, NV",
-  locationShort: "Garden Grove, CA",
-  relocationNote: "Open to relocation, on-site in Sparks / Reno, NV",
+  location: "Sunnyvale, CA · open to relocation",
+  locationShort: "Sunnyvale, CA",
+  relocationNote: "Open to relocation",
   linkedin: "https://www.linkedin.com/in/padmashree-524a21190/",
 
   contactEmail: "padmashree379@gmail.com",

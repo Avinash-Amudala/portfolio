@@ -55,8 +55,9 @@ export function PlaybookLayout({
 
         {playbook.illustrative ? (
           <p className="mt-10 rounded-md border border-hairline bg-sunken/60 p-4 text-xs text-ink-2">
-            This playbook uses clearly-labeled illustrative sample data, not proprietary
-            figures. The method is the point.
+            The figures in this playbook are illustrative sample data, not any
+            employer's actual numbers. What carries over is the method and the tool,
+            which rebuild for any company.
           </p>
         ) : null}
 

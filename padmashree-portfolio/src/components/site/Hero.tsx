@@ -16,9 +16,9 @@ export function Hero() {
               I build the cost models, and the tools that produce them.
             </h1>
             <p className="lead mt-6 max-w-xl">
-              Chartered Accountant and MS Finance, working a US EV production ramp. I
-              find the real problem in messy data and explain the answer in plain
-              language.
+              Chartered Accountant and MS Finance, focused on manufacturing and
+              operations finance. I find the real problem in messy data and explain
+              the answer in plain language.
             </p>
             <div className="mt-9 flex flex-wrap items-center gap-3">
               <Button href="#work">

@@ -28,7 +28,7 @@ export const experience: Role[] = [
     id: "harbinger",
     company: "Harbinger Motors",
     title: "Finance Intern, FP&A (Production)",
-    location: "Garden Grove, CA",
+    location: "United States",
     period: "Jun 2026 to Aug 2026",
     summary:
       "Supported the Production organization at an EV manufacturer through a US manufacturing ramp, building the cost models and decision tools operations leaders used for resource planning while the processes were still being invented.",
@@ -68,7 +68,7 @@ export const experience: Role[] = [
     systems: ["Excel", "Power BI", "Power Query"],
     wins: [
       {
-        text: "Self-initiated Excel and Power BI automation of close validation and reconciliation, adopted as the team standard: 30% fewer discrepancies and 25% faster close and reporting.",
+        text: "Self-initiated Excel and Power BI automation of close validation and reconciliation, adopted as the team standard, materially cutting reconciliation exceptions and close time.",
       },
       {
         text: "Built a driver-based multi-year cost allocation forecasting model from a blank page, presented across historical, budget, and forecast views and used in annual planning.",

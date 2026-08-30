@@ -1,6 +1,6 @@
 ## What I found
 
-The month-end number depended on who ran it. The GL report was pulled from NetSuite by
+The month-end number depended on who ran it. The GL report was pulled from the ERP by
 hand, and merged cells broke the paste every single month. Two people could run the same
 close and get two different starting points.
 
@@ -12,7 +12,7 @@ no longer breaks the whole thing. Failed pulls retry instead of vanishing.
 
 ## How it works
 
-<Figure caption="Month-end GL load, NetSuite to a stable report.">
+<Figure caption="Month-end GL load, ERP to a stable report. Illustrative sample figures.">
   <CloseAutomation />
 </Figure>
 
@@ -21,8 +21,8 @@ three passes to make it stable enough that I stopped thinking about it on close 
 
 ## Impact
 
-- The close step went from about <Num>2</Num> hours to about <Num>30</Num> minutes.
-- It has run live for <Num>7</Num> months without a manual pull.
+- The close step went from over <Num>2</Num> hours to about <Num>25</Num> minutes.
+- It has run live for <Num>6</Num> months without a manual pull.
 - The output is the same every time, so the answer no longer depends on who ran it.
 
 ## The transferable lesson
