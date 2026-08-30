@@ -17,10 +17,10 @@ export const siteConfig = {
   description:
     "Padmashree is a manufacturing and operations finance analyst and Chartered Accountant. She builds the cost models, reconciliations, and metrics that produce the numbers, then explains the answer in plain language.",
 
-  // Production URL. Override with NEXT_PUBLIC_SITE_URL once the domain is connected.
+  // Production URL. Override with NEXT_PUBLIC_SITE_URL if the domain changes.
   siteUrl:
     process.env.NEXT_PUBLIC_SITE_URL?.replace(/\/$/, "") ??
-    "https://padmashree-portfolio.vercel.app",
+    "https://padmashree.online",
 
   location: "Garden Grove, CA · open to relocation, on-site in Sparks / Reno, NV",
   locationShort: "Garden Grove, CA",
