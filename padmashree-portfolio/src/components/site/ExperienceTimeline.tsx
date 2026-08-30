@@ -21,16 +21,16 @@ export function ExperienceTimeline() {
         />
 
         <ol className="relative mt-12 ml-1 border-l border-hairline">
-          {experience.map((role) => (
+          {experience.map((role, i) => (
             <li key={role.id} className="relative pl-6 sm:pl-8">
               <span
                 className={cn(
                   "absolute -left-[5px] top-2 size-2.5 rounded-full border-2 border-surface",
-                  role.current ? "bg-accent" : "bg-hairline-strong",
+                  i === 0 || role.current ? "bg-accent" : "bg-hairline-strong",
                 )}
                 aria-hidden
               />
-              <details data-role open={role.current} className="pb-8">
+              <details data-role open={i === 0 || role.current} className="pb-8">
                 <summary className="flex items-start justify-between gap-4 py-1">
                   <div>
                     <div className="flex flex-wrap items-baseline gap-2">
@@ -43,7 +43,12 @@ export function ExperienceTimeline() {
                         </span>
                       ) : null}
                     </div>
-                    <p className="mt-0.5 text-sm text-ink-2">{role.title}</p>
+                    <p className="mt-0.5 text-sm text-ink-2">
+                      {role.title}
+                      {role.location ? (
+                        <span className="text-ink-muted"> · {role.location}</span>
+                      ) : null}
+                    </p>
                   </div>
                   <div className="flex shrink-0 items-center gap-3 pt-1">
                     <span className="num text-xs text-ink-muted">{role.period}</span>

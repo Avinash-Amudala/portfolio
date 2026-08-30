@@ -53,7 +53,7 @@ export default function OpengraphImage() {
             color: "#61737d",
           }}
         >
-          <span>Bay Area, open to relocation across the US</span>
+          <span>Garden Grove, CA · relocating to Sparks / Reno, NV</span>
           <span>Chartered Accountant · MS Finance (STEM)</span>
         </div>
       </div>

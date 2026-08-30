@@ -77,7 +77,7 @@ export function SiteFooter() {
             <span className="num">{year}</span> {siteConfig.name}. Built with care,
             numbers first.
           </p>
-          <p>Bay Area, open to relocation across the US.</p>
+          <p>{siteConfig.relocationNote}</p>
         </div>
       </Container>
     </footer>

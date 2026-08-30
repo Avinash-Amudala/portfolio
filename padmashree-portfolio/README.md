@@ -50,12 +50,15 @@ All six were left blank in the brief, so the defaults were used:
 1. App name: `padmashree-portfolio`.
 2. Accent color: deep teal (`#0e6e63`).
 3. DESIGN.md anchor: Stripe, diverged per spec section 2.
-4. Contact method: contact form plus LinkedIn, with a dedicated email once set. No phone.
-5. OpenClaw: **unresolved and not invented.** A clearly labeled `TBD` stub exists at
-   `/work/openclaw` and is kept out of the public Selected Work listing. See open questions.
+4. Contact method: contact form plus LinkedIn and a dedicated email
+   (padmashree379@gmail.com). No phone.
+5. OpenClaw: **resolved.** Her real FIN 671 project, an equity-research AI skill built on
+   the OpenClaw agent framework, is a full playbook at `/work/openclaw` with its own
+   interactive (sector tests and the Tesla reverse-DCF decomposition).
 6. Full playbooks: hours-per-unit denominator, hours-per-unit data-quality fix, OpEx and
    CapEx forecast, month-end close automation, efficient frontier, Dollar General
-   valuation. Everything else from spec section 6.6 is a short card.
+   valuation, and the OpenClaw equity-research skill. Everything else from spec section 6.6
+   is a short card.
 
 ## Structure
 
@@ -100,25 +103,26 @@ hero is the intended finish. To add one later: use img2threejs for a single hero
 lazy-loaded, gated behind `prefers-reduced-motion` with a static mobile fallback, and only
 if it clears the first-paint rule.
 
-## Open questions to resolve before launch
+## Resolved and open items
 
-1. **OpenClaw.** Not specified in the brief, so it was not invented. If it is a real
-   project of Padmashree's, its details drop into the `/work/openclaw` stub using the same
-   template. Otherwise it should be removed.
-2. **Dedicated contact email.** Not provided. Set `siteConfig.contactEmail` in
-   `src/lib/site.ts`, or set `NEXT_PUBLIC_CONTACT_ENDPOINT`. LinkedIn works meanwhile.
-3. **Production URL and custom domain.** Set `NEXT_PUBLIC_SITE_URL` so metadata, Open
+Resolved after the first draft, using her real resume and project files: OpenClaw is a
+full playbook, the contact email is set (`padmashree379@gmail.com`), and the experience
+dates, location (Garden Grove, CA, relocating to Sparks / Reno, NV), and resume content
+all come from her actual resume.
+
+Still open before launch:
+
+1. **Production URL and custom domain.** Set `NEXT_PUBLIC_SITE_URL` so metadata, Open
    Graph, and the sitemap use absolute URLs.
-4. **Employment date ranges** in `src/content/data/experience.ts` are approximate. Confirm
-   and correct them. (Anchored facts from the brief: CA cleared Jul 2023, B.Com Feb 2022,
-   MS Finance expected Aug 2026.)
-5. **Resume PDF** (`public/padmashree-resume.pdf`) is generated from the same content for
-   review. Add a contact email and confirm details before distributing.
-6. **LinkedIn handle.** Confirm the final custom handle and match it everywhere
+2. **LinkedIn handle.** The link uses her member-id URL, which resolves to her profile.
+   Swap in the final custom handle if she has one, and match it everywhere
    (`src/lib/site.ts`).
-7. **Efficient frontier and DCF inputs** are illustrative samples. Swap in the real
-   five-stock inputs and Dollar General assumptions if available.
-8. **Line-level HPU data** (per assembly line) for the hours-per-unit toggle, if available.
+3. **Resume PDF** (`public/padmashree-resume.pdf`) is regenerated from her real resume with
+   the **phone number omitted**, because the public site carries no phone (privacy rule).
+   Her full resume, with phone, can be sent directly to recruiters when she applies.
+4. **Efficient frontier and DCF inputs** are illustrative samples. Swap in the real
+   five-stock inputs and Dollar General assumptions if she has them saved.
+5. **Line-level HPU data** (per assembly line) for the hours-per-unit toggle, if available.
    The model already supports per-line views; only the total series is shipped.
 
 ## Design toolchain

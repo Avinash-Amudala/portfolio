@@ -97,7 +97,7 @@ export const skillGroups: SkillGroup[] = [
     title: "Tools and AI",
     skills: [
       {
-        name: "Excel (advanced modeling)",
+        name: "Excel (macros, Power Query, XLOOKUP)",
         playbooks: ["hours-per-unit", "opex-capex-forecast"],
         roles: ["harbinger", "ntt-data"],
       },
@@ -107,21 +107,21 @@ export const skillGroups: SkillGroup[] = [
         roles: ["ntt-data"],
       },
       {
-        name: "NetSuite",
+        name: "NetSuite and Analytics Warehouse",
         playbooks: ["month-end-close-automation", "hours-per-unit"],
         roles: ["harbinger"],
       },
+      { name: "SAP and Coupa", roles: ["ntt-data"] },
+      { name: "SQL for data analysis" },
       {
-        name: "Google Sheets and Apps Script",
-        playbooks: ["month-end-close-automation"],
-        roles: ["harbinger"],
+        name: "AI agent skills (OpenClaw)",
+        playbooks: ["openclaw"],
       },
       {
         name: "Process automation",
         playbooks: ["month-end-close-automation", "financial-close-reporting-automation"],
         roles: ["harbinger", "ntt-data"],
       },
-      { name: "ERP to Sheets data pipelines", roles: ["harbinger"] },
     ],
   },
 ];

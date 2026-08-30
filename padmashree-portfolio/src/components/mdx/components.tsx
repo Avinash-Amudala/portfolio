@@ -5,6 +5,7 @@ import { OpexCapex } from "@/components/charts/OpexCapex";
 import { CloseAutomation } from "@/components/charts/CloseAutomation";
 import { EfficientFrontier } from "@/components/charts/EfficientFrontier";
 import { DcfValuation } from "@/components/charts/DcfValuation";
+import { OpenClawSkill } from "@/components/charts/OpenClawSkill";
 import { Num } from "@/components/ui/text";
 
 /** Bordered panel that holds an interactive inside the prose flow. */
@@ -44,6 +45,7 @@ export const mdxComponents = {
   CloseAutomation,
   EfficientFrontier,
   DcfValuation,
+  OpenClawSkill,
   Num,
   Panel,
   Figure,

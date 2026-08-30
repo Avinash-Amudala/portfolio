@@ -41,7 +41,7 @@ export const throughLine = {
 
 /** Short bio paragraphs for the About page. */
 export const bio = [
-  "I am a manufacturing and operations finance analyst and a Chartered Accountant, finishing an MS in Finance (STEM) in August 2026.",
-  "Right now I support the Production organization at Harbinger Motors, an EV manufacturer, through a US production ramp. Before that I spent two-plus years in full-cycle FP&A at NTT DATA, and three years in audit and accounting in India.",
-  "What I am good at: building cost models and decision tools while things are still moving, finding the real problem in messy data, and explaining the answer in plain language. This site shows that work rather than claiming it.",
+  "I am an FP&A analyst in manufacturing and production finance and a Chartered Accountant, finishing an MS in Finance (STEM) in August 2026.",
+  "This summer I supported the Production organization at Harbinger Motors, an EV manufacturer, through a US manufacturing ramp, building the cost models and tools operations leaders used to plan while the processes were still being invented. Before that I spent two-plus years in full-cycle FP&A at NTT DATA and three years in audit and accounting in India.",
+  "What I am good at: building cost models and decision tools while things are still moving, finding the real problem in messy data, and explaining the answer in plain language. I use AI tools daily and build them into the work, including an equity-research skill I built and ran on OpenClaw. This site shows that work rather than claiming it.",
 ];

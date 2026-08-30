@@ -18,7 +18,8 @@ export type InteractiveKey =
   | "opex-capex"
   | "close-automation"
   | "efficient-frontier"
-  | "dcf";
+  | "dcf"
+  | "openclaw-skill";
 
 export type PlaybookImpact = { value: string; label: string };
 
@@ -162,10 +163,30 @@ export const playbooks: Playbook[] = [
     illustrative: true,
   },
 
+  {
+    slug: "openclaw",
+    order: 7,
+    kind: "playbook",
+    title: "An equity-research skill that runs itself",
+    org: "MS Finance, Saint Mary's College",
+    period: "2026",
+    problem:
+      "First-draft equity research is repeatable work. Could an agent produce a defensible one, on free data, for a couple of dollars?",
+    insight:
+      "Yes, if you encode the judgment. The value is the methodology the skill carries, not the code that runs it.",
+    impact: [
+      { value: "5 sectors", label: "validated, methodology adapts per sector" },
+      { value: "~$2 · ~5 min", label: "per report, under $10 for the project" },
+    ],
+    tags: ["OpenClaw", "AI agent skill", "Equity research", "DCF", "SEC filings"],
+    interactive: "openclaw-skill",
+    hasWriteup: true,
+  },
+
   // Short cards (spec section 6.6). No full route.
   {
     slug: "financial-close-reporting-automation",
-    order: 7,
+    order: 8,
     kind: "card",
     title: "Financial close and reporting automation",
     org: "NTT DATA",
@@ -179,7 +200,7 @@ export const playbooks: Playbook[] = [
   },
   {
     slug: "multi-year-cost-allocation",
-    order: 8,
+    order: 9,
     kind: "card",
     title: "Multi-year cost allocation forecasting model",
     org: "NTT DATA",
@@ -193,7 +214,7 @@ export const playbooks: Playbook[] = [
   },
   {
     slug: "powerbi-expense-forecasting",
-    order: 9,
+    order: 10,
     kind: "card",
     title: "Power BI expense forecasting dashboard",
     org: "B.Com capstone",
@@ -205,22 +226,6 @@ export const playbooks: Playbook[] = [
     hasWriteup: false,
   },
 
-  // OpenClaw: unresolved. Stub only, never fabricated. Excluded from public listing.
-  {
-    slug: "openclaw",
-    order: 99,
-    kind: "stub",
-    title: "OpenClaw (TBD)",
-    org: "Unconfirmed",
-    period: "TBD",
-    problem: "Placeholder. This project was requested but never specified.",
-    insight:
-      "Awaiting details. Nothing here is invented. See the README open questions.",
-    impact: [],
-    tags: ["Unresolved"],
-    hasWriteup: true,
-    unresolved: true,
-  },
 ];
 
 /** Public playbooks and cards, ordered, excluding unresolved stubs. */

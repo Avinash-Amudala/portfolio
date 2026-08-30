@@ -63,8 +63,8 @@ export default function AboutPage() {
                   <dd className="mt-1 text-ink">{siteConfig.location}</dd>
                 </div>
                 <div>
-                  <dt className="eyebrow">Now</dt>
-                  <dd className="mt-1 text-ink">Production Finance, Harbinger Motors</dd>
+                  <dt className="eyebrow">Most recently</dt>
+                  <dd className="mt-1 text-ink">Finance Intern, FP&A, Harbinger Motors</dd>
                 </div>
               </dl>
               <div className="mt-5 flex flex-col gap-2 border-t border-hairline pt-4 text-sm">

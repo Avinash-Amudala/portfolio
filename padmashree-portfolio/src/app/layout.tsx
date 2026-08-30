@@ -12,16 +12,16 @@ import { PersonJsonLd } from "@/components/seo/PersonJsonLd";
 // keep it from competing with the headline font on slow connections.
 const displaySerif = Source_Serif_4({
   subsets: ["latin"],
+  weight: ["500"],
   variable: "--font-source-serif",
   display: "swap",
 });
 
 const plexSans = IBM_Plex_Sans({
   subsets: ["latin"],
-  weight: ["400", "500", "600", "700"],
+  weight: ["400", "500", "600"],
   variable: "--font-plex-sans",
   display: "swap",
-  preload: false,
 });
 
 const plexMono = IBM_Plex_Mono({

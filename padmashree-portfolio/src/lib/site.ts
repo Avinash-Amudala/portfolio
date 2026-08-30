@@ -22,12 +22,12 @@ export const siteConfig = {
     process.env.NEXT_PUBLIC_SITE_URL?.replace(/\/$/, "") ??
     "https://padmashree-portfolio.vercel.app",
 
-  location: "Bay Area, open to relocation across the US",
+  location: "Garden Grove, CA · open to relocation, on-site in Sparks / Reno, NV",
+  locationShort: "Garden Grove, CA",
+  relocationNote: "Open to relocation, on-site in Sparks / Reno, NV",
   linkedin: "https://www.linkedin.com/in/padmashree-524a21190/",
 
-  // Placeholder. Replace with the real dedicated email before launch, or set a form
-  // endpoint (NEXT_PUBLIC_CONTACT_ENDPOINT) to route the contact form to a service.
-  contactEmail: "",
+  contactEmail: "padmashree379@gmail.com",
   contactFormEndpoint: process.env.NEXT_PUBLIC_CONTACT_ENDPOINT ?? "",
 
   nav: [

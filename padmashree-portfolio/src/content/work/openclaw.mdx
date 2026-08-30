@@ -1,12 +1,64 @@
-## Placeholder
+## What I found
 
-This is a labeled stub, not a real playbook. A project called "OpenClaw" was mentioned in the
-brief, but it was never specified, so nothing here is invented.
+A first-draft equity research report is repeatable work: pull the SEC filings, compute the
+ratios, build a DCF, compare multiples, survey the material ESG disclosures, and write a
+thesis. The framework is standard and the data is public. So I asked a narrower question:
+could an agent produce a defensible first draft, on free primary sources, for a couple of
+dollars? It could, but only if I encoded the judgment, not just the steps.
 
-If OpenClaw is a real piece of Padmashree's work, the details drop into this same template:
-the one-line problem, what she found, what she built, the interactive centerpiece, the impact
-in real numbers, and the transferable lesson. Until then, this page exists only so the
-structure is ready and nothing is fabricated to fill it.
+## What I built
 
-It is tracked as an open question in the project README, and it is deliberately kept out of
-the public Selected Work listing.
+A reusable skill, <Num>company-performance-analysis</Num>, that runs locally on the OpenClaw
+agent framework with Anthropic's Claude. It is a folder of markdown, about <Num>44</Num> KB
+in all: one trigger-and-workflow file and four reference files that carry the analytical
+method.
+
+```text
+company-performance-analysis/
+  SKILL.md                 trigger, scope check, 7-step workflow
+  financial-ratios.md      formulas, 3-year trend lens, sector benchmarks
+  valuation-frameworks.md  WACC, 5-year DCF, reverse DCF, multiples, sector pivots
+  esg-checklist.md         materiality lens, 10-K extraction, governance red flags
+  report-template.md       the 6-section report and citation discipline
+```
+
+It reads SEC EDGAR, Yahoo Finance, StockAnalysis.com, and company filings, and returns an
+<Num>1,800</Num> to <Num>2,500</Num> word report: company snapshot, a 3-year financial
+health table, a valuation with a DCF and a reverse DCF and a sensitivity grid, a peer
+comparison, material ESG, and a Buy, Hold, or Sell with a 12-month target. Every number is
+cited to a primary source.
+
+## How it works
+
+The same skill, run across five sectors. Pick one to see how it adapted, and open the Tesla
+run to see the reverse-DCF decomposition from the live demo.
+
+<Figure caption="Validation and the live demo. Facts from her project report and deck.">
+  <OpenClawSkill />
+</Figure>
+
+The bank test is the one I am proudest of. The skill refused to run a DCF on JPMorgan,
+because financing is the product and cash-flow definitions break down, and pivoted to a
+Justified P/TBV with a dividend-discount cross-check, swapped debt-to-equity for the CET1
+capital ratio, and chose a bank peer set. It announced the pivot up front. That is
+methodological judgment encoded in a reference file, not template substitution.
+
+## Impact
+
+- Validated across five sectors with recommendations that distributed, Hold, Hold, Hold,
+  then a Sell on Tesla, rather than defaulting to Buy.
+- About <Num>$2</Num> and <Num>5</Num> minutes per report, and under <Num>$10</Num> for the
+  whole project after I set a hard spend cap.
+- I built and tested it on the top-tier model, then moved production to a faster, lower-cost
+  tier after side-by-side testing showed equivalent quality for roughly a fifth of the cost.
+  Because the model is decoupled from the skill, that was a one-line config change.
+
+## The transferable lesson
+
+Encode the judgment, not just the steps. The parts that made this more than generic AI
+output were the guardrails: a calibration note so it does not default to Buy, sector-aware
+methodology, a required reverse DCF as a check on its own narrative, and limitations stated
+plainly rather than buried. And one lesson I did not expect: operational guardrails matter
+as much as analytical ones. A background process quietly ran up about <Num>$80</Num> in
+unintended API charges before I caught it, diagnosed the cause, and set a hard cap. The
+deliverable was never the reports. It was the skill, and the method it carries.
