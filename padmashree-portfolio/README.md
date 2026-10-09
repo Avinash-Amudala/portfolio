@@ -1,6 +1,6 @@
 # Padmashree Portfolio
 
-A portfolio for a manufacturing and operations finance analyst. The through-line is
+A portfolio for an FP&A and financial analyst. The through-line is
 "finance that builds its own tools": every case study is a real analysis you can operate,
 not a slide. Built as a self-contained Next.js app.
 

@@ -8,7 +8,7 @@ import { siteConfig } from "@/lib/site";
 export const metadata: Metadata = {
   title: "Contact",
   description:
-    "Get in touch with Padmashree about manufacturing finance, FP&A, and corporate finance roles. LinkedIn or the contact form.",
+    "Get in touch with Padmashree about FP&A, financial analyst, and corporate finance roles. LinkedIn or the contact form.",
 };
 
 export default function ContactPage() {
@@ -18,7 +18,7 @@ export default function ContactPage() {
         <Eyebrow>Contact</Eyebrow>
         <h1 className="display-section mt-3">Let us talk.</h1>
         <Lead className="mt-4 max-w-2xl">
-          For manufacturing finance, FP&A, and corporate finance roles. The fastest way to
+          For FP&A, financial analyst, and corporate finance roles. The fastest way to
           reach me is LinkedIn or the form below.
         </Lead>
 

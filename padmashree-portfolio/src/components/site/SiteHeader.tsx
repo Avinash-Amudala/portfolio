@@ -34,7 +34,7 @@ export function SiteHeader() {
         >
           {siteConfig.name}
           <span className="hidden text-xs font-normal text-ink-muted sm:inline">
-            Manufacturing and Operations Finance
+            FP&A &amp; Financial Analysis
           </span>
         </Link>
 

@@ -16,7 +16,7 @@ export function ExperienceTimeline() {
         <SectionHeading
           eyebrow="Experience"
           headingId="experience-heading"
-          title="Manufacturing finance, audit, and the ramp in between."
+          title="FP&A, audit, and a manufacturing ramp in between."
           lede="Expand a role for scope, the systems used, and the wins. Wins that became a playbook link straight to it."
         />
 

@@ -11,8 +11,8 @@ export type HeadlineMetric = {
 export const headlineMetrics: HeadlineMetric[] = [
   {
     value: "Built",
-    label: "cost models from a blank page for a manufacturing ramp",
-    source: "Manufacturing and operations finance",
+    label: "cost and forecasting models from a blank page",
+    source: "Financial modeling",
   },
   {
     value: "Automated",

@@ -11,14 +11,14 @@ export function Hero() {
       <Container className="py-16 sm:py-20 lg:py-28">
         <div className="grid items-center gap-12 lg:grid-cols-12 lg:gap-10">
           <div className="lg:col-span-7">
-            <Eyebrow>Padmashree · Manufacturing and Operations Finance</Eyebrow>
+            <Eyebrow>Padmashree · FP&A & Financial Analysis</Eyebrow>
             <h1 className="display-hero mt-5 max-w-2xl text-balance">
-              I build the cost models, and the tools that produce them.
+              I build the models, and the tools that produce them.
             </h1>
             <p className="lead mt-6 max-w-xl">
-              Chartered Accountant and MS Finance, focused on manufacturing and
-              operations finance. I find the real problem in messy data and explain
-              the answer in plain language.
+              Chartered Accountant and MS Finance, working in FP&A and financial
+              analysis. I find the real problem in messy data and explain the answer in
+              plain language.
             </p>
             <div className="mt-9 flex flex-wrap items-center gap-3">
               <Button href="#work">

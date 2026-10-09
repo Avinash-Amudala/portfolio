@@ -2,7 +2,8 @@
   Skills and stack, grouped (spec section 4.7). No five-dot proficiency meters.
   Each skill records where it was used (playbook slugs and role ids), so selecting
   a skill can highlight the playbooks and roles that used it. Proficiency is shown
-  through use, not a bar.
+  through use, not a bar. FP&A leads; manufacturing and operations is one area of
+  strength, not the whole identity.
 */
 
 export type Skill = {
@@ -20,30 +21,6 @@ export type SkillGroup = {
 };
 
 export const skillGroups: SkillGroup[] = [
-  {
-    id: "mfg-ops-finance",
-    title: "Manufacturing and Operations Finance",
-    skills: [
-      {
-        name: "Hours per unit and unit economics",
-        playbooks: ["hours-per-unit", "hours-per-unit-data-quality"],
-        roles: ["harbinger"],
-      },
-      { name: "Standard costing and overhead absorption (ASC 330)", roles: ["harbinger"] },
-      {
-        name: "CapEx planning and reconciliation",
-        playbooks: ["opex-capex-forecast"],
-        roles: ["harbinger"],
-      },
-      { name: "Purchase order lifecycle tracking", roles: ["harbinger"] },
-      { name: "Build-cost reporting by program", roles: ["harbinger"] },
-      {
-        name: "Production ramp finance",
-        playbooks: ["hours-per-unit"],
-        roles: ["harbinger"],
-      },
-    ],
-  },
   {
     id: "fpa",
     title: "Financial Planning and Analysis",
@@ -69,6 +46,30 @@ export const skillGroups: SkillGroup[] = [
         name: "Cost allocation",
         playbooks: ["multi-year-cost-allocation"],
         roles: ["ntt-data"],
+      },
+    ],
+  },
+  {
+    id: "mfg-ops-finance",
+    title: "Manufacturing and Operations Finance",
+    skills: [
+      {
+        name: "Hours per unit and unit economics",
+        playbooks: ["hours-per-unit", "hours-per-unit-data-quality"],
+        roles: ["harbinger"],
+      },
+      { name: "Standard costing and overhead absorption (ASC 330)", roles: ["harbinger"] },
+      {
+        name: "CapEx planning and reconciliation",
+        playbooks: ["opex-capex-forecast"],
+        roles: ["harbinger"],
+      },
+      { name: "Purchase order lifecycle tracking", roles: ["harbinger"] },
+      { name: "Build-cost reporting by program", roles: ["harbinger"] },
+      {
+        name: "Production ramp finance",
+        playbooks: ["hours-per-unit"],
+        roles: ["harbinger"],
       },
     ],
   },

@@ -48,12 +48,14 @@ export const metadata: Metadata = {
   authors: [{ name: siteConfig.name }],
   creator: siteConfig.name,
   keywords: [
-    "manufacturing finance",
-    "operations finance",
     "FP&A",
-    "cost modeling",
-    "Chartered Accountant",
+    "financial analyst",
     "financial planning and analysis",
+    "corporate finance",
+    "financial modeling",
+    "forecasting",
+    "Chartered Accountant",
+    "manufacturing finance",
   ],
   openGraph: {
     type: "website",

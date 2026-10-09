@@ -1,7 +1,7 @@
 import { ImageResponse } from "next/og";
 
 export const alt =
-  "Padmashree, manufacturing and operations finance. I build the cost models and the tools that produce them.";
+  "Padmashree, FP&A and financial analysis. I build the models and the tools that produce the numbers.";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
@@ -28,20 +28,15 @@ export default function OpengraphImage() {
             textTransform: "uppercase",
           }}
         >
-          Padmashree · Manufacturing and Operations Finance
+          Padmashree · FP&A &amp; Financial Analysis
         </div>
 
         <div style={{ display: "flex", flexDirection: "column" }}>
           <div style={{ fontSize: 66, lineHeight: 1.05, fontWeight: 600, maxWidth: 960 }}>
-            I build the cost models, and the tools that produce them.
+            I build the models, and the tools that produce them.
           </div>
-          <div style={{ display: "flex", alignItems: "baseline", gap: 32, marginTop: 40 }}>
-            <div style={{ fontSize: 56, fontWeight: 700, color: "#0e6e63" }}>
-              12x to 2x
-            </div>
-            <div style={{ fontSize: 24, color: "#3a4a53", maxWidth: 540 }}>
-              Read an hours-per-unit swing on a minimum volume and it collapses.
-            </div>
+          <div style={{ fontSize: 30, fontWeight: 600, color: "#0e6e63", marginTop: 36 }}>
+            Finance that builds its own tools.
           </div>
         </div>
 

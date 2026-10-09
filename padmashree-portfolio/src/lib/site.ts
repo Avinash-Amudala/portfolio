@@ -10,12 +10,12 @@
 export const siteConfig = {
   name: "Padmashree",
   // Middot separators are fine; the build bans em dashes only.
-  title: "Padmashree · Manufacturing and Operations Finance",
-  role: "Manufacturing and Operations Finance Analyst",
+  title: "Padmashree · FP&A & Financial Analysis",
+  role: "FP&A / Financial Analyst",
   shortPitch:
-    "Manufacturing and operations finance. I build the cost models and the tools that produce them.",
+    "FP&A and financial analysis. I build the models and the tools that produce the numbers.",
   description:
-    "Padmashree is a manufacturing and operations finance analyst and Chartered Accountant. She builds the cost models, reconciliations, and metrics that produce the numbers, then explains the answer in plain language.",
+    "Padmashree is an FP&A and financial analyst and Chartered Accountant. She builds the models, forecasts, reconciliations, and metrics that produce the numbers, then explains the answer in plain language.",
 
   // Production URL. Override with NEXT_PUBLIC_SITE_URL if the domain changes.
   siteUrl:

@@ -12,7 +12,7 @@ import { bio, throughLine } from "@/content/data/credentials";
 export const metadata: Metadata = {
   title: "About",
   description:
-    "Padmashree is a manufacturing and operations finance analyst and Chartered Accountant with an MS in Finance (STEM), open to relocation across the US.",
+    "Padmashree is an FP&A and financial analyst and Chartered Accountant with an MS in Finance (STEM), open to relocation across the US.",
 };
 
 export default function AboutPage() {
@@ -42,9 +42,9 @@ export default function AboutPage() {
                 What I am looking for
               </h2>
               <p className="mt-2 leading-relaxed text-ink-2">
-                Manufacturing finance, FP&A, or corporate finance roles where the work is
-                building cost models and decision tools during real operating pressure. Open
-                to relocation across the US and to on-site work.
+                FP&A and financial analyst roles, across corporate finance or operations,
+                where the work is building the models, forecasts, and decision tools teams
+                act on. Open to relocation across the US and to on-site work.
               </p>
             </div>
           </div>
